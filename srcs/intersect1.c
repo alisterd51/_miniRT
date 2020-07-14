@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   intersect1.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/10 14:13:08 by anclarma          #+#    #+#             */
+/*   Updated: 2020/07/14 16:34:31 by anclarma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "struct.h"
+#include "intersect.h"
+
+int		rt_inter_scene(t_check_scene *check)
+{
+	int		has_inter;
+
+	has_inter = 0;
+	check->min_t = 1e99;
+	(check->obj_id)[0] = 0;
+	(check->obj_id)[1] = 0;
+	while (check->scene.lst_sphere)
+	{
+		has_inter += check_inter_sphere(check);
+		check->scene.lst_sphere = check->scene.lst_sphere->next;
+	}
+	while (check->scene.lst_plane)
+    {
+        has_inter += check_inter_plane(check);
+        check->scene.lst_plane = check->scene.lst_plane->next;
+    }
+	return (has_inter);
+}
