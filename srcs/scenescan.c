@@ -48,10 +48,11 @@ void	*fonction(void *arg)
 	return (NULL);
 }
 
-int scenescan(t_mlx *mlx)
+int		scenescan(t_mlx *mlx)
 {
-	pthread_t   thread1, thread2, thread3, thread4;
-	t_arg       arg1, arg2, arg3, arg4;
+	pthread_t	thread1, thread2, thread3, thread4;
+	t_arg		arg1, arg2, arg3, arg4;
+
 	arg1.mlx = mlx;
 	arg2.mlx = mlx;
 	arg3.mlx = mlx;
@@ -64,7 +65,6 @@ int scenescan(t_mlx *mlx)
 	arg3.y_max = (mlx->width / 4) * 3;
 	arg4.y_min = arg3.y_max;
 	arg4.y_max = mlx->width;
-
 	if (pthread_create(&thread1, NULL, fonction, &arg1))
 		return (1);
 	if (pthread_create(&thread2, NULL, fonction, &arg2))
