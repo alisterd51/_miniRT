@@ -17,6 +17,8 @@
 # define DOWN_KEY	125
 # define LEFT_KEY	123
 # define RIGHT_KEY	124
+# define Z_KEY
+# define S_KEY
 # define R_KEY		15
 # define ESC_KEY	53
 

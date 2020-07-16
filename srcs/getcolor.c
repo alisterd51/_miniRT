@@ -38,6 +38,8 @@ t_vector	getcolor(const t_ray *r, const t_obj *s, int nbrebonds)
 	(check.obj_id)[0] = 0;
 	(check.obj_id)[1] = 0;
 	//
+	(void)t;
+	//
 
 	int			has_inter = rt_inter_scene(&check);
 	//
@@ -104,6 +106,10 @@ t_vector	getcolor(const t_ray *r, const t_obj *s, int nbrebonds)
 			obj_id_light[0] = (check_light.obj_id)[0];
 			obj_id_light[1] = (check_light.obj_id)[1];
 			t_light = check_light.t;
+			//
+			(void)obj_id_light;
+			(void)P_light;
+			(void)N_light;
 			//
 			double		d_light2 = norm2(sub_vector(s->lst_light->c, p));
 

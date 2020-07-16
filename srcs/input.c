@@ -44,12 +44,12 @@ void	thisiskey1(int key, t_mlx *mlx)
 		mlx->obj.lst_cam->c.z += 2;
 		prerender(mlx);
 	}
-	if (key == LEFT_KEY)
+	if (key == S_KEY)
 	{
 		mlx->obj.lst_cam->c.y -= 2;
 		prerender(mlx);
 	}
-	if (key == RIGHT_KEY)
+	if (key == Z_KEY)
 	{
 		mlx->obj.lst_cam->c.y += 2;
 		prerender(mlx);
@@ -58,17 +58,17 @@ void	thisiskey1(int key, t_mlx *mlx)
 
 void	thisiskey2(int key, t_mlx *mlx)
 {
-	if (key == 65361)
+	if (key == LEFT_KEY)
 	{
 		mlx->obj.lst_cam->c.x -= 2;
 		prerender(mlx);
 	}
-	if (key == 65363)
+	if (key == RIGHT_KEY)
 	{
 		mlx->obj.lst_cam->c.x += 2;
 		prerender(mlx);
 	}
-	if (key == 53)
+	if (key == ESC_KEY)
 		exit(0);
 }
 
