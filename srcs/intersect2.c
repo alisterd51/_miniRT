@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:36:50 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/14 16:36:52 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 12:30:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "vector.h"
 #include <math.h>
 
-int	rt_inter_sphere(const t_ray ray, const t_sphere s, t_vector *P,
-		t_vector *N, double *t)
+int	rt_inter_sphere(const t_ray ray, const t_sphere s, t_vector *p,
+		t_vector *n, double *t)
 {
 	double	a;
 	double	b;
@@ -39,8 +39,8 @@ int	rt_inter_sphere(const t_ray ray, const t_sphere s, t_vector *P,
 		*t = t1;
 	else
 		*t = t2;
-	*P = add_vector(ray.o, mult_vector(*t, ray.d));
-	*N = normalize(sub_vector(*P, s.c));
+	*p = add_vector(ray.o, mult_vector(*t, ray.d));
+	*n = normalize(sub_vector(*p, s.c));
 	return (1);
 }
 
@@ -50,7 +50,7 @@ int	check_inter_sphere(t_check_scene *check)
 	t_local		local;
 
 	local.has_inter = rt_inter_sphere(check->ray, *(check->scene.lst_sphere),
-			&(local.P), &(local.N), &(local.t));
+			&(local.p), &(local.n), &(local.t));
 	has_inter = 0;
 	if (local.has_inter)
 	{
@@ -58,8 +58,8 @@ int	check_inter_sphere(t_check_scene *check)
 		{
 			check->min_t = local.t;
 			check->t = local.t;
-			check->P = local.P;
-			check->N = local.N;
+			check->p = local.p;
+			check->n = local.n;
 			(check->obj_id)[0] = 1;
 			(check->obj_id)[1] = check->scene.lst_sphere->id;
 		}

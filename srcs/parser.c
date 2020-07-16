@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 10:27:23 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/13 10:32:02 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 12:20:17 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int		parser1(char *line, t_obj *obj)
 
 void	parser(char *file, t_obj *obj)
 {
-	int 	fd;
-	int 	ret;
+	int		fd;
+	int		ret;
 	char	*line;
 
 	init_obj(obj);

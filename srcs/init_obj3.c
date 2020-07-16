@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 10:40:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/13 17:31:09 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 12:23:59 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	init_sphere(char *line, t_obj *obj)
 
 	if (!(new_sphere = malloc(sizeof(t_sphere))))
 		return (1);
-	new_sphere->id = 0;	// remplir avec le num de la cam [0, 1, ...]
+	new_sphere->id = 0;
 	new_sphere->c = read_vec(&line);
 	new_sphere->radius = read_float(&line);
 	new_sphere->color = read_color(&line);
@@ -55,7 +55,7 @@ int	init_plane(char *line, t_obj *obj)
 
 	if (!(new_plane = malloc(sizeof(t_plane))))
 		return (1);
-	new_plane->id = 0;	// remplir avec le num de la cam [0, 1, ...]
+	new_plane->id = 0;
 	new_plane->c = read_vec(&line);
 	new_plane->o = read_vec(&line);
 	new_plane->color = read_color(&line);
@@ -83,7 +83,7 @@ int	init_square(char *line, t_obj *obj)
 
 	if (!(new_square = malloc(sizeof(t_square))))
 		return (1);
-	new_square->id = 0;	// remplir avec le num de la cam [0, 1, ...]
+	new_square->id = 0;
 	new_square->c = read_vec(&line);
 	new_square->o = read_vec(&line);
 	new_square->height = read_float(&line);
@@ -112,7 +112,7 @@ int	init_cylinder(char *line, t_obj *obj)
 
 	if (!(new_cylinder = malloc(sizeof(t_cylinder))))
 		return (1);
-	new_cylinder->id = 0;	// remplir avec le num de la cam [0, 1, ...]
+	new_cylinder->id = 0;
 	new_cylinder->c = read_vec(&line);
 	new_cylinder->o = read_vec(&line);
 	new_cylinder->radius = read_float(&line);
@@ -142,7 +142,7 @@ int	init_triangle(char *line, t_obj *obj)
 
 	if (!(new_triangle = malloc(sizeof(t_triangle))))
 		return (1);
-	new_triangle->id = 0;	// remplir avec le num de la cam [0, 1, ...]
+	new_triangle->id = 0;
 	new_triangle->p1 = read_vec(&line);
 	new_triangle->p2 = read_vec(&line);
 	new_triangle->p3 = read_vec(&line);
@@ -153,7 +153,7 @@ int	init_triangle(char *line, t_obj *obj)
 	else
 	{
 		new_triangle->id++;
-			ptr_tmp = obj->lst_triangle;
+		ptr_tmp = obj->lst_triangle;
 		while (ptr_tmp->next != NULL)
 		{
 			new_triangle->id++;

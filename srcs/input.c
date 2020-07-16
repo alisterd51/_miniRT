@@ -6,12 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/13 15:12:43 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 15:28:01 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "render.h"
+#include "input.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <mlx.h>
@@ -31,26 +32,24 @@ int		deal_mouse(int button, int x, int y, void *param)
 
 void	thisiskey1(int key, t_mlx *mlx)
 {
-	if (key == 15)
-    	render(mlx);
-	//if (key == 114)
-	//	render(mlx);
-	if (key == 65362)
+	if (key == R_KEY)
+		render(mlx);
+	if (key == UP_KEY)
 	{
 		mlx->obj.lst_cam->c.z -= 2;
 		prerender(mlx);
 	}
-	if (key == 65364)
+	if (key == DOWN_KEY)
 	{
 		mlx->obj.lst_cam->c.z += 2;
 		prerender(mlx);
 	}
-	if (key == 65366)
+	if (key == LEFT_KEY)
 	{
 		mlx->obj.lst_cam->c.y -= 2;
 		prerender(mlx);
 	}
-	if (key == 65365)
+	if (key == RIGHT_KEY)
 	{
 		mlx->obj.lst_cam->c.y += 2;
 		prerender(mlx);
@@ -70,9 +69,7 @@ void	thisiskey2(int key, t_mlx *mlx)
 		prerender(mlx);
 	}
 	if (key == 53)
-        exit(0);
-	//if (key == 65307)
-	//	exit(0);
+		exit(0);
 }
 
 int		deal_key(int key, void *param)

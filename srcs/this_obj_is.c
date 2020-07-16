@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 10:32:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/10 10:51:42 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 12:19:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int			this_sp_is_mirror(t_obj s, int sphere_id)
 	return (0);
 }
 
-
 int			this_obj_is_mirror(t_obj s, int obj_id[2])
 {
 	if (obj_id[0] == 1)
@@ -34,9 +33,9 @@ int			this_obj_is_mirror(t_obj s, int obj_id[2])
 	return (0);
 }
 
-int         this_sp_is_transp(t_obj s, int sphere_id)
+int			this_sp_is_transp(t_obj s, int sphere_id)
 {
-	t_sphere    *s_ptr;
+	t_sphere	*s_ptr;
 
 	s_ptr = s.lst_sphere;
 	while (s_ptr)

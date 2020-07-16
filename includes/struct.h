@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:06:52 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/14 09:53:11 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 12:03:17 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,23 +150,23 @@ struct			s_arg
 	int			y_min;
 	int			y_max;
 };
-typedef struct s_check_scene    t_check_scene;
-struct          s_check_scene
+typedef struct s_check_scene	t_check_scene;
+struct			s_check_scene
 {
 	t_obj		scene;
 	t_ray		ray;
-	t_vector	P;
-	t_vector	N;
+	t_vector	p;
+	t_vector	n;
 	int			obj_id[2];
 	double		t;
 	double		min_t;
 };
 typedef struct s_local	t_local;
-struct          s_local
+struct			s_local
 {
 	int			has_inter;
 	double		t;
-	t_vector	P;
-	t_vector	N;
+	t_vector	p;
+	t_vector	n;
 };
 #endif

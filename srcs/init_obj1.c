@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 10:38:48 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/13 10:43:51 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/16 14:47:12 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int			read_int(char **line)
 {
-	int	ret;
+	int			ret;
 
 	while (ft_isspace(**line))
 		(*line)++;
@@ -31,7 +31,7 @@ int			read_int(char **line)
 
 double		read_float(char **line)
 {
-	double	ret;
+	double		ret;
 
 	while (ft_isspace(**line))
 		(*line)++;
@@ -71,7 +71,7 @@ int			read_color(char **line)
 
 int			read_option(char **line)
 {
-	int	ret;
+	int			ret;
 
 	while (ft_isspace(**line))
 		(*line)++;
@@ -82,15 +82,15 @@ int			read_option(char **line)
 	return (ret);
 }
 
-int         read_option2(char **line)
+int			read_option2(char **line)
 {
-    int ret;
+	int			ret;
 
-    while (ft_isspace(**line))
-        (*line)++;
-    if (**line == 't')
-        ret = 1;
-    else
-        ret = 0;
-    return (ret);
+	while (ft_isspace(**line))
+		(*line)++;
+	if (**line == 't')
+		ret = 1;
+	else
+		ret = 0;
+	return (ret);
 }
