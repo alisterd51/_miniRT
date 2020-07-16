@@ -48,7 +48,7 @@ OBJS		= $(SRCS:.c=.o)
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
 
 sub-make:
 	make -C libft all
