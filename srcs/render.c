@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 11:02:21 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/16 15:26:53 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/17 14:35:25 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ void		oversampling(t_mlx *mlx)
 	mlx->width = width_native;
 }
 
-void        prerendered(t_mlx *mlx)
+void		prerendered(t_mlx *mlx)
 {
-	const int   height_native = mlx->height;
-	const int   width_native = mlx->width;
-	int         *image_final = mlx->image;
-	int         param = 16;
-	int         x;
-	int         y;
+	const int	height_native = mlx->height;
+	const int	width_native = mlx->width;
+	int			*image_final = mlx->image;
+	int			param = 16;
+	int			x;
+	int			y;
 
 	mlx->height /= param;
 	mlx->width /= param;

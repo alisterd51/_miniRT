@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:13:08 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/14 16:34:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/17 15:02:22 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,14 @@ int		rt_inter_scene(t_check_scene *check)
 		check->scene.lst_sphere = check->scene.lst_sphere->next;
 	}
 	while (check->scene.lst_plane)
-    {
-        has_inter += check_inter_plane(check);
-        check->scene.lst_plane = check->scene.lst_plane->next;
-    }
+	{
+		has_inter += check_inter_plane(check);
+		check->scene.lst_plane = check->scene.lst_plane->next;
+	}
+	while (check->scene.lst_triangle)
+	{
+		has_inter += check_inter_triangle(check);
+		check->scene.lst_triangle = check->scene.lst_triangle->next;
+	}
 	return (has_inter);
 }
