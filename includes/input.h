@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/20 08:20:09 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 11:45:59 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define Z_KEY		122
 # define S_KEY		115
 # define R_KEY		114
+# define Q_KEY		113
+# define D_KEY		100
 # define ESC_KEY	65307
 */
 int	deal_mouse(int button, int x, int y, void *param);
