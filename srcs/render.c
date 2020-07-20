@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 11:02:21 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/20 14:30:26 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 17:55:33 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "vector.h"
 #include <stdlib.h>
 #include <mlx.h>
+
+#define PARAM_AA	4
+#define PARAM_IAA	16
 
 static int	moyenne(int param_aa, t_mlx *mlx, int x, int y)
 {
@@ -45,7 +48,7 @@ void		oversampling(t_mlx *mlx)
 	const int	height_native = mlx->height;
 	const int	width_native = mlx->width;
 	int			*image_final = mlx->image;
-	int			param_aa = 1;
+	int			param_aa = PARAM_AA;
 	int			x;
 	int			y;
 
@@ -76,7 +79,7 @@ void		prerendered(t_mlx *mlx)
 	const int	height_native = mlx->height;
 	const int	width_native = mlx->width;
 	int			*image_final = mlx->image;
-	int			param = 16;
+	int			param = PARAM_IAA;
 	int			x;
 	int			y;
 
@@ -104,11 +107,7 @@ void		prerendered(t_mlx *mlx)
 
 void	render(t_mlx *mlx)
 {
-	t_vector	sauv_vec;
-	sauv_vec = mlx->obj.lst_cam->vec;
-	mlx->obj.lst_cam->vec = mult_vector(16.0, mlx->obj.lst_cam->vec);
 	oversampling(mlx);
-	mlx->obj.lst_cam->vec = sauv_vec;
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 }
 
