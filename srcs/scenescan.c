@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/14 16:25:00 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 10:35:52 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "getcolor.h"
 #include <pthread.h>
 #include <math.h>
+#define NB_THREAD	8
 
 void	*fonction(void *arg)
 {
@@ -36,7 +37,7 @@ void	*fonction(void *arg)
 		{
 			ray.o = mlx->obj.lst_cam->c;
 			ray.d = add_vector(init_vector(y - mlx->width / 2, x -
-					mlx->height / 2, -(mlx->width) / (2 * tanf(fov / 2))),
+						mlx->height / 2, -(mlx->width) / (2 * tanf(fov / 2))),
 					mlx->obj.lst_cam->vec);
 			ray.d = normalize(ray.d);
 			mlx->image[(mlx->height - x - 1) * mlx->width + y] =
@@ -50,36 +51,25 @@ void	*fonction(void *arg)
 
 int		scenescan(t_mlx *mlx)
 {
-	pthread_t	thread1, thread2, thread3, thread4;
-	t_arg		arg1, arg2, arg3, arg4;
+	pthread_t	thread[NB_THREAD];
+	t_arg		arg[NB_THREAD];
+	int			num_thread;
 
-	arg1.mlx = mlx;
-	arg2.mlx = mlx;
-	arg3.mlx = mlx;
-	arg4.mlx = mlx;
-	arg1.y_min = 0;
-	arg1.y_max = mlx->width / 4;
-	arg2.y_min = arg1.y_max;
-	arg2.y_max = mlx->width / 2;
-	arg3.y_min = arg2.y_max;
-	arg3.y_max = (mlx->width / 4) * 3;
-	arg4.y_min = arg3.y_max;
-	arg4.y_max = mlx->width;
-	if (pthread_create(&thread1, NULL, fonction, &arg1))
-		return (1);
-	if (pthread_create(&thread2, NULL, fonction, &arg2))
-		return (1);
-	if (pthread_create(&thread3, NULL, fonction, &arg3))
-		return (1);
-	if (pthread_create(&thread4, NULL, fonction, &arg4))
-		return (1);
-	if (pthread_join(thread1, NULL))
-		return (1);
-	if (pthread_join(thread2, NULL))
-		return (1);
-	if (pthread_join(thread3, NULL))
-		return (1);
-	if (pthread_join(thread4, NULL))
-		return (1);
+	num_thread = -1;
+	while (++num_thread < NB_THREAD)
+	{
+		arg[num_thread].mlx = mlx;
+		if (num_thread == 0)
+			arg[num_thread].y_min = 0;
+		else
+			arg[num_thread].y_min = arg[num_thread - 1].y_max;
+		arg[num_thread].y_max = mlx->width * (num_thread + 1) / NB_THREAD;
+		if (pthread_create(&(thread[num_thread]), NULL, fonction, &(arg[num_thread])))
+			return (1);
+	}
+	num_thread = -1;
+	while (++num_thread < NB_THREAD)
+		if (pthread_join(thread[num_thread], NULL))
+			return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/17 10:21:01 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 08:20:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define Z_KEY		6
 # define S_KEY		1
 # define R_KEY		15
+# define Q_KEY		12
+# define D_KEY		2
 # define ESC_KEY	53
 /*
 # define UP_KEY		65362

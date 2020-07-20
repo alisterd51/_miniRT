@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/16 15:28:01 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 08:49:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,16 @@ void	thisiskey2(int key, t_mlx *mlx)
 	if (key == RIGHT_KEY)
 	{
 		mlx->obj.lst_cam->c.x += 2;
+		prerender(mlx);
+	}
+	if (key == Q_KEY)
+	{
+		mlx->obj.lst_cam->vec.x -= 2;
+		prerender(mlx);
+	}
+	if (key == D_KEY)
+	{
+		mlx->obj.lst_cam->vec.x += 2;
 		prerender(mlx);
 	}
 	if (key == ESC_KEY)
