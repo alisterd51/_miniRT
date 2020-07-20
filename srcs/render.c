@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 11:02:21 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/17 14:35:25 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 14:30:26 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		oversampling(t_mlx *mlx)
 	const int	height_native = mlx->height;
 	const int	width_native = mlx->width;
 	int			*image_final = mlx->image;
-	int			param_aa = 4;
+	int			param_aa = 1;
 	int			x;
 	int			y;
 
@@ -104,7 +104,11 @@ void		prerendered(t_mlx *mlx)
 
 void	render(t_mlx *mlx)
 {
+	t_vector	sauv_vec;
+	sauv_vec = mlx->obj.lst_cam->vec;
+	mlx->obj.lst_cam->vec = mult_vector(16.0, mlx->obj.lst_cam->vec);
 	oversampling(mlx);
+	mlx->obj.lst_cam->vec = sauv_vec;
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 }
 
