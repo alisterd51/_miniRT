@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/20 10:35:52 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/20 13:45:33 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <math.h>
 #define NB_THREAD	8
 
+#include <stdio.h>
+
 void	*fonction(void *arg)
 {
 	t_arg			*a;
@@ -24,12 +26,14 @@ void	*fonction(void *arg)
 	t_ray			ray;
 	int				x;
 	int				y;
-	const double	fov = 70 * M_PI / 180;
+	double			fov;
 
 	a = (t_arg*)arg;
 	mlx = a->mlx;
+	fov = mlx->obj.lst_cam->fov * M_PI / 180;
 	mlx->obj.intensite_lumiere = 1000000;
 	x = 0;
+	printf("%f, %f, %f\n", mlx->obj.lst_cam->vec.x, mlx->obj.lst_cam->vec.y, mlx->obj.lst_cam->vec.z);
 	while (x < mlx->height)
 	{
 		y = a->y_min;
@@ -37,7 +41,7 @@ void	*fonction(void *arg)
 		{
 			ray.o = mlx->obj.lst_cam->c;
 			ray.d = add_vector(init_vector(y - mlx->width / 2, x -
-						mlx->height / 2, -(mlx->width) / (2 * tanf(fov / 2))),
+					mlx->height / 2, -(mlx->width) / (2 * tanf(fov / 2))),
 					mlx->obj.lst_cam->vec);
 			ray.d = normalize(ray.d);
 			mlx->image[(mlx->height - x - 1) * mlx->width + y] =
