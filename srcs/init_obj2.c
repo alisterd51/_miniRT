@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 10:39:48 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/13 17:30:32 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/21 16:24:56 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		init_cam(char *line, t_obj *obj)
 	new_cam->id = 0;	// remplir avec le num de la cam [0, 1, ...]
 	new_cam->c = read_vec(&line);
 	new_cam->vec = read_vec(&line);
+	printf("%f %f %f\n", new_cam->vec.x, new_cam->vec.y, new_cam->vec.z);
 	new_cam->fov = read_int(&line);
 	new_cam->next = NULL;
 	if (obj->lst_cam == NULL)

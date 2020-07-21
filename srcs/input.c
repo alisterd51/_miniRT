@@ -6,16 +6,18 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/20 13:55:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/21 16:35:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "render.h"
 #include "input.h"
+#include "vector.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <mlx.h>
+#include <math.h>
 
 #include "libft.h"
 
@@ -70,12 +72,14 @@ void	thisiskey2(int key, t_mlx *mlx)
 	}
 	if (key == Q_KEY)
 	{
-		mlx->obj.lst_cam->vec.x -= 2;
+		mlx->obj.lst_cam->vec = rot_right(mlx->obj.lst_cam->vec, M_PI / 128);
+		//mlx->obj.lst_cam->vec.x -= 2;
 		prerender(mlx);
 	}
 	if (key == D_KEY)
 	{
-		mlx->obj.lst_cam->vec.x += 2;
+		mlx->obj.lst_cam->vec = rot_left(mlx->obj.lst_cam->vec, M_PI / 4);
+		//mlx->obj.lst_cam->vec.x += 2;
 		prerender(mlx);
 	}
 	if (key == ESC_KEY)

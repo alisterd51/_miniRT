@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:05:03 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/14 16:34:01 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/21 15:20:26 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,28 @@ t_vector	cylinder_albedo(t_obj s, int cylinder_id)
 	return (init_vector(0.0, 0.0, 0.0));
 }
 
+t_vector	square_albedo(t_obj s, int square_id)
+{
+	t_square	*sq_ptr;
+
+    sq_ptr = s.lst_square;
+    while (sq_ptr)
+    {
+        if (sq_ptr->id == square_id)
+            return (int_to_vector(sq_ptr->color));
+        sq_ptr = sq_ptr->next;
+    }
+    return (init_vector(0.0, 0.0, 0.0));
+}
+
 t_vector	obj_albedo(t_obj s, int obj_id[2])
 {
 	if (obj_id[0] == 1)
 		return (sphere_albedo(s, obj_id[1]));
 	else if (obj_id[0] == 2)
 		return (plane_albedo(s, obj_id[1]));
+	else if (obj_id[0] == 3)
+        return (square_albedo(s, obj_id[1]));
 	else if (obj_id[0] == 4)
 		return (cylinder_albedo(s, obj_id[1]));
 	else if (obj_id[0] == 5)

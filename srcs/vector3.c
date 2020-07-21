@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/09 20:37:55 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/21 16:47:46 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,33 @@ int			vector_to_ints(t_vector vec)
 		(int)max(0.0, min(255.0, vec.y)) * 256 +
 		(int)max(0.0, min(255.0, vec.z)) * 256 * 256;
 	return (ret);
+}
+
+//modifie un veteur d'oriantation
+// 1	0	0	devant 
+// 0	x	x	droite ou gauche (ou haut ou bas)
+// -1	0	0	derriere
+// 0	x	x	droite ou gauche (ou haut ou bas)
+// angle en rad: 0ª = 0, 90ª = ¶/2
+// x * cos(-angle) - y * sin(-angle)
+// x * sin(-angle) + y * cos(-angle)
+
+t_vector	rot_right(t_vector o, double angle)
+{
+	t_vector	new_o;
+
+	new_o.x = o.z * cos(-angle) + o.x * sin(-angle);
+	new_o.y = o.y;
+	new_o.z = o.z * sin(-angle) - o.x * cos(-angle);
+	return (new_o);
+}
+
+t_vector	rot_left(t_vector o, double angle)
+{
+	t_vector    new_o;
+
+    new_o.x = o.z * cos(angle) + o.x * sin(angle);
+    new_o.y = o.y;
+    new_o.z = o.z * sin(angle) - o.x * cos(angle);
+    return (new_o);
 }
