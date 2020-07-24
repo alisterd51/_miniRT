@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/21 16:35:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/24 11:29:18 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@
 
 #include "libft.h"
 
-int		deal_mouse(int button, int x, int y, void *param)
+int		deal_mouse(int button, int x, int y, t_mlx *mlx)
 {
-	t_mlx	*mlx;
 	char	chaine[100];
 
-	mlx = (t_mlx *)param;
 	sprintf(chaine, "button%d, x:%d, y:%d\n", button, x, y);
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, x, y, 0X00FFFFFF, chaine);
 	return (0);
@@ -86,12 +84,9 @@ void	thisiskey2(int key, t_mlx *mlx)
 		exit(0);
 }
 
-int		deal_key(int key, void *param)
+int		deal_key(int key, t_mlx *mlx)
 {
-	t_mlx	*mlx;
-
 	ft_printf("entree deal_key num: %d\n", key);
-	mlx = (t_mlx *)param;
 	thisiskey1(key, mlx);
 	thisiskey2(key, mlx);
 	return (0);

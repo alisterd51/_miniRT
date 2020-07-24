@@ -6,13 +6,14 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/20 11:45:59 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/24 11:12:37 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INPUT_H
 # define INPUT_H
 
+# include "struct.h"
 # define UP_KEY		126
 # define DOWN_KEY	125
 # define LEFT_KEY	123
@@ -35,7 +36,7 @@
 # define D_KEY		100
 # define ESC_KEY	65307
 */
-int	deal_mouse(int button, int x, int y, void *param);
-int	deal_key(int key, void *param);
+int	deal_mouse(int button, int x, int y, t_mlx *mlx);
+int	deal_key(int key, t_mlx *mlx);
 
 #endif
