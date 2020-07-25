@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/07/17 15:54:47 by anclarma         ###   ########.fr        #
+#    Updated: 2020/07/25 02:14:36 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ OBJS		= $(SRCS:.c=.o)
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
 
 sub-make:
 	make -C libft all

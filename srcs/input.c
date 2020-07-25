@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/24 11:29:18 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/25 02:29:56 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,22 @@ void	thisiskey1(int key, t_mlx *mlx)
 		render(mlx);
 	if (key == UP_KEY)
 	{
-		mlx->obj.lst_cam->c.z -= 2;
+		mlx->obj.lst_cam->c.z -= 1;
 		prerender(mlx);
 	}
 	if (key == DOWN_KEY)
 	{
-		mlx->obj.lst_cam->c.z += 2;
+		mlx->obj.lst_cam->c.z += 1;
 		prerender(mlx);
 	}
 	if (key == S_KEY)
 	{
-		mlx->obj.lst_cam->c.y -= 2;
+		mlx->obj.lst_cam->c.y -= 1;
 		prerender(mlx);
 	}
 	if (key == Z_KEY)
 	{
-		mlx->obj.lst_cam->c.y += 2;
+		mlx->obj.lst_cam->c.y += 1;
 		prerender(mlx);
 	}
 }
@@ -60,12 +60,12 @@ void	thisiskey2(int key, t_mlx *mlx)
 {
 	if (key == LEFT_KEY)
 	{
-		mlx->obj.lst_cam->c.x -= 2;
+		mlx->obj.lst_cam->c.x -= 1;
 		prerender(mlx);
 	}
 	if (key == RIGHT_KEY)
 	{
-		mlx->obj.lst_cam->c.x += 2;
+		mlx->obj.lst_cam->c.x += 1;
 		prerender(mlx);
 	}
 	if (key == Q_KEY)
@@ -90,4 +90,11 @@ int		deal_key(int key, t_mlx *mlx)
 	thisiskey1(key, mlx);
 	thisiskey2(key, mlx);
 	return (0);
+}
+
+//manque le set des touche via mlx->current_key
+ft_keypress(int key, t_mlx *mlx)
+{
+	thisiskey1(key, mlx);
+	thisiskey2(key, mlx);
 }
