@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/24 11:12:37 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/25 02:13:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@
 */
 int	deal_mouse(int button, int x, int y, t_mlx *mlx);
 int	deal_key(int key, t_mlx *mlx);
+int	ft_keypress(int key, t_mlx *mlx);
+int	ft_keyrelease(int key, t_mlx *mlx);
 
 #endif

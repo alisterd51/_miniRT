@@ -6,12 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:24:50 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/24 12:10:06 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/25 02:09:14 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <stdlib.h>
+#include "definex.h"
 #include "libft.h"
 #include "struct.h"
 #include "parser.h"
@@ -39,7 +40,7 @@ int	main(int ac, char **av)
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, mlx.width,
 			mlx.height, WINDOW_TITLE);
 	initpixel(&mlx);
-	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMaskk, ft_keypress, mlx);
+	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, ft_keypress, (void *)&mlx);
 	mlx_key_hook(mlx.win_ptr, deal_key, (void *)&mlx);
 	mlx_mouse_hook(mlx.win_ptr, deal_mouse, (void *)&mlx);
 	mlx_loop(mlx.mlx_ptr);
