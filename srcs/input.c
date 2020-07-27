@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/25 02:29:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/27 11:32:37 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@
 #include <math.h>
 
 #include "libft.h"
+
+int		exit_hook(t_mlx *mlx)
+{
+	(void)mlx;
+
+	exit(0);
+	return (0);
+}
 
 int		deal_mouse(int button, int x, int y, t_mlx *mlx)
 {
@@ -93,8 +101,9 @@ int		deal_key(int key, t_mlx *mlx)
 }
 
 //manque le set des touche via mlx->current_key
-ft_keypress(int key, t_mlx *mlx)
+int		ft_keypress(int key, t_mlx *mlx)
 {
 	thisiskey1(key, mlx);
 	thisiskey2(key, mlx);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:06:52 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/21 16:31:32 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/27 11:40:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ struct			s_mlx
 	int			size_line;
 	int			bpp;
 	int			endian;
+	int			key;
 	t_obj		obj;
 };
 typedef struct s_arg	t_arg;

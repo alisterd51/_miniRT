@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:24:50 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/25 02:09:14 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/27 11:36:06 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int	main(int ac, char **av)
 			mlx.height, WINDOW_TITLE);
 	initpixel(&mlx);
 	mlx_hook(mlx.win_ptr, KeyPress, KeyPressMask, ft_keypress, (void *)&mlx);
-	mlx_key_hook(mlx.win_ptr, deal_key, (void *)&mlx);
-	mlx_mouse_hook(mlx.win_ptr, deal_mouse, (void *)&mlx);
+//	mlx_key_hook(mlx.win_ptr, deal_key, (void *)&mlx);
+//	mlx_mouse_hook(mlx.win_ptr, deal_mouse, (void *)&mlx);
+	mlx_hook(mlx.win_ptr, DestroyNotify, StructureNotifyMask, exit_hook, (void *)0);
 	mlx_loop(mlx.mlx_ptr);
 	exit(0);
 }

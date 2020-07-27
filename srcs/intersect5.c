@@ -6,16 +6,37 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:43:02 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/21 13:32:11 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/27 16:06:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
+#include "vector.h"
+#include <math.h>
 
 int rt_inter_square(const t_ray ray, const t_square sq, t_vector *p,
         t_vector *n, double *t)
 {
-	
+	double		a;
+	double		b;
+	double		t1;
+	double		t2;
+	t_vector	d;
+
+	(void)p;
+	(void)n;
+	a = dot(sub_vector(ray.o, sq.c), sq.o);
+	b = dot(ray.d, sq.o);
+	if (b == 0.0 || (a < 0.0 && b < 0.0) || (a > 0.0 && b > 0.0))
+		return (0);
+	t1 = -a / b;
+	d = sub_vector(add_vector(mult_vector(t1, ray.d), ray.o), sq.c);
+	t2 = sq.height / 2;
+	if (fabs(d.x) > t2 || fabs(d.y) > t2 || fabs(d.z) > t2)
+		return (0);
+	if (t1 > 0)
+		*t = t1;
+	return (1);
 }
 
 int	check_inter_square(t_check_scene *check)

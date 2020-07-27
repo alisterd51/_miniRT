@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/07/25 02:14:36 by anclarma         ###   ########.fr        #
+#    Updated: 2020/07/27 15:59:23 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS		= $(PATH_SRCS)main.c \
 			  $(PATH_SRCS)intersect2.c \
 			  $(PATH_SRCS)intersect3.c \
 			  $(PATH_SRCS)intersect4.c \
+			  $(PATH_SRCS)intersect5.c \
 			  $(PATH_SRCS)parser.c \
 			  $(PATH_SRCS)init_obj1.c \
 			  $(PATH_SRCS)init_obj3.c \
@@ -49,7 +50,7 @@ OBJS		= $(SRCS:.c=.o)
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
 
 sub-make:
 	make -C libft all
