@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:05:03 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/21 15:20:26 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/28 11:34:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_vector	square_albedo(t_obj s, int square_id)
 {
 	t_square	*sq_ptr;
 
-    sq_ptr = s.lst_square;
+	sq_ptr = s.lst_square;
     while (sq_ptr)
     {
         if (sq_ptr->id == square_id)

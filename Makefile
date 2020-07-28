@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/07/27 15:59:23 by anclarma         ###   ########.fr        #
+#    Updated: 2020/07/28 11:23:35 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,3 +65,5 @@ fclean:
 	rm -f $(NAME)
 
 re:			fclean all
+
+.PHONY:	all	$(NAME) clean fceab re

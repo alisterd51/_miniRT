@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:43:02 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/27 16:06:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/28 11:30:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ int rt_inter_square(const t_ray ray, const t_square sq, t_vector *p,
 	t2 = sq.height / 2;
 	if (fabs(d.x) > t2 || fabs(d.y) > t2 || fabs(d.z) > t2)
 		return (0);
-	if (t1 > 0)
-		*t = t1;
+	if (t1 <= 0.0)
+		return (0);
+	*t = t1;
+	*p = add_vector(ray.o, mult_vector(*t, ray.d));
+	*n = sq.o;
 	return (1);
 }
 
