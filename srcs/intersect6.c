@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 12:48:24 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/28 16:07:16 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/28 16:55:07 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,11 @@ int rt_inter_cylinder(const t_ray ray, const t_cylinder cy, t_vector *p,
 	sub_ray.o = inter;
 	sub_ray.d = cy.o;
 	if (rt_inter_plane_s(sub_ray, pl, &sub_t) && sub_t <= cy.height / 2.0)
-	{
-		
 		return (1);
-	}
 	sub_ray = mult_vector(-1.0, cy.o);
 	if (rt_inter_plane_s(sub_ray, pl, &sub_t) && sub_t <= cy.height / 2.0)
-	{
-		
 		return (1);
-	}
-
-	return (1);
+	return (0);
 }//a finir https://github.com/solaldunckel/miniRT/blob/master/srcs/cylinder.c
 
 int	check_inter_cylinder(t_check_scene *check)
