@@ -6,12 +6,22 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 19:16:21 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/16 12:29:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:51:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "vector.h"
+
+int     rt_inter_plane_s(const t_ray ray, const t_plane pl, double *t)
+{
+    if (dot(ray.d, pl.o) == 0.0)
+        return (0);
+    *t = dot(sub_vector(pl.c, ray.o), pl.o) / dot(ray.d, pl.o);
+    if (*t < 0.0)
+        return (0);
+    return (1);
+}
 
 int		rt_inter_plane(const t_ray ray, const t_plane pl, t_vector *p,
 		t_vector *n, double *t)
