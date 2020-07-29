@@ -6,25 +6,35 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 12:48:24 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/28 16:55:07 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/07/29 14:51:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	plane(t_mini_rt *rt, t_element *plane, t_vec ori, t_vec dir)
-{
-	a = vec_dot(vec_sub(ori, plane->point), plane->orient);
-	b = vec_dot(dir, plane->orient);
-	if (b == 0 || (a < 0 && b < 0) || (a > 0 && b > 0))
-		return ;
-	t = -a / b;
-	if (t < 0 || rt->t < t)
-		return ;
-	rt->t = t;
-}
+#include "struct.h"
+#include "vector.h"
+#include "intersect.h"
+#include <math.h>
+
+#include <stdio.h>
 
 int rt_inter_cylinder(const t_ray ray, const t_cylinder cy, t_vector *p,
         t_vector *n, double *t)
 {
+	t_vector	cross;
+	t_vector	cross2;
+	t_vector	sub;
+	t_vector	inter;
+	double		a;
+	double		b;
+	double		c;
+	double		delta;
+	double		t1;
+	double		t2;
+	
+	//erreur volontaire
+	*p = add_vector(ray.o, mult_vector(*t, ray.d));
+    *n = normalize(sub_vector(*p, cy.c));
+	//
 	cross = prod_vector(ray.d, cy.o);
 	sub = sub_vector(ray.o, cy.c);
 	cross2 = prod_vector(sub, cy.o);
@@ -36,30 +46,36 @@ int rt_inter_cylinder(const t_ray ray, const t_cylinder cy, t_vector *p,
 		return (0);
 	a *= 2;
 	delta = sqrt(delta);
-	t1 = ((-b - sqrt(delta)) / (2 * a));
-	t2 = ((-b + sqrt(delta)) / (2 * a));
+	t1 = ((-b - delta) / a);
+	t2 = ((-b + delta) / a);
 	if (t1 >= 0)
-		t = t1;
+		*t = t1;
 	else if (t2 >= 0)
-		t = t2;
+		*t = t2;
 	else
 		return (0);
-	inter = add_vector(ray.o, mult_vector(t, cy.o));
+	inter = add_vector(ray.o, mult_vector(*t, cy.o));
 
 	double	sub_t;
 	t_plane	pl;
 	t_ray	sub_ray;
+	int		ret;
 
+	ret = 0;
 	pl.c = cy.c;
 	pl.o = cy.c;
 	sub_ray.o = inter;
 	sub_ray.d = cy.o;
-	if (rt_inter_plane_s(sub_ray, pl, &sub_t) && sub_t <= cy.height / 2.0)
-		return (1);
-	sub_ray = mult_vector(-1.0, cy.o);
-	if (rt_inter_plane_s(sub_ray, pl, &sub_t) && sub_t <= cy.height / 2.0)
-		return (1);
-	return (0);
+	if (rt_inter_plane_s(sub_ray, pl, &sub_t) && sub_t <= cy.height / 2.0)//
+	{
+		//vue d'au dessus
+	}
+	sub_ray.d = mult_vector(-1.0, cy.o);
+	if (rt_inter_plane_s(sub_ray, pl, &sub_t) && sub_t <= cy.height / 2.0)//
+	{
+		//vue dans dessous
+	}
+	return (1);
 }//a finir https://github.com/solaldunckel/miniRT/blob/master/srcs/cylinder.c
 
 int	check_inter_cylinder(t_check_scene *check)
@@ -78,10 +94,11 @@ int	check_inter_cylinder(t_check_scene *check)
 			check->t = local.t;
 			check->p = local.p;
 			check->n = local.n;
-			(check->obj_id)[0] = 6;
+			(check->obj_id)[0] = 4;
 			(check->obj_id)[1] = check->scene.lst_cylinder->id;
 		}
 		has_inter = 1;
+		printf("yep");
 	}
 	return (has_inter);
 }

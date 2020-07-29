@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/07/28 11:23:35 by anclarma         ###   ########.fr        #
+#    Updated: 2020/07/29 10:20:32 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS		= $(PATH_SRCS)main.c \
 			  $(PATH_SRCS)intersect3.c \
 			  $(PATH_SRCS)intersect4.c \
 			  $(PATH_SRCS)intersect5.c \
+			  $(PATH_SRCS)intersect6.c \
 			  $(PATH_SRCS)parser.c \
 			  $(PATH_SRCS)init_obj1.c \
 			  $(PATH_SRCS)init_obj3.c \
