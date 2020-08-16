@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 23:29:46 by anclarma          #+#    #+#              #
-#    Updated: 2020/03/25 17:05:05 by anclarma         ###   ########.fr        #
+#    Updated: 2020/08/15 21:42:39 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS		= ft_printf.c \
 		  ft_tolower.c \
 		  ft_strchr.c \
 		  ft_strrchr.c \
+		  ft_strcmp.c \
 		  ft_strncmp.c \
 		  ft_strlcpy.c \
 		  ft_strlcat.c \

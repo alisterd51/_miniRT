@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/20 13:45:33 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/05 10:06:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*fonction(void *arg)
 	a = (t_arg*)arg;
 	mlx = a->mlx;
 	fov = mlx->obj.lst_cam->fov * M_PI / 180;
-	mlx->obj.intensite_lumiere = 1000000;
+	mlx->obj.intensite_lumiere = 2000000;
 	x = 0;
 	printf("%f, %f, %f\n", mlx->obj.lst_cam->vec.x, mlx->obj.lst_cam->vec.y, mlx->obj.lst_cam->vec.z);
 	while (x < mlx->height)

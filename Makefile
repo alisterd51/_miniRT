@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/07/29 10:20:32 by anclarma         ###   ########.fr        #
+#    Updated: 2020/08/15 21:54:19 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS		= $(PATH_SRCS)main.c \
 			  $(PATH_SRCS)init_obj1.c \
 			  $(PATH_SRCS)init_obj3.c \
 			  $(PATH_SRCS)init_obj2.c \
+			  $(PATH_SRCS)screenshot.c \
 			  ./libft/libft.a
 OBJS		= $(SRCS:.c=.o)
 
