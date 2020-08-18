@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:24:50 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/15 21:40:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/17 14:35:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int ac, char **av)
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, mlx.width,
 			mlx.height, WINDOW_TITLE);
 	initpixel(&mlx);
-	//endroit ou mettre le screenshot!!
 	if (mlx.screenshot)
 	{
 		ft_screenshot(&mlx);
