@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/08/17 14:33:26 by anclarma         ###   ########.fr        #
+#    Updated: 2020/08/21 15:55:11 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,9 @@ SRCS		= $(PATH_SRCS)main.c \
 			  $(PATH_SRCS)intersect6.c \
 			  $(PATH_SRCS)parser.c \
 			  $(PATH_SRCS)init_obj1.c \
-			  $(PATH_SRCS)init_obj3.c \
 			  $(PATH_SRCS)init_obj2.c \
+			  $(PATH_SRCS)init_obj3.c \
+			  $(PATH_SRCS)init_obj4.c \
 			  $(PATH_SRCS)screenshot.c \
 			  $(PATH_SRCS)ft_tobmp.c \
 			  ./libft/libft.a

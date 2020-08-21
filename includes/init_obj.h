@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:15:02 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/13 10:51:45 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/21 15:58:11 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int			init_plane(char *line, t_obj *obj);
 int			init_square(char *line, t_obj *obj);
 int			init_cylinder(char *line, t_obj *obj);
 int			init_triangle(char *line, t_obj *obj);
+int			init_cube(char *line, t_obj *obj);
 int			read_int(char **line);
 double		read_float(char **line);
 t_vector	read_vec(char **line);

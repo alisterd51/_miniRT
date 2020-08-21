@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:06:52 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/15 19:41:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/21 16:04:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,5 +170,17 @@ struct			s_local
 	double		t;
 	t_vector	p;
 	t_vector	n;
+};
+typedef struct s_data	t_data;
+struct			s_data
+{
+    int			id;
+	t_vector	coord1;
+	t_vector	coord2;
+	t_vector	coord3;
+	t_vector	normal;
+	double		size1;
+	double		size2;
+	int			color;
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 10:27:23 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/16 12:20:17 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/21 15:57:01 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int		parser1(char *line, t_obj *obj)
 		error = init_cylinder(line + 2, obj);
 	else if (c1 == 't' && c2 == 'r')
 		error = init_triangle(line + 2, obj);
+	else if (c1 == 'c' && c2 == 'u')
+        error = init_cube(line + 2, obj);
 	else
 		error = 0;
 	return (error);
