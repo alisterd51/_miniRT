@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:45:20 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/27 11:32:37 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/24 14:49:40 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ void	thisiskey2(int key, t_mlx *mlx)
 	}
 	if (key == Q_KEY)
 	{
-		mlx->obj.lst_cam->vec = rot_right(mlx->obj.lst_cam->vec, M_PI / 128);
+		mlx->obj.lst_cam->vec = rot_right(mlx->obj.lst_cam->vec, M_PI / 9);
 		//mlx->obj.lst_cam->vec.x -= 2;
 		prerender(mlx);
 	}
 	if (key == D_KEY)
 	{
-		mlx->obj.lst_cam->vec = rot_left(mlx->obj.lst_cam->vec, M_PI / 4);
+		mlx->obj.lst_cam->vec = rot_left(mlx->obj.lst_cam->vec, M_PI / 9);
 		//mlx->obj.lst_cam->vec.x += 2;
 		prerender(mlx);
 	}

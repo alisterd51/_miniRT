@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/09/30 11:31:31 by anclarma         ###   ########.fr        #
+#    Updated: 2020/10/15 16:49:14 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,16 @@ $(NAME):	sub-make $(OBJS)
 sub-make:
 	make -C libft all
 
+install:
+	git clone https://github.com/42Paris/minilibx-linux.git
+	./minilibx-linux/configure
+	sudo cp minilibx-linux/libmlx.a /usr/local/lib/.
+	sudo cp minilibx-linux/libmlx_Linux.a /usr/local/lib/.
+	sudo cp minilibx-linux/mlx.h /usr/local/include/.
+	sudo mkdir /usr/local/man/man3
+	sudo cp minilibx-linux/man/man3/mlx*.1 /usr/local/man/man3/.
+	rm -rf minilibx-linux
+
 clean:
 	make -C libft clean
 	rm -f $(OBJS)
@@ -70,4 +80,4 @@ fclean:
 
 re:			fclean all
 
-.PHONY:	all	$(NAME) clean fclean re
+.PHONY:	all	$(NAME) clean fclean re install

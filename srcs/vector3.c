@@ -6,12 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/21 16:47:46 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/24 14:47:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "extremum.h"
+#include "vector.h"
 #include <math.h>
 
 t_vector	int_to_vector(int color)
@@ -59,10 +60,10 @@ t_vector	rot_right(t_vector o, double angle)
 {
 	t_vector	new_o;
 
-	new_o.x = o.z * cos(-angle) + o.x * sin(-angle);
-	new_o.y = o.y;
-	new_o.z = o.z * sin(-angle) - o.x * cos(-angle);
-	return (new_o);
+	new_o.x = o.x * cos(angle) - o.y * sin(angle);
+	new_o.y = o.x * sin(angle) + o.y * cos(angle);
+	new_o.z = o.z;
+	return (normalize(new_o));
 }
 
 t_vector	rot_left(t_vector o, double angle)
@@ -72,5 +73,5 @@ t_vector	rot_left(t_vector o, double angle)
     new_o.x = o.z * cos(angle) + o.x * sin(angle);
     new_o.y = o.y;
     new_o.z = o.z * sin(angle) - o.x * cos(angle);
-    return (new_o);
+    return (normalize(new_o));
 }

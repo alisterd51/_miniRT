@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/05 10:06:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/24 15:52:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ void	*fonction(void *arg)
 	mlx = a->mlx;
 	fov = mlx->obj.lst_cam->fov * M_PI / 180;
 	mlx->obj.intensite_lumiere = 2000000;
-	x = 0;
-	printf("%f, %f, %f\n", mlx->obj.lst_cam->vec.x, mlx->obj.lst_cam->vec.y, mlx->obj.lst_cam->vec.z);
-	while (x < mlx->height)
+	x = -1;
+	while (++x < mlx->height)
 	{
-		y = a->y_min;
-		while (y < a->y_max)
+		y = a->y_min - 1;
+		while (++y < a->y_max)
 		{
 			ray.o = mlx->obj.lst_cam->c;
 			ray.d = add_vector(init_vector(y - mlx->width / 2, x -
@@ -46,9 +45,7 @@ void	*fonction(void *arg)
 			ray.d = normalize(ray.d);
 			mlx->image[(mlx->height - x - 1) * mlx->width + y] =
 				vector_to_int(getcolor(&ray, &(mlx->obj), 20));
-			y++;
 		}
-		x++;
 	}
 	return (NULL);
 }

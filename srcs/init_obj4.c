@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 18:09:33 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/21 16:07:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/08/24 12:38:59 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	init_cube(char *line, t_obj *obj)
 		data.id = 0;
 		data.coord1 = add_vector(
 				mult_vector(param.size1 / 2, dir[i]),param.coord1);
-		data.normal = dir[i];
+		data.normal = dir[i];//a modifier
 		data.size1 = param.size1;
 		data.color = param.color;
 		if (add_newsquaretolst(&(obj->lst_square), creat_square(data)))
