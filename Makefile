@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/10/15 16:49:14 by anclarma         ###   ########.fr        #
+#    Updated: 2020/10/16 15:25:47 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,31 +20,32 @@ INCLUDES	= -I /usr/local/include \
 			  -I ./includes
 LIBS		= -L /usr/local/lib
 PATH_SRCS	= ./srcs/
-SRCS		= $(PATH_SRCS)main.c \
-			  $(PATH_SRCS)initpixel.c \
-			  $(PATH_SRCS)input.c \
-			  $(PATH_SRCS)render.c \
-			  $(PATH_SRCS)vector1.c \
-			  $(PATH_SRCS)vector2.c \
-			  $(PATH_SRCS)vector3.c \
-			  $(PATH_SRCS)extremum.c \
-			  $(PATH_SRCS)scenescan.c \
-			  $(PATH_SRCS)getcolor.c \
-			  $(PATH_SRCS)this_obj_is.c \
-			  $(PATH_SRCS)albedo.c \
-			  $(PATH_SRCS)intersect1.c \
-			  $(PATH_SRCS)intersect2.c \
-			  $(PATH_SRCS)intersect3.c \
-			  $(PATH_SRCS)intersect4.c \
-			  $(PATH_SRCS)intersect5.c \
-			  $(PATH_SRCS)intersect6.c \
-			  $(PATH_SRCS)parser.c \
-			  $(PATH_SRCS)init_obj1.c \
-			  $(PATH_SRCS)init_obj2.c \
-			  $(PATH_SRCS)init_obj3.c \
-			  $(PATH_SRCS)init_obj4.c \
-			  $(PATH_SRCS)screenshot.c \
-			  $(PATH_SRCS)ft_tobmp.c \
+C_FILES		= main.c \
+			  initpixel.c \
+			  input.c \
+			  render.c \
+			  vector1.c \
+			  vector2.c \
+			  vector3.c \
+			  extremum.c \
+			  scenescan.c \
+			  getcolor.c \
+			  this_obj_is.c \
+			  albedo.c \
+			  intersect1.c \
+			  intersect2.c \
+			  intersect3.c \
+			  intersect4.c \
+			  intersect5.c \
+			  intersect6.c \
+			  parser.c \
+			  init_obj1.c \
+			  init_obj2.c \
+			  init_obj3.c \
+			  init_obj4.c \
+			  screenshot.c \
+			  ft_tobmp.c
+SRCS		= $(addprefix srcs/,$(C_FILES)) \
 			  ./libft/libft.a
 OBJS		= $(SRCS:.c=.o)
 
