@@ -6,11 +6,11 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/16 15:53:50 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/10/16 17:11:10 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_obj	obj;
 
