@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/16 16:23:57 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/10/16 16:56:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,65 @@ struct			s_cam
 typedef struct s_light		t_light;
 struct			s_light
 {
+	t_vector	coord;
+	double		ratio;
+	t_color		color;
+	t_light		*next;
+};
+typedef struct s_sphere		t_sphere;
+struct			s_sphere
+{
+	t_vector	coord;
+	double		diameter;
+	t_color		color;
+	char		*parameter;
+	t_sphere	*next;
+};
+typedef struct s_plane		t_plane;
+struct			s_plane
+{
+	t_vector	coord;
+	t_vector	normal;
+	t_color		color;
+	t_plane		*next;
+};
+typedef struct s_square		t_square;
+struct			s_square
+{
+	t_vector	coord;
+	t_vector	normal;
+	double		side;
+	t_color		color;
+	t_square	*next;
+};
+typedef struct s_cylinder	t_cylinder;
+struct			s_cylinder
+{
+	t_vector	coord;
+	t_vector	normal;
+	t_color		color;
+	double		diameter;
+	double		height;
+	t_cylinder	*next;
+};
+typedef struct s_triangle	t_triangle;
+struct			s_triangle;
+{
+	t_vector	coord1;
+	t_vector	coord2;
+	t_vector	coord3;
+	t_color		color;
+	t_triangle	*next;
+};
+typedef struct s_cone		t_cone;
+struct			s_cone
+{
+	t_vector	coord;
+	t_vector	normal;
+	double		diameter;
+	double		height;
+	t_color		color;
+	t_cone		*next;
 };
 typedef struct s_obj		t_obj;
 struct			s_obj
