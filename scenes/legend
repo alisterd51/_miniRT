@@ -1,35 +1,35 @@
-#Resolution:	x_size			y_size
-R				1000			500
+#Resolution:		x_size			y_size
+R					1000			500
 
-#Ambient		lightning:		ratio			color
-A							0.2				255,255,255
+#Ambient lightning:	ratio			color
+A					0.2				255,255,255
 
-#Camera:		coordinates		normal			fov
-c				-50.0,0,20		0,0,1			70
+#Camera:			coordinates		normal			fov			parameter
+c					-50.0,0,20		0,0,1			70
 
-#Light:			coordinates		ratio			color
-l				-40.0,50.0,0.0	0.6				10,0,255
+#Light:				coordinates		ratio			color
+l					-40.0,50.0,0.0	0.6				10,0,255
 
-#Sphere:		coordinates		diameter		color		parameter
-sp				0.0,0.0,20.6	12.6			10,0,255
+#Sphere:			coordinates		diameter		color		parameter
+sp					0.0,0.0,20.6	12.6			10,0,255
 
-#Plane:			coordinates		normal			color
-pl				0.0,0.0,-10.0	0.0,1.0,0.0		0,0,225
+#Plane:				coordinates		normal			color
+pl					0.0,0.0,-10.0	0.0,1.0,0.0		0,0,225
 
-#Square:		coordinates		normal			side			color
-sq				0.0,0.0,20.6	1.0,0.0,0.0		12.6			255,0,255
+#Square:			coordinates		normal			side			color
+sq					0.0,0.0,20.6	1.0,0.0,0.0		12.6			255,0,255
 
-#Cylinder:		coordinates		normal			color			diameter	height
-cy				50.0,0.0,20.6	0.0,0.0,1.0		10,0,255		14.2		21.42
+#Cylinder:			coordinates		normal			color			diameter	height
+cy					50.0,0.0,20.6	0.0,0.0,1.0		10,0,255		14.2		21.42
 
-#Triangle:		coordinates1	coordinates2	coordinates3	color
-tr				10.0,20.0,10.0	10.0,10.0,20.0	20.0,10.0,10.0	0,0,255
+#Triangle:			coordinates1	coordinates2	coordinates3	color
+tr					10.0,20.0,10.0	10.0,10.0,20.0	20.0,10.0,10.0	0,0,255
 
-#Cube			coordinates		normal			side			color
-cu				10.0,10.0,20.6	1.0,0.0,0.0		10				255,0,255
+#Cube				coordinates		normal			side			color
+cu					10.0,10.0,20.6	1.0,0.0,0.0		10				255,0,255
 
-#Pyramid:		coordinates		normal			side			height		color
-py				0.0,0.0,-10.0	0.0,1.0,0.0		5.1				2.5			255,255,0
+#Pyramid:			coordinates		normal			side			height		color
+py					0.0,0.0,-10.0	0.0,1.0,0.0		5.1				2.5			255,255,0
 
-#Cone:			coordinates		normal			diameter		height		color
-co				0.0,10.0,0.0	0.0,1.0,0.0		5.1				2.5			255,255,0
+#Cone:				coordinates		normal			diameter		height		color
+co					0.0,10.0,0.0	0.0,1.0,0.0		5.1				2.5			255,255,0
