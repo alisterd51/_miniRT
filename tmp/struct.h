@@ -6,13 +6,28 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/16 17:12:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/10/17 14:41:43 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
+typedef struct s_color		t_color;
+struct			s_color
+{
+	char		depth;
+	char		r;
+	char		g;
+	char		b;
+};
+typedef struct s_vector		t_vector;
+struct			s_vector
+{
+	double		x;
+	double		y;
+	double		z;
+};
 typedef struct s_res		t_res;
 struct			s_res
 {
@@ -79,7 +94,7 @@ struct			s_cylinder
 	t_cylinder	*next;
 };
 typedef struct s_triangle	t_triangle;
-struct			s_triangle;
+struct			s_triangle
 {
 	t_vector	coord1;
 	t_vector	coord2;
