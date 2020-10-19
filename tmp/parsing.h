@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/19 14:31:27 by anclarma         ###   ########.fr       */
+/*   Created: 2020/10/19 14:24:41 by anclarma          #+#    #+#             */
+/*   Updated: 2020/10/19 14:28:01 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "lst_obj.h"
-#include "parsing.h"
+#ifndef PARSING_H
+# define PARSING_H
 
-int	main(int ac, char **av)
-{
-	t_obj	*obj;
+void	parsing(char *param, t_obj *obj);
 
-	obj = init_obj();
-	if (ac != 2)
-	{
-		write(2, "error\n", 6);
-		return (1);
-	}
-	parsing(av[1], obj);
-	print_obj(obj);
-	free_obj(obj);
-	return (0);
-}
+#endif

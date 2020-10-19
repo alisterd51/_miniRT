@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lst_obj.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/19 14:31:27 by anclarma         ###   ########.fr       */
+/*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
+/*   Updated: 2020/10/19 14:28:59 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "lst_obj.h"
-#include "parsing.h"
+#ifndef LST_OBJ_H
+# define LST_OBJ_H
 
-int	main(int ac, char **av)
-{
-	t_obj	*obj;
+# include "struct.h"
 
-	obj = init_obj();
-	if (ac != 2)
-	{
-		write(2, "error\n", 6);
-		return (1);
-	}
-	parsing(av[1], obj);
-	print_obj(obj);
-	free_obj(obj);
-	return (0);
-}
+t_obj	*init_obj(void);
+void	print_obj(t_obj *obj);
+void	free_obj(t_obj *obj);
+
+#endif
