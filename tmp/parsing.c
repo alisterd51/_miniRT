@@ -6,23 +6,20 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 17:06:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/20 15:45:26 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/10/20 16:39:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "lst_obj.h"
+#include "exit_err.h"
+#include "check_file.h"
 
-static void	parse_line(char *line, t_obj *obj)
+static int	parse_line1(char *line, t_obj *obj)
 {
-	if (!line || !*line)
-		return exit_errcode(ERROR_LINE);
-	else if (*line == '#')
-		return ;
-	else if (!*(line + 1))
-		return exit_errcode(ERROR_LINE);
-	else if (*line == 'R' && ft_isspace(*(line + 1)))
+	if (*line == 'R' && ft_isspace(*(line + 1)))
 		init_res(line + 1, obj);
 	else if (*line == 'A' && ft_isspace(*(line + 1)))
 		init_amb_light(line + 1, obj);
@@ -30,9 +27,14 @@ static void	parse_line(char *line, t_obj *obj)
 		init_lst_cam(line + 1, obj);
 	else if (*line == 'l' && ft_isspace(*(line + 1)))
 		init_lst_light(line + 1, obj);
-	else if (!*(line + 2))
-		return exit_errcode(ERROR_LINE);
-	else if (*line == 's' && *(line + 1) == 'p' && ft_isspace(*(line + 2)))
+	else
+		return (0);
+	return (1);
+}
+
+static int	parse_line2(char *line, t_obj *obj)
+{
+	if (*line == 's' && *(line + 1) == 'p' && ft_isspace(*(line + 2)))
 		init_lst_sphere(line + 1, obj);
 	else if (*line == 'p' && *(line + 1) == 'l' && ft_isspace(*(line + 2)))
 		init_lst_plane(line + 1, obj);
@@ -49,6 +51,25 @@ static void	parse_line(char *line, t_obj *obj)
 	else if (*line == 'c' && *(line + 1) == 'o' && ft_isspace(*(line + 2)))
 		init_lst_cone(line + 1, obj);
 	else
+		return (0);
+	return (1);
+}
+
+static void	parse_line(char *line, t_obj *obj)
+{
+	if (!line || !*line)
+		return exit_errcode(ERROR_LINE);
+	else if (*line == '#')
+		return ;
+	else if (!*(line + 1))
+		return exit_errcode(ERROR_LINE);
+	else if (parse_line1(line, obj))
+		return ;
+	else if (!*(line + 2))
+		return exit_errcode(ERROR_LINE);
+	else if (parse_line2(line, obj))
+		return ;
+	else
 		return exit_errcode(UNRECOGNIZED_LINE);
 }
 
@@ -58,7 +79,7 @@ void		parsing(char *param, t_obj *obj)
 	int		ret_gnl;
 	char	*line;
 
-	if (check_file_rt(param))
+	if (check_file_ext(param, "rt"))
 		return (exit_errcode(NOT_RT_FILE));
 	if ((fd = open(param, O_RDONLY)) == -1)
 		return (exit_errcode(OPEN_ERROR));
