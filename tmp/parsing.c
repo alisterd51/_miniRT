@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 17:06:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/20 16:39:27 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/10/25 18:03:12 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "lst_obj.h"
 #include "exit_err.h"
 #include "check_file.h"
+#include "libft.h"
 
 static int	parse_line1(char *line, t_obj *obj)
 {
@@ -35,21 +36,21 @@ static int	parse_line1(char *line, t_obj *obj)
 static int	parse_line2(char *line, t_obj *obj)
 {
 	if (*line == 's' && *(line + 1) == 'p' && ft_isspace(*(line + 2)))
-		init_lst_sphere(line + 1, obj);
+		init_lst_sphere(line + 2, obj);
 	else if (*line == 'p' && *(line + 1) == 'l' && ft_isspace(*(line + 2)))
-		init_lst_plane(line + 1, obj);
+		init_lst_plane(line + 2, obj);
 	else if (*line == 's' && *(line + 1) == 'q' && ft_isspace(*(line + 2)))
-		init_lst_square(line + 1, obj);
+		init_lst_square(line + 2, obj);
 	else if (*line == 'c' && *(line + 1) == 'y' && ft_isspace(*(line + 2)))
-		init_lst_cylinder(line + 1, obj);
+		init_lst_cylinder(line + 2, obj);
 	else if (*line == 't' && *(line + 1) == 'r' && ft_isspace(*(line + 2)))
-		init_lst_triangle(line + 1, obj);
+		init_lst_triangle(line + 2, obj);
 	else if (*line == 'c' && *(line + 1) == 'u' && ft_isspace(*(line + 2)))
-		init_lst_cube(line + 1, obj);
+		init_lst_cube(line + 2, obj);
 	else if (*line == 'p' && *(line + 1) == 'y' && ft_isspace(*(line + 2)))
-		init_lst_pyramid(line + 1, obj);
+		init_lst_pyramid(line + 2, obj);
 	else if (*line == 'c' && *(line + 1) == 'o' && ft_isspace(*(line + 2)))
-		init_lst_cone(line + 1, obj);
+		init_lst_cone(line + 2, obj);
 	else
 		return (0);
 	return (1);

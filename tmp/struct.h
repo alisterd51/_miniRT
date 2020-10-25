@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/17 14:41:43 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/10/25 16:23:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ struct			s_cone
 typedef struct s_obj		t_obj;
 struct			s_obj
 {
-	t_res		res;
-	t_amb_light	amb_light;
+	t_res		*res;
+	t_amb_light	*amb_light;
 	t_cam		*lst_cam;
 	t_light		*lst_light;
 	t_sphere	*lst_sphere;

@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_line.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/25 18:15:45 by anclarma         ###   ########.fr       */
+/*   Created: 2020/10/21 13:54:10 by anclarma          #+#    #+#             */
+/*   Updated: 2020/10/21 13:56:15 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "lst_obj.h"
-#include "parsing.h"
-#include "exit_err.h"
+#ifndef READ_LINE_H
+# define READ_LINE_H
 
-int	main(int ac, char **av)
-{
-	t_obj	*obj;
+/*
+**read_line.c
+*/
+int	read_line_to_int(char **line);
 
-	if (!(obj = init_obj()))
-		exit_errcode(MALLOC_ERROR);
-	if (ac != 2)
-	{
-		write(2, "error\n", 6);
-		return (1);
-	}
-	parsing(av[1], obj);
-	print_obj(obj);
-	free_obj(&obj);
-	return (0);
-}
+#endif
