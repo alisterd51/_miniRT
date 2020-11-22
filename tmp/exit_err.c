@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_line.h                                        :+:      :+:    :+:   */
+/*   exit_err.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 13:54:10 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/22 02:04:20 by antoine          ###   ########.fr       */
+/*   Created: 2020/11/22 00:40:10 by antoine           #+#    #+#             */
+/*   Updated: 2020/11/22 00:47:08 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_LINE_H
-# define READ_LINE_H
-
-#include "struct.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include "libft.h"
 
 /*
-** read_line.c
+** DESCRIPTION
+** 	print errcode to stderr and exit programme
+** NOTA
+** 	non teste
 */
-int		read_line_to_int(char **line);
-double	read_line_to_double(char **line);
-t_color	read_line_to_color(char **line);
-
-#endif
+void	exit_errcode(char *errcode)
+{
+	write(2, errcode, ft_strlen(errcode));
+	exit(0);
+}

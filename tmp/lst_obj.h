@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/25 18:15:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/11/22 01:57:24 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_res(char *line, t_obj *obj);
 void	free_res(t_obj *obj);
 
 /*
-** lst_amb_light.c
+** amb_light.c
 */
 void	init_amb_light(char *line, t_obj *obj);
 void	free_amb_light(t_obj *obj);

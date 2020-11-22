@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 12:44:16 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/25 18:13:47 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/11/22 01:26:20 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	init_res(char *line, t_obj *obj)
 	while (ft_isspace(*line))
 		line++;
 	obj->res->x_size = read_line_to_int(&line);
+	if (!ft_isspace(*line))
+		return (exit_errcode(RES_ERROR_LINE));
 	while (ft_isspace(*line))
 		line++;
 	obj->res->y_size = read_line_to_int(&line);
-	while (ft_isspace(*line))
-		line++;
 	if (*line)
 		return (exit_errcode(RES_ERROR_LINE));
 }

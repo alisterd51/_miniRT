@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   read_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 14:24:41 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/21 23:58:12 by antoine          ###   ########.fr       */
+/*   Created: 2020/11/22 01:08:14 by antoine           #+#    #+#             */
+/*   Updated: 2020/11/22 01:32:26 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "libft.h"
 
 /*
-** parsing.c
+** DESCRIPTION
 */
-void	parsing(char *param, t_obj *obj);
+int	read_line_to_int(char **line)
+{
+	int	ret;
 
-#endif
+	while (ft_isspace(**line))
+		(*line)++;
+	ret = ft_atoi(*line);
+	if (**line == '+' || **line == '-')
+		(*line)++;
+	while (ft_isdigit(**line))
+		(*line)++;
+	return (ret);
+}

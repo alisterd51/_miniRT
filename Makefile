@@ -6,12 +6,13 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/10/16 15:25:47 by anclarma         ###   ########.fr        #
+#    Updated: 2020/11/21 14:23:15 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
-FLAGS		= -Wall -Wextra -Werror \
+FLAGS		= 
+#-Wall -Wextra -Werror \
 			  -O3
 MLX_LINUX	= -lm -lmlx -lXext -lX11 -lpthread
 MLX_MAC		= -lmlx -framework OpenGL -framework AppKit
@@ -55,19 +56,21 @@ OBJS		= $(SRCS:.c=.o)
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
 
 sub-make:
 	make -C libft all
 
 install:
 	git clone https://github.com/42Paris/minilibx-linux.git
-	./minilibx-linux/configure
-	sudo cp minilibx-linux/libmlx.a /usr/local/lib/.
-	sudo cp minilibx-linux/libmlx_Linux.a /usr/local/lib/.
-	sudo cp minilibx-linux/mlx.h /usr/local/include/.
+	cd minilibx-linux
+	./configure
+	sudo cp libmlx.a /usr/local/lib/.
+	sudo cp libmlx_Linux.a /usr/local/lib/.
+	sudo cp mlx.h /usr/local/include/.
 	sudo mkdir /usr/local/man/man3
-	sudo cp minilibx-linux/man/man3/mlx*.1 /usr/local/man/man3/.
+	sudo cp man/man3/mlx*.1 /usr/local/man/man3/.
+	cd ..
 	rm -rf minilibx-linux
 
 clean:
