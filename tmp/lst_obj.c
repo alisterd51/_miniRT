@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:55:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/25 18:15:10 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/11/22 15:57:14 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_obj	*init_obj(void)
 
 void	free_obj(t_obj **obj)
 {
+	if (!*obj)
+		return ;
 	free_res(*obj);
 	free_amb_light(*obj);
 	free_lst_cam(*obj);

@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:36:55 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/22 01:59:41 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/22 15:01:57 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	init_amb_light(char *line, t_obj *obj)
 	while (ft_isspace(*line))
 		line++;
 	obj->amb_light->color = read_line_to_color(&line);
-	if (*line)
+	if (*line || obj->amb_light->color.depth)
 		return (exit_errcode(AMB_LIGHT_ERROR_LINE));
 }
 

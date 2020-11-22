@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/22 02:01:28 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/22 17:59:17 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define RES_ERROR_LINE					""
 # define TO_MANY_AMB_LIGHT_DECLARATION	""
 # define AMB_LIGHT_ERROR_LINE			""
+# define CAM_ERROR_LINE					""
 
 /*
 ** exit_err.c
