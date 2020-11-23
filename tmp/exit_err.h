@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/23 15:53:08 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:53:56 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define LIGHT_ERROR_LINE				""
 # define SPHERE_ERROR_LINE				""
 # define SQUARE_ERROR_LINE				""
+# define CYLINDER_ERROR_LINE			""
 
 /*
 ** exit_err.c
