@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:49:29 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 13:06:38 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 14:41:08 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "read_line.h"
 #include "libft.h"
 
-static void add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
+static void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
 {
 	t_sphere	*tmp_sphere;
 
@@ -40,7 +40,7 @@ void		init_lst_sphere(char *line, t_obj *obj)
 	sphere->coord = read_line_to_vector(&line);
 	sphere->diameter = read_line_to_double(&line);
 	sphere->color = read_line_to_color(&line);
-	if (*line && !ft_isspace(*line))
+	if ((*line && !ft_isspace(*line)) || sphere->color.depth)
 		return (exit_errcode(SPHERE_ERROR_LINE));
 	sphere->parameter = read_line_to_string(&line);
 	if (!sphere->parameter)
