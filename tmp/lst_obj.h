@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/23 17:27:50 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 18:13:51 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	free_lst_cylinder(t_obj *obj);
 /*
 ** lst_triangle.c
 */
-void	add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj);
+void	add_end_lst_triangle(t_triangle *new_triangle, t_obj *obj);
 void	init_lst_triangle(char *line, t_obj *obj);
 void	free_lst_triangle(t_obj *obj);
 
