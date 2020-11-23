@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/23 15:30:01 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:27:50 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,42 +37,49 @@ void	free_amb_light(t_obj *obj);
 /*
 ** lst_cam.c
 */
+void	add_end_lst_cam(t_cam *new_cam, t_obj *obj);
 void	init_lst_cam(char *line, t_obj *obj);
 void	free_lst_cam(t_obj *obj);
 
 /*
 ** lst_light.c
 */
+void	add_end_lst_light(t_light *new_light, t_obj *obj);
 void	init_lst_light(char *line, t_obj *obj);
 void	free_lst_light(t_obj *obj);
 
 /*
 ** lst_sphere.c
 */
+void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj);
 void	init_lst_sphere(char *line, t_obj *obj);
 void	free_lst_sphere(t_obj *obj);
 
 /*
 ** lst_plane.c
 */
+void	add_end_lst_plane(t_plane *new_plane, t_obj *obj);
 void	init_lst_plane(char *line, t_obj *obj);
 void	free_lst_plane(t_obj *obj);
 
 /*
 ** lst_square.c
 */
+void	add_end_lst_square(t_square *new_square, t_obj *obj);
 void	init_lst_square(char *line, t_obj *obj);
 void	free_lst_square(t_obj *obj);
 
 /*
 ** lst_cylinder.c
 */
+void	add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj);
 void	init_lst_cylinder(char *line, t_obj *obj);
 void	free_lst_cylinder(t_obj *obj);
 
 /*
 ** lst_triangle.c
 */
+void	add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj);
 void	init_lst_triangle(char *line, t_obj *obj);
 void	free_lst_triangle(t_obj *obj);
 
@@ -89,6 +96,7 @@ void	init_lst_pyramid(char *line, t_obj *obj);
 /*
 ** lst_cone.c
 */
+void	add_end_lst_cone(t_cone *new_cone, t_obj *obj);
 void	init_lst_cone(char *line, t_obj *obj);
 void	free_lst_cone(t_obj *obj);
 

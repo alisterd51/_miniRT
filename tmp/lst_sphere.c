@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:49:29 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 14:41:08 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:31:10 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "read_line.h"
 #include "libft.h"
 
-static void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
+void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
 {
 	t_sphere	*tmp_sphere;
 
@@ -31,7 +31,7 @@ static void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
 	}
 }
 
-void		init_lst_sphere(char *line, t_obj *obj)
+void	init_lst_sphere(char *line, t_obj *obj)
 {
 	t_sphere	*sphere;
 
@@ -49,7 +49,7 @@ void		init_lst_sphere(char *line, t_obj *obj)
 	add_end_lst_sphere(sphere, obj);
 }
 
-void		free_lst_sphere(t_obj *obj)
+void	free_lst_sphere(t_obj *obj)
 {
 	t_sphere	*sphere;
 	t_sphere	*next_sphere;

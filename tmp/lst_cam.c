@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 13:02:00 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:33:07 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "read_line.h"
 #include "libft.h"
 
-static void	add_end_lst_cam(t_cam *new_cam, t_obj *obj)
+void	add_end_lst_cam(t_cam *new_cam, t_obj *obj)
 {
 	t_cam	*tmp_cam;
 
@@ -31,7 +31,7 @@ static void	add_end_lst_cam(t_cam *new_cam, t_obj *obj)
 	}
 }
 
-void		init_lst_cam(char *line, t_obj *obj)
+void	init_lst_cam(char *line, t_obj *obj)
 {
 	t_cam	*cam;
 
@@ -49,7 +49,7 @@ void		init_lst_cam(char *line, t_obj *obj)
 	add_end_lst_cam(cam, obj);
 }
 
-void		free_lst_cam(t_obj *obj)
+void	free_lst_cam(t_obj *obj)
 {
 	t_cam	*cam;
 	t_cam	*next_cam;

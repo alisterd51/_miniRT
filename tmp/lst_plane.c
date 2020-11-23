@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:25:07 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 15:12:28 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:30:37 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "read_line.h"
 #include "libft.h"
 
-static void	add_end_lst_plane(t_plane *new_plane, t_obj *obj)
+void	add_end_lst_plane(t_plane *new_plane, t_obj *obj)
 {
 	t_plane	*tmp_plane;
 
@@ -31,7 +31,7 @@ static void	add_end_lst_plane(t_plane *new_plane, t_obj *obj)
 	}
 }
 
-void		init_lst_plane(char *line, t_obj *obj)
+void	init_lst_plane(char *line, t_obj *obj)
 {
 	t_plane	*plane;
 
@@ -46,7 +46,7 @@ void		init_lst_plane(char *line, t_obj *obj)
 	add_end_lst_plane(plane, obj);
 }
 
-void		free_lst_plane(t_obj *obj)
+void	free_lst_plane(t_obj *obj)
 {
 	t_plane	*plane;
 	t_plane	*next_plane;

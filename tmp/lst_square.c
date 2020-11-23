@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:32:16 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 15:51:57 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 17:30:00 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "read_line.h"
 #include "libft.h"
 
-static void	add_end_lst_square(t_square *new_square, t_obj *obj)
+void	add_end_lst_square(t_square *new_square, t_obj *obj)
 {
 	t_square	*tmp_square;
 
@@ -31,7 +31,7 @@ static void	add_end_lst_square(t_square *new_square, t_obj *obj)
 	}
 }
 
-void		init_lst_square(char *line, t_obj *obj)
+void	init_lst_square(char *line, t_obj *obj)
 {
 	t_square	*square;
 
@@ -47,7 +47,7 @@ void		init_lst_square(char *line, t_obj *obj)
 	add_end_lst_square(square, obj);
 }
 
-void		free_lst_square(t_obj *obj)
+void	free_lst_square(t_obj *obj)
 {
 	t_square	*square;
 	t_square	*next_square;
