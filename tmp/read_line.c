@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:08:14 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/22 17:39:05 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/22 20:43:26 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,29 @@ t_color		read_line_to_color(char **line)
 	if (is_not_char(tmp_value) || (**line && ft_isspace(**line)))
 		ret.depth = 0xFF;
 	ret.b = int_to_char(tmp_value);
+	return (ret);
+}
+
+t_vector	read_line_to_vector(char **line)
+{
+	t_vector	ret;
+
+	ret.x = read_line_to_double(line);
+	if (**line == ',')
+		(*line)++;
+	ret.y = read_line_to_double(line);
+	if (**line == ',')
+		(*line)++;
+	ret.z = read_line_to_double(line);
+	return (ret);
+}
+
+char		*read_line_to_string(char **line)
+{
+	char	*ret;
+
+	while (ft_isspace(**line))
+		(*line)++;
+	ret = ft_strdup(*line);
 	return (ret);
 }

@@ -6,13 +6,12 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/11/21 14:23:15 by antoine          ###   ########.fr        #
+#    Updated: 2020/11/22 22:57:02 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
-FLAGS		= 
-#-Wall -Wextra -Werror \
+FLAGS		= -Wall -Wextra -Werror \
 			  -O3
 MLX_LINUX	= -lm -lmlx -lXext -lX11 -lpthread
 MLX_MAC		= -lmlx -framework OpenGL -framework AppKit
@@ -51,12 +50,12 @@ SRCS		= $(addprefix srcs/,$(C_FILES)) \
 OBJS		= $(SRCS:.c=.o)
 
 .c.o:
-	gcc $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
+	clang $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	gcc $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
+	clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
 
 sub-make:
 	make -C libft all

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 12:48:24 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/30 12:09:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/11/22 22:52:07 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int rt_inter_cylinder(const t_ray ray, const t_cylinder cy, t_vector *p,
 	int		ret;
 
 	ret = 0;
+	(void)ret;
 	pl.c = cy.c;
 	pl.o = cy.c;
 	sub_ray.o = inter;
@@ -76,8 +77,8 @@ int rt_inter_cylinder(const t_ray ray, const t_cylinder cy, t_vector *p,
 	}
 	sub_ray.d = mult_vector(-1.0, cy.o);
 	sub_t = 10e99;
-    if ((rt_inter_plane_s(sub_ray, pl, &sub_t)))
-        return (0);
+	if (rt_inter_plane_s(sub_ray, pl, &sub_t))
+		return (0);
 	if (sub_t <= cy.height / 2.0)//
 	{
 		//vue dans dessous
