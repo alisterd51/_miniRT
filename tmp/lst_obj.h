@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/22 01:57:24 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/23 15:30:01 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	init_lst_plane(char *line, t_obj *obj);
 void	free_lst_plane(t_obj *obj);
 
 /*
-** lst_quare.c
+** lst_square.c
 */
 void	init_lst_square(char *line, t_obj *obj);
 void	free_lst_square(t_obj *obj);
