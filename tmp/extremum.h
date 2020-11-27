@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   extremum.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/27 00:58:04 by antoine          ###   ########.fr       */
+/*   Created: 2020/07/09 19:23:54 by anclarma          #+#    #+#             */
+/*   Updated: 2020/07/09 21:02:39 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "lst_obj.h"
-#include "parsing.h"
-#include "exit_err.h"
+#ifndef EXTREMUM_H
+# define EXTREMUM_H
 
-#include <stdio.h>
+double	max(double a, double b);
+double	min(double a, double b);
 
-int	main(int ac, char **av)
-{
-	t_obj	*obj;
-
-	if (!(obj = init_obj()))
-		exit_errcode(MALLOC_ERROR);
-	if (ac != 2)
-	{
-		write(2, "error\n", 6);
-		return (1);
-	}
-	parsing(av[1], obj);
-	print_obj(obj);
-	free_obj(&obj);
-	return (0);
-}
+#endif

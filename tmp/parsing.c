@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 17:06:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/25 18:03:12 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/11/27 00:57:49 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static int	parse_line2(char *line, t_obj *obj)
 
 static void	parse_line(char *line, t_obj *obj)
 {
-	if (!line || !*line)
+	if (!line)
 		return exit_errcode(ERROR_LINE);
-	else if (*line == '#')
+	else if (*line == '#' || !*line)
 		return ;
 	else if (!*(line + 1))
 		return exit_errcode(ERROR_LINE);

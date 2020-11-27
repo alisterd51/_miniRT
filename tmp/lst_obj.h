@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/23 18:13:51 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/24 10:15:52 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	free_lst_triangle(t_obj *obj);
 void	init_lst_cube(char *line, t_obj *obj);
 
 /*
-** lst_cube.c
+** lst_pyramid.c
 */
 void	init_lst_pyramid(char *line, t_obj *obj);
 

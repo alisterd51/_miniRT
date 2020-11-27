@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:55:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/22 15:57:14 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/27 01:12:05 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,21 @@ void	free_obj(t_obj **obj)
 }
 
 //fonction de debug, a retirer avant le rendu
+void	print_res(t_res *res)
+{
+	printf("res: x_size = %d, y_size = %d\n", res->x_size, obj->res->x_size);
+}
+
 void	print_obj(t_obj *obj)
 {
-	printf("res: x_size = %d, y_size = %d\n", obj->res->x_size, obj->res->x_size);
+	print_res(obj->res);
+	print_amb_light(obj->amb_light);
+	print_lst_cam(obj->lst_cam);
+	print_lst_light(obj->lst_light;
+	print_lst_sphere(obj->lst_sphere);
+	print_lst_plane(obj->lst_plane);
+	print_lst_square(obj->lst_square);
+	print_lst_cylinder(obj->lst_cylinder);
+	print_lst_triangle(obj->lst_triangle);
+	print_lst_cone(obj->lst_cone);
 }
