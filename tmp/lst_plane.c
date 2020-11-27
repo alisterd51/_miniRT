@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:25:07 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 17:30:37 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/27 14:09:33 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init_lst_plane(char *line, t_obj *obj)
 	plane->color = read_line_to_color(&line);
 	plane->next = NULL;
 	if (*line || plane->color.depth)
-		return (exit_errcode(LIGHT_ERROR_LINE));
+		return (exit_errcode(PLANE_ERROR_LINE));
 	add_end_lst_plane(plane, obj);
 }
 

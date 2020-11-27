@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/27 00:44:05 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/27 14:10:09 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@
 # define AMB_LIGHT_ERROR_LINE			"b"
 # define CAM_ERROR_LINE					"c"
 # define LIGHT_ERROR_LINE				"d"
-# define SPHERE_ERROR_LINE				"e"
-# define SQUARE_ERROR_LINE				"f"
-# define CYLINDER_ERROR_LINE			"10"
-# define TRIANGLE_ERROR_LINE			"11"
-# define CONE_ERROR_LINE				"12"
-# define CUBE_ERROR_LINE				"13"
-# define PYRAMID_ERROR_LINE				"14"
+# define PLANE_ERROR_LINE				"e"
+# define SPHERE_ERROR_LINE				"f"
+# define SQUARE_ERROR_LINE				"10"
+# define CYLINDER_ERROR_LINE			"11"
+# define TRIANGLE_ERROR_LINE			"12"
+# define CONE_ERROR_LINE				"13"
+# define CUBE_ERROR_LINE				"14"
+# define PYRAMID_ERROR_LINE				"15"
 
 /*
 ** exit_err.c
