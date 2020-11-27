@@ -6,13 +6,14 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/27 14:10:09 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/27 17:12:31 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXIT_ERR_H
 # define EXIT_ERR_H
 
+# define ARGC_ERROR						"0"
 # define MALLOC_ERROR					"1"
 # define ERROR_LINE						"2"
 # define UNRECOGNIZED_LINE				"3"

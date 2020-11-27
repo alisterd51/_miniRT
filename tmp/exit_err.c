@@ -6,12 +6,13 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 00:40:10 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/22 00:47:08 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/27 17:16:31 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "lst_obj.h"
 #include "libft.h"
 
 /*

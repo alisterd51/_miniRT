@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:17:04 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/27 00:19:24 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/27 17:57:09 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	test(t_square base, t_obj *obj)
 		square->coord = add_vector(base.coord, mult_vector(base.side / 2.0, square->normal));
 		square->side = base.side;
 		square->color = base.color;
+		square->next = NULL;
 		add_end_lst_square(square, obj);
 	}
 }
