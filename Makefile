@@ -6,13 +6,13 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/11/29 15:50:58 by antoine          ###   ########.fr        #
+#    Updated: 2020/11/29 19:49:36 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
 FLAGS		= -Wall -Wextra -Werror \
-			  -O3
+			  -Ofast
 MLX_LINUX	= -lm -lmlx -lXext -lX11 -lpthread
 MLX_MAC		= -lmlx -framework OpenGL -framework AppKit
 INCLUDES	= -I /usr/local/include \

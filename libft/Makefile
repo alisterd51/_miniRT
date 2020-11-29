@@ -6,12 +6,12 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 23:29:46 by anclarma          #+#    #+#              #
-#    Updated: 2020/08/15 21:42:39 by anclarma         ###   ########.fr        #
+#    Updated: 2020/11/29 19:50:40 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -O3
 SRCS		= ft_printf.c \
 		  ft_ifforest.c \
 		  ft_out1.c \
@@ -73,7 +73,7 @@ SRCS		= ft_printf.c \
 OBJS		= ${SRCS:.c=.o}
 
 .c.o:
-	@(gcc ${FLAGS} -c $< -o ${<:.c=.o})
+	@(clang ${FLAGS} -c $< -o ${<:.c=.o})
 
 all:		$(NAME)
 
