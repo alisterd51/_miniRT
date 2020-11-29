@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extremum.h                                         :+:      :+:    :+:   */
+/*   read_line.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/09 19:23:54 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/09 21:02:39 by anclarma         ###   ########.fr       */
+/*   Created: 2020/10/21 13:54:10 by anclarma          #+#    #+#             */
+/*   Updated: 2020/11/29 16:00:14 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTREMUM_H
-# define EXTREMUM_H
+#ifndef READ_LINE_H
+# define READ_LINE_H
 
-double	max(double a, double b);
-double	min(double a, double b);
+# include "struct.h"
+
+/*
+** read_line.c
+*/
+int			read_line_to_int(char **line);
+double		read_line_to_double(char **line);
+t_color		read_line_to_color(char **line);
+t_vector	read_line_to_vector(char **line);
+char		*read_line_to_string(char **line);
 
 #endif

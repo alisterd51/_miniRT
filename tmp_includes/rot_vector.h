@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 23:32:22 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/26 23:37:21 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/29 16:08:12 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "struct.h"
 
+/*
+** rot_vector.c
+*/
 t_vector	rot_x_vector(double rot, t_vector vector);
 t_vector	rot_y_vector(double rot, t_vector vector);
 t_vector	rot_z_vector(double rot, t_vector vector);

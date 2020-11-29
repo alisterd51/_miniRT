@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/11/22 22:57:02 by antoine          ###   ########.fr        #
+#    Updated: 2020/11/29 15:50:58 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,10 @@ SRCS		= $(addprefix srcs/,$(C_FILES)) \
 			  ./libft/libft.a
 OBJS		= $(SRCS:.c=.o)
 
+TMP_C		= main.c lst_obj.c parsing.c res.c exit_err.c to_char.c read_line.c check_file.c amb_light.c lst_cam.c lst_light.c lst_sphere.c lst_plane.c lst_square.c lst_cylinder.c lst_triangle.c lst_cone.c rot_vector.c lst_cube.c vector1.c vector2.c vector3.c extremum.c lst_pyramid.c
+TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
+			  ./libft/libft.a
+
 .c.o:
 	clang $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
 
@@ -82,5 +86,8 @@ fclean:
 	rm -f $(NAME)
 
 re:			fclean all
+
+debug:
+	clang -Wall -Wextra -Werror -lm -fsanitize=address -g -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX)
 
 .PHONY:	all	$(NAME) clean fclean re install
