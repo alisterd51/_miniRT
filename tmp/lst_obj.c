@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:55:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/27 15:36:51 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/28 23:33:04 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,8 +147,8 @@ void	print_lst_triangle(t_triangle *triangle)
 	while (triangle)
 	{
 		printf("triangle: coord1 = %.1f,%.1f,%.1f", triangle->coord1.x, triangle->coord1.y, triangle->coord1.z);
-		printf("triangle: coord2 = %.1f,%.1f,%.1f", triangle->coord2.x, triangle->coord2.y, triangle->coord2.z);
-		printf("triangle: coord3 = %.1f,%.1f,%.1f", triangle->coord3.x, triangle->coord3.y, triangle->coord3.z);
+		printf(", coord2 = %.1f,%.1f,%.1f", triangle->coord2.x, triangle->coord2.y, triangle->coord2.z);
+		printf(", coord3 = %.1f,%.1f,%.1f", triangle->coord3.x, triangle->coord3.y, triangle->coord3.z);
 		printf(", color = %hhu,%hhu,%hhu", triangle->color.r, triangle->color.g, triangle->color.b);
 		printf(", next = %p\n", triangle->next);
 		triangle = triangle->next;
