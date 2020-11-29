@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:36:55 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/22 15:01:57 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/29 23:31:11 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@
 #include "read_line.h"
 
 /*
-**
+** DESCRIPTION
+**	Cette fonction lit une ligne normalise et parametre la lumiere ambiante
+**	de la scene.
+** ERRORS
+**	En cas de parametre incorecte, la fonction exit_errcode est appelle avec
+**	un code approprie.
 */
+
 void	init_amb_light(char *line, t_obj *obj)
 {
 	if (obj->amb_light)
 		return (exit_errcode(TO_MANY_AMB_LIGHT_DECLARATION));
-	if (!(obj->amb_light = (t_amb_light *)malloc(sizeof(t_amb_light))))
+	obj->amb_light = (t_amb_light *)malloc(sizeof(t_amb_light));
+	if (!obj->amb_light)
 		return (exit_errcode(MALLOC_ERROR));
 	while (ft_isspace(*line))
 		line++;
@@ -37,8 +44,10 @@ void	init_amb_light(char *line, t_obj *obj)
 }
 
 /*
-**
+** DESCRIPTION
+**	la fonction libere la mémoire de la lumiere ambiante de la scene.
 */
+
 void	free_amb_light(t_obj *obj)
 {
 	free(obj->amb_light);

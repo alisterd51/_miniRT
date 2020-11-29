@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 17:33:07 by antoine          ###   ########.fr       */
+/*   Updated: 2020/11/30 00:02:09 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+
+/*
+** DESCRIPTION
+**	ajoute la camera en parametre a la liste des cameras de la scene.
+*/
 
 void	add_end_lst_cam(t_cam *new_cam, t_obj *obj)
 {
@@ -31,11 +36,21 @@ void	add_end_lst_cam(t_cam *new_cam, t_obj *obj)
 	}
 }
 
+/*
+** DESCRIPTION
+**	Cette fonction lit une ligne normalise et parametre une camera
+**	de la scene.
+** ERRORS
+**	En cas de parametre incorecte, la fonction exit_errcode est appelle avec
+**	un code approprie.
+*/
+
 void	init_lst_cam(char *line, t_obj *obj)
 {
 	t_cam	*cam;
 
-	if (!(cam = (t_cam *)malloc(sizeof(t_cam))))
+	cam = (t_cam *)malloc(sizeof(t_cam));
+	if (!cam)
 		return (exit_errcode(MALLOC_ERROR));
 	cam->coord = read_line_to_vector(&line);
 	cam->normal = read_line_to_vector(&line);
@@ -48,6 +63,11 @@ void	init_lst_cam(char *line, t_obj *obj)
 	cam->next = NULL;
 	add_end_lst_cam(cam, obj);
 }
+
+/*
+** DESCRIPTION
+**	La fonction libere toute la liste de camera de la scene.
+*/
 
 void	free_lst_cam(t_obj *obj)
 {
