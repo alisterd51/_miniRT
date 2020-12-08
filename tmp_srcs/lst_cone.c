@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 18:51:54 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:13:47 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	add_end_lst_cone(t_cone *new_cone, t_obj *obj)
 {
-	t_cone    *tmp_cone;
+	t_cone	*tmp_cone;
 
 	if (!obj->lst_cone)
 		obj->lst_cone = new_cone;
@@ -33,9 +33,10 @@ void	add_end_lst_cone(t_cone *new_cone, t_obj *obj)
 
 void	init_lst_cone(char *line, t_obj *obj)
 {
-	t_cone    *cone;
+	t_cone	*cone;
 
-	if (!(cone = (t_cone *)malloc(sizeof(t_cone))))
+	cone = (t_cone *)malloc(sizeof(t_cone));
+	if (!cone)
 		return (exit_errcode(MALLOC_ERROR));
 	cone->coord = read_line_to_vector(&line);
 	cone->normal = read_line_to_vector(&line);
@@ -50,8 +51,8 @@ void	init_lst_cone(char *line, t_obj *obj)
 
 void	free_lst_cone(t_obj *obj)
 {
-	t_cone    *cone;
-	t_cone    *next_cone;
+	t_cone	*cone;
+	t_cone	*next_cone;
 
 	cone = obj->lst_cone;
 	while (cone)

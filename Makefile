@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2020/11/29 19:49:36 by antoine          ###   ########.fr        #
+#    Updated: 2020/12/08 16:44:16 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,7 @@ fclean:
 
 re:			fclean all
 
-debug:
-	clang -Wall -Wextra -Werror -lm -fsanitize=address -g -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX)
+debug:		sub-make
+	clang -Wall -Wextra -Werror -lm -fsanitize=address -g -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX) -o test_parseur.out
 
 .PHONY:	all	$(NAME) clean fclean re install

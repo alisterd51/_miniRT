@@ -2,7 +2,7 @@ Pour tester le parseur:
 -compiler avec:
 	make miniRT && make debug
 -tester avec (ou n'importe quelle .rt):
-	./a.out scenes/legend.rt
+	./test_parseur.out scenes/legend.rt
 
 Pour tester le rendeur 3d:
 -compiler avec:

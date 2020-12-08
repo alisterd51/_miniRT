@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/27 17:12:02 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/07 15:59:42 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(int ac, char **av)
 {
 	t_obj	*obj;
 
-	if (!(obj = init_obj()))
+	obj = init_obj();
+	if (!obj)
 		exit_errcode(MALLOC_ERROR);
 	if (ac != 2)
 	{

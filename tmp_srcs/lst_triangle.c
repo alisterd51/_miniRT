@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/23 18:56:37 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 15:59:37 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	add_end_lst_triangle(t_triangle *new_triangle, t_obj *obj)
 {
-	t_triangle    *tmp_triangle;
+	t_triangle	*tmp_triangle;
 
 	if (!obj->lst_triangle)
 		obj->lst_triangle = new_triangle;
@@ -33,9 +33,10 @@ void	add_end_lst_triangle(t_triangle *new_triangle, t_obj *obj)
 
 void	init_lst_triangle(char *line, t_obj *obj)
 {
-	t_triangle    *triangle;
+	t_triangle	*triangle;
 
-	if (!(triangle = (t_triangle *)malloc(sizeof(t_triangle))))
+	triangle = (t_triangle *)malloc(sizeof(t_triangle));
+	if (!triangle)
 		return (exit_errcode(MALLOC_ERROR));
 	triangle->coord1 = read_line_to_vector(&line);
 	triangle->coord2 = read_line_to_vector(&line);
@@ -49,8 +50,8 @@ void	init_lst_triangle(char *line, t_obj *obj)
 
 void	free_lst_triangle(t_obj *obj)
 {
-	t_triangle    *triangle;
-	t_triangle    *next_triangle;
+	t_triangle	*triangle;
+	t_triangle	*next_triangle;
 
 	triangle = obj->lst_triangle;
 	while (triangle)

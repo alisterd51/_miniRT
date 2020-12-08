@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 00:06:15 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/28 23:31:52 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:30:46 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@
 /*
 ** manque la generation des 4 triangles
 */
+
 void	init_lst_pyramid(char *line, t_obj *obj)
 {
 	t_square	*base;
 	t_triangle	*triangle;
 	double		height;
 
-	if (!(base = (t_square *)malloc(sizeof(t_square))))
+	base = (t_square *)malloc(sizeof(t_square));
+	if (!base)
 		return (exit_errcode(MALLOC_ERROR));
 	base->coord = read_line_to_vector(&line);
 	base->normal = read_line_to_vector(&line);

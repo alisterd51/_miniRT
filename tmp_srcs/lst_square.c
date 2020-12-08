@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:32:16 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/27 17:51:51 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 15:37:38 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	init_lst_square(char *line, t_obj *obj)
 {
 	t_square	*square;
 
-	if (!(square = (t_square *)malloc(sizeof(t_square))))
+	square = (t_square *)malloc(sizeof(t_square));
+	if (!square)
 		return (exit_errcode(MALLOC_ERROR));
 	square->coord = read_line_to_vector(&line);
 	square->normal = read_line_to_vector(&line);

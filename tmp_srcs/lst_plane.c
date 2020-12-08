@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:25:07 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/27 14:09:33 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:20:42 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	init_lst_plane(char *line, t_obj *obj)
 {
 	t_plane	*plane;
 
-	if (!(plane = (t_plane *)malloc(sizeof(t_plane))))
+	plane = (t_plane *)malloc(sizeof(t_plane));
+	if (!plane)
 		return (exit_errcode(MALLOC_ERROR));
 	plane->coord = read_line_to_vector(&line);
 	plane->normal = read_line_to_vector(&line);

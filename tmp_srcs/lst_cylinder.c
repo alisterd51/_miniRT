@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:33:20 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/27 00:56:45 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:18:49 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	init_lst_cylinder(char *line, t_obj *obj)
 {
 	t_cylinder	*cylinder;
 
-	if (!(cylinder = (t_cylinder *)malloc(sizeof(t_cylinder))))
+	cylinder = (t_cylinder *)malloc(sizeof(t_cylinder));
+	if (!cylinder)
 		return (exit_errcode(MALLOC_ERROR));
 	cylinder->coord = read_line_to_vector(&line);
 	cylinder->normal = read_line_to_vector(&line);

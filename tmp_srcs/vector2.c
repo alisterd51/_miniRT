@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:13:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/09 21:01:59 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/12/08 16:34:04 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ double		norm2(const t_vector vector)
 
 t_vector	normalize(t_vector vector)
 {
-	const double	norm = sqrt(norm2(vector));
-	t_vector		vec;
+	double		norm;
+	t_vector	vec;
 
+	norm = sqrt(norm2(vector));
 	vec.x = vector.x / norm;
 	vec.y = vector.y / norm;
 	vec.z = vector.z / norm;

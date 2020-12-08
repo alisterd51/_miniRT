@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 12:44:16 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/29 16:47:39 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/07 17:20:22 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	init_res(char *line, t_obj *obj)
 {
 	if (obj->res)
 		return (exit_errcode(TO_MANY_RES_DECLARATION));
-	if (!(obj->res = (t_res *)malloc(sizeof(t_res))))
+	obj->res = (t_res *)malloc(sizeof(t_res));
+	if (!obj->res)
 		return (exit_errcode(MALLOC_ERROR));
 	while (ft_isspace(*line))
 		line++;

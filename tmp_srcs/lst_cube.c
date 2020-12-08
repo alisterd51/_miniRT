@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:17:04 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/27 17:57:09 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:17:06 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 /*
 ** ne fonctionne pas
 */
+
 void	test(t_square base, t_obj *obj)
 {
 	t_square	*square;
@@ -37,10 +38,12 @@ void	test(t_square base, t_obj *obj)
 	i = -1;
 	while (++i < 6)
 	{
-		if (!(square = (t_square *)malloc(sizeof(t_square))))
+		square = (t_square *)malloc(sizeof(t_square));
+		if (!square)
 			return (exit_errcode(MALLOC_ERROR));
 		square->normal = rot_vector(rot[i], base.normal);
-		square->coord = add_vector(base.coord, mult_vector(base.side / 2.0, square->normal));
+		square->coord = add_vector(base.coord,
+				mult_vector(base.side / 2.0, square->normal));
 		square->side = base.side;
 		square->color = base.color;
 		square->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:55:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/28 23:33:04 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:01:56 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_obj	*init_obj(void)
 {
 	t_obj	*obj;
 
-	if (!(obj = (t_obj *)malloc(sizeof(t_obj))))
+	obj = (t_obj *)malloc(sizeof(t_obj));
+	if (!obj)
 		return (NULL);
 	obj->res = NULL;
 	obj->amb_light = NULL;

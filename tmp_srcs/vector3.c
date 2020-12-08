@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/29 16:16:38 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 16:39:08 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ t_vector	int_to_vector(int color)
 
 int			vector_to_int(t_vector vec)
 {
-	int			ret;
+	int	ret;
 
-	ret = (int)max(0.0, min(255.0, pow(vec.x, 1 / 2.2))) +
-		(int)max(0.0, min(255.0, pow(vec.y, 1 / 2.2))) * 256 +
-		(int)max(0.0, min(255.0, pow(vec.z, 1 / 2.2))) * 256 * 256;
+	ret = (int)max(0.0, min(255.0, pow(vec.x, 1 / 2.2)))
+		+ (int)max(0.0, min(255.0, pow(vec.y, 1 / 2.2))) * 256
+		+ (int)max(0.0, min(255.0, pow(vec.z, 1 / 2.2))) * 256 * 256;
 	return (ret);
 }
 
 int			vector_to_ints(t_vector vec)
 {
-	int			ret;
+	int	ret;
 
-	ret = (int)max(0.0, min(255.0, vec.x)) +
-		(int)max(0.0, min(255.0, vec.y)) * 256 +
-		(int)max(0.0, min(255.0, vec.z)) * 256 * 256;
+	ret = (int)max(0.0, min(255.0, vec.x))
+		+ (int)max(0.0, min(255.0, vec.y)) * 256
+		+ (int)max(0.0, min(255.0, vec.z)) * 256 * 256;
 	return (ret);
 }

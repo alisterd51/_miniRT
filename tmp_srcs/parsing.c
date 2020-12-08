@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 17:06:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/27 00:57:49 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 15:33:49 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,19 @@ static int	parse_line2(char *line, t_obj *obj)
 static void	parse_line(char *line, t_obj *obj)
 {
 	if (!line)
-		return exit_errcode(ERROR_LINE);
+		return (exit_errcode(ERROR_LINE));
 	else if (*line == '#' || !*line)
 		return ;
 	else if (!*(line + 1))
-		return exit_errcode(ERROR_LINE);
+		return (exit_errcode(ERROR_LINE));
 	else if (parse_line1(line, obj))
 		return ;
 	else if (!*(line + 2))
-		return exit_errcode(ERROR_LINE);
+		return (exit_errcode(ERROR_LINE));
 	else if (parse_line2(line, obj))
 		return ;
 	else
-		return exit_errcode(UNRECOGNIZED_LINE);
+		return (exit_errcode(UNRECOGNIZED_LINE));
 }
 
 void		parsing(char *param, t_obj *obj)
@@ -82,12 +82,15 @@ void		parsing(char *param, t_obj *obj)
 
 	if (check_file_ext(param, "rt"))
 		return (exit_errcode(NOT_RT_FILE));
-	if ((fd = open(param, O_RDONLY)) == -1)
+	fd = open(param, O_RDONLY);
+	if (fd == -1)
 		return (exit_errcode(OPEN_ERROR));
-	while ((ret_gnl = get_next_line(fd, &line)) == 1)
+	ret_gnl = get_next_line(fd, &line);
+	while (ret_gnl)
 	{
 		parse_line(line, obj);
 		free(line);
+		ret_gnl = get_next_line(fd, &line);
 	}
 	if (ret_gnl == -1)
 		return (exit_errcode(GNL_ERROR));

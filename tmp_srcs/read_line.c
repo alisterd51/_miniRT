@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:08:14 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/27 00:56:21 by antoine          ###   ########.fr       */
+/*   Updated: 2020/12/08 15:35:32 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 /*
 ** DESCRIPTION
 */
+
 int			read_line_to_int(char **line)
 {
 	int		ret;
@@ -38,7 +39,7 @@ double		read_line_to_double(char **line)
 
 	while (ft_isspace(**line))
 		(*line)++;
-	ret = ft_atof(*line);	
+	ret = ft_atof(*line);
 	if (**line == '+' || **line == '-')
 		(*line)++;
 	while (ft_isdigit(**line))
