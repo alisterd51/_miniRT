@@ -5,7 +5,7 @@ R					1000			500
 A					0.2				255,255,255
 
 #Camera:			coordinates		normal			fov			parameter
-c					-50.0,0,20		0,0,1			70
+c					-50.0,0,20		0,0,1			70			aa=16
 
 #Light:				coordinates		ratio			color
 l					-40.0,50.0,0.0	0.6				10,0,255

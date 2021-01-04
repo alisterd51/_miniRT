@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 11:02:21 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/19 17:56:14 by anclarma         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:00:49 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <mlx.h>
 
-#define PARAM_AA	4
+#define PARAM_AA	24
 #define PARAM_IAA	16
 
 static int	moyenne(int param_aa, t_mlx *mlx, int x, int y)
