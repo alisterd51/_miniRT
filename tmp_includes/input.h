@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/05 16:07:58 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/05 16:13:04 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@
 ** LINUX_WSL_INPUT
 */
 /*
-# define UP_KEY		65362
-# define DOWN_KEY	65364
-# define LEFT_KEY	65361
-# define RIGHT_KEY	65363
-# define Z_KEY		122
-# define S_KEY		115
-# define R_KEY		114
-# define Q_KEY		113
-# define D_KEY		100
-# define ESC_KEY	65307
+** # define UP_KEY		65362
+** # define DOWN_KEY	65364
+** # define LEFT_KEY	65361
+** # define RIGHT_KEY	65363
+** # define Z_KEY		122
+** # define S_KEY		115
+** # define R_KEY		114
+** # define Q_KEY		113
+** # define D_KEY		100
+** # define ESC_KEY	65307
+*/
+
+/*
+** input.c
 */
 int	deal_mouse(int button, int x, int y, t_mlx *mlx);
 int	deal_key(int key, t_mlx *mlx);

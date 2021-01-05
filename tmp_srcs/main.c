@@ -6,21 +6,49 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2020/12/08 16:57:11 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/05 17:44:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
+#include <mlx.h>
 #include "lst_obj.h"
 #include "parsing.h"
 #include "exit_err.h"
+#include "input.h"
 
-#include <stdio.h>
 #include "tmp_lst_obj.h"
+
+static t_mlx	*init_mlx(t_obj *obj)
+{
+	t_mlx	*mlx;
+	int		i;
+
+	mlx = (t_mlx *)malloc(sizeof(t_mlx));
+	if (!mlx)
+		exit_errcode(MALLOC_ERROR);
+	mlx->x_size = obj->res->x_size;//si x_size > x_size_max alors x_size = x_size_max
+	mlx->y_size = obj->res->y_size;//si y_size > y_size_max alors y_size = y_size_max
+	mlx->mlx_ptr = mlx_init();
+	mlx->size_line = obj->res->x_size * 4;
+	mlx->bpp = 32;
+	mlx->endian = 1;
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->x_size, mlx->y_size);
+	mlx->image = (int *)mlx_get_data_addr(mlx->img_ptr,
+			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
+	mlx->pixel = (int **)malloc(sizeof(int *) * mlx->y_size);
+    i = -1;
+    while (++i < mlx->y_size)
+        mlx->pixel[i] = (int *)malloc(sizeof(int) * mlx->x_size);
+	mlx->obj = obj;
+	return (mlx);
+}
 
 int	main(int ac, char **av)
 {
 	t_obj	*obj;
+	t_mlx	*mlx;
 
 	obj = init_obj();
 	if (!obj)
@@ -32,6 +60,9 @@ int	main(int ac, char **av)
 	}
 	parsing(av[1], obj);
 	print_obj(obj);
-	free_obj(&obj);
+	mlx = init_mlx(obj);
+	mlx_hook(mlx->win_ptr, 2, (1L<<0), ft_keypress, (void *)&mlx);
+	mlx_hook(mlx->win_ptr, 17, (1L<<17), exit_hook, (void *)0);
+	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2020/10/25 16:23:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/05 16:27:00 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,21 @@ struct			s_obj
 	t_cylinder	*lst_cylinder;
 	t_triangle	*lst_triangle;
 	t_cone		*lst_cone;
+};
+typedef struct s_mlx	t_mlx;
+struct			s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
+	int		*image;
+	int		x_size;
+	int		y_size;
+	int		size_line;
+	int		bpp;
+	int		endian;
+	int		**pixel;
+	t_obj	*obj;
 };
 
 #endif
