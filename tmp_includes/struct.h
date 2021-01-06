@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/06 14:31:27 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/06 16:47:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,5 +160,12 @@ struct			s_arg
 	int			y_min;
 	int			y_max;
 };
+typedef struct s_test		t_test;//patch temporaire en att de mieux
+struct			s_test
+{
+	t_vector	p;
+	t_vector	n;
+};
+
 
 #endif
