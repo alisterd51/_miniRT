@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/05 17:44:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/06 14:44:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,19 @@ static t_mlx	*init_mlx(t_obj *obj)
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->x_size, mlx->y_size);
 	mlx->image = (int *)mlx_get_data_addr(mlx->img_ptr,
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
+	mlx->aa = 8;
+	mlx->iaa = 16;
+	mlx->nb_thread = 8;
+	mlx->intensite_lumiere = 2000000;
 	mlx->pixel = (int **)malloc(sizeof(int *) * mlx->y_size);
-    i = -1;
-    while (++i < mlx->y_size)
-        mlx->pixel[i] = (int *)malloc(sizeof(int) * mlx->x_size);
+	i = -1;
+	while (++i < mlx->y_size)
+		mlx->pixel[i] = (int *)malloc(sizeof(int) * mlx->x_size);
 	mlx->obj = obj;
 	return (mlx);
 }
 
-int	main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_obj	*obj;
 	t_mlx	*mlx;
@@ -61,8 +65,8 @@ int	main(int ac, char **av)
 	parsing(av[1], obj);
 	print_obj(obj);
 	mlx = init_mlx(obj);
-	mlx_hook(mlx->win_ptr, 2, (1L<<0), ft_keypress, (void *)&mlx);
-	mlx_hook(mlx->win_ptr, 17, (1L<<17), exit_hook, (void *)0);
+	mlx_hook(mlx->win_ptr, 2, (1L << 0), ft_keypress, (void *)&mlx);
+	mlx_hook(mlx->win_ptr, 17, (1L << 17), exit_hook, (void *)0);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }

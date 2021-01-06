@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/05 16:27:00 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/06 14:31:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ struct			s_vector
 	double		y;
 	double		z;
 };
+typedef struct s_ray		t_ray;
+struct			s_ray
+{
+	t_vector	coord;
+	t_vector	normal;
+};
 typedef struct s_res		t_res;
 struct			s_res
 {
@@ -46,6 +52,7 @@ struct			s_cam
 	t_vector	coord;
 	t_vector	normal;
 	int			fov;
+	double		fov_rad;
 	char		*parameter;
 	t_cam		*next;
 };
@@ -126,20 +133,32 @@ struct			s_obj
 	t_triangle	*lst_triangle;
 	t_cone		*lst_cone;
 };
-typedef struct s_mlx	t_mlx;
+typedef struct s_mlx		t_mlx;
 struct			s_mlx
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*img_ptr;
-	int		*image;
-	int		x_size;
-	int		y_size;
-	int		size_line;
-	int		bpp;
-	int		endian;
-	int		**pixel;
-	t_obj	*obj;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	int			*image;
+	int			x_size;
+	int			y_size;
+	int			size_line;
+	int			bpp;
+	int			endian;
+	int			**pixel;
+	int			aa;
+	int			iaa;
+	int			nb_thread;
+	int			intensite_lumiere;//variable temporaire en att de mieux
+	t_obj		*obj;
+};
+
+typedef struct s_arg		t_arg;//patch temporaire en att de mieux
+struct			s_arg
+{
+	t_mlx		*mlx;
+	int			y_min;
+	int			y_max;
 };
 
 #endif

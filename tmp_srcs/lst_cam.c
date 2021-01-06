@@ -6,11 +6,12 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/30 00:02:09 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/06 14:29:43 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <math.h>
 #include "struct.h"
 #include "exit_err.h"
 #include "read_line.h"
@@ -55,6 +56,7 @@ void	init_lst_cam(char *line, t_obj *obj)
 	cam->coord = read_line_to_vector(&line);
 	cam->normal = read_line_to_vector(&line);
 	cam->fov = read_line_to_int(&line);
+	cam->fov_rad = cam->fov * M_PI / 180.0;
 	if (*line && !ft_isspace(*line))
 		return (exit_errcode(CAM_ERROR_LINE));
 	cam->parameter = read_line_to_string(&line);
