@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/06 16:47:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:06:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,9 +163,14 @@ struct			s_arg
 typedef struct s_test		t_test;//patch temporaire en att de mieux
 struct			s_test
 {
+	int			id_cat;
+	int			id_obj;
+	double		min_t;
+	double		t;
+	t_ray		ray;
 	t_vector	p;
 	t_vector	n;
+	t_obj		*obj;
 };
-
 
 #endif
