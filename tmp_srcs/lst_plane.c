@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:25:07 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:20:42 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 11:48:03 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "vector.h"
 
 void	add_end_lst_plane(t_plane *new_plane, t_obj *obj)
 {
@@ -60,4 +61,11 @@ void	free_lst_plane(t_obj *obj)
 		plane = next_plane;
 	}
 	obj->lst_plane = NULL;
+}
+
+t_vector	plane_albedo(t_plane *lst_plane, int id_plane)
+{
+	while (id_plane-- > 0)
+		lst_plane = lst_plane->next;
+	 return (color_to_vector(lst_plane->color));
 }

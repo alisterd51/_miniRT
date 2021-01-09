@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:33:20 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:18:49 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 13:05:32 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "vector.h"
 
 void	add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj)
 {
@@ -62,4 +63,11 @@ void	free_lst_cylinder(t_obj *obj)
 		cylinder = next_cylinder;
 	}
 	obj->lst_cylinder = NULL;
+}
+
+t_vector    cylinder_albedo(t_cylinder *lst_cylinder, int id_cylinder)
+{
+	while (id_cylinder-- > 0)
+		lst_cylinder = lst_cylinder->next;
+	return (color_to_vector(lst_cylinder->color));
 }

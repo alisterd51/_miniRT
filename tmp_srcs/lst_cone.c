@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:13:47 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 13:05:24 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "vector.h"
 
 void	add_end_lst_cone(t_cone *new_cone, t_obj *obj)
 {
@@ -62,4 +63,11 @@ void	free_lst_cone(t_obj *obj)
 		cone = next_cone;
 	}
 	obj->lst_cone = NULL;
+}
+
+t_vector	cone_albedo(t_cone *lst_cone, int id_cone)
+{
+	while (id_cone-- > 0)
+		lst_cone = lst_cone->next;
+	return (color_to_vector(lst_cone->color));
 }

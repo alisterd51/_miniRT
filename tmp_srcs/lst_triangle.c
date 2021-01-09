@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 15:59:37 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 12:56:03 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "vector.h"
 
 void	add_end_lst_triangle(t_triangle *new_triangle, t_obj *obj)
 {
@@ -61,4 +62,11 @@ void	free_lst_triangle(t_obj *obj)
 		triangle = next_triangle;
 	}
 	obj->lst_triangle = NULL;
+}
+
+t_vector	triangle_albedo(t_triangle *lst_triangle, int id_triangle)
+{
+	while (id_triangle-- > 0)
+		lst_triangle = lst_triangle->next;
+	return (color_to_vector(lst_triangle->color));
 }

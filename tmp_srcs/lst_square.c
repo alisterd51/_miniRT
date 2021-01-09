@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:32:16 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 15:37:38 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 13:05:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "vector.h"
 
 void	add_end_lst_square(t_square *new_square, t_obj *obj)
 {
@@ -61,4 +62,11 @@ void	free_lst_square(t_obj *obj)
 		square = next_square;
 	}
 	obj->lst_square = NULL;
+}
+
+t_vector	square_albedo(t_square *lst_square, int id_square)
+{
+	while (id_square-- > 0)
+		lst_square = lst_square->next;
+	return (color_to_vector(lst_square->color));
 }

@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 23:29:46 by anclarma          #+#    #+#              #
-#    Updated: 2020/11/29 19:50:40 by antoine          ###   ########.fr        #
+#    Updated: 2021/01/09 12:48:45 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,12 +78,12 @@ OBJS		= ${SRCS:.c=.o}
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	ar rc $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean:		clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
-re:			fclean all
+re:			fclean clean all

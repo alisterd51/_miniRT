@@ -6,13 +6,13 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/09 11:09:41 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/09 13:00:16 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
 FLAGS		= -Wall -Wextra -Werror \
-			  -Ofast
+			  -O3
 MLX_LINUX	= -lm -lmlx -lXext -lX11 -lpthread
 MLX_MAC		= -lmlx -framework OpenGL -framework AppKit
 INCLUDES	= -I /usr/local/include \
@@ -54,15 +54,15 @@ TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
 			  ./libft/libft.a
 
 .c.o:
-	clang $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
+	@clang $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
+	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
 
 sub-make:
-	make -C libft all
+	@make -C libft all
 
 install:
 	git clone https://github.com/42Paris/minilibx-linux.git
@@ -77,13 +77,13 @@ install:
 	rm -rf minilibx-linux
 
 clean:
-	make -C libft clean
-	rm -f $(OBJS)
+	@make -C libft clean
+	@rm -f $(OBJS)
 
 fclean:
-	make -C libft fclean
-	rm -f $(OBJS)
-	rm -f $(NAME)
+	@make -C libft fclean
+	@rm -f $(OBJS)
+	@rm -f $(NAME)
 
 re:			fclean all
 
