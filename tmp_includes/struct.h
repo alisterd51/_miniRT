@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 10:34:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 14:28:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ struct			s_sphere
 {
 	t_vector	coord;
 	double		diameter;
+	double		radius2;
 	t_color		color;
 	char		*parameter;
 	t_sphere	*next;
@@ -171,6 +172,16 @@ struct			s_check
 	t_vector	p;
 	t_vector	n;
 	t_obj		*obj;
+};
+typedef struct s_calc		t_calc;//patch temporaire en att de mieux
+struct			s_calc
+{
+	double		a;
+	double		b;
+	double		c;
+	double		delta;
+	double		t1;
+	double		t2;
 };
 
 #endif

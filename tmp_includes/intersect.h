@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 12:07:58 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 09:33:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 13:28:11 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		check_inter_plane(t_check *check);
 int		check_inter_triangle(t_check *check);
 int		check_inter_square(t_check *check);
 int		check_inter_cylinder(t_check *check);
+int		check_inter_cone(t_check *check);
 int		rt_inter_sphere(const t_ray ray, const t_sphere sp, t_vector *p,
 			t_vector *n, double *t);
 int		rt_inter_plane(const t_ray ray, const t_plane pl, t_vector *p,

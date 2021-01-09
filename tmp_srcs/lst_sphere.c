@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:49:29 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 11:31:33 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 14:28:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		init_lst_sphere(char *line, t_obj *obj)
 		return (exit_errcode(MALLOC_ERROR));
 	sphere->coord = read_line_to_vector(&line);
 	sphere->diameter = read_line_to_double(&line);
+	sphere->radius2 = sphere->diameter * sphere->diameter / 2.0;
 	sphere->color = read_line_to_color(&line);
 	if ((*line && !ft_isspace(*line)) || sphere->color.depth)
 		return (exit_errcode(SPHERE_ERROR_LINE));
