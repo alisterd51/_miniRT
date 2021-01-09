@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/08 17:06:29 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 10:34:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,12 +126,13 @@ struct			s_obj
 	t_amb_light	*amb_light;
 	t_cam		*lst_cam;
 	t_light		*lst_light;
-	t_sphere	*lst_sphere;
-	t_plane		*lst_plane;
-	t_square	*lst_square;
-	t_cylinder	*lst_cylinder;
-	t_triangle	*lst_triangle;
-	t_cone		*lst_cone;
+	t_sphere	*lst_sphere;//1
+	t_plane		*lst_plane;//2
+	t_square	*lst_square;//3
+	t_cylinder	*lst_cylinder;//4
+	t_triangle	*lst_triangle;//5
+	t_cone		*lst_cone;//6
+	int			intensite_lumiere;//variable temporaire en att de mieux
 };
 typedef struct s_mlx		t_mlx;
 struct			s_mlx
@@ -149,7 +150,6 @@ struct			s_mlx
 	int			aa;
 	int			iaa;
 	int			nb_thread;
-	int			intensite_lumiere;//variable temporaire en att de mieux
 	t_obj		*obj;
 };
 
@@ -160,8 +160,8 @@ struct			s_arg
 	int			y_min;
 	int			y_max;
 };
-typedef struct s_test		t_test;//patch temporaire en att de mieux
-struct			s_test
+typedef struct s_check		t_check;//patch temporaire en att de mieux
+struct			s_check
 {
 	int			id_cat;
 	int			id_obj;

@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:49:29 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:31:42 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 11:31:33 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "vector.h"
 
-void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
+void		add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
 {
 	t_sphere	*tmp_sphere;
 
@@ -31,7 +32,7 @@ void	add_end_lst_sphere(t_sphere *new_sphere, t_obj *obj)
 	}
 }
 
-void	init_lst_sphere(char *line, t_obj *obj)
+void		init_lst_sphere(char *line, t_obj *obj)
 {
 	t_sphere	*sphere;
 
@@ -50,7 +51,7 @@ void	init_lst_sphere(char *line, t_obj *obj)
 	add_end_lst_sphere(sphere, obj);
 }
 
-void	free_lst_sphere(t_obj *obj)
+void		free_lst_sphere(t_obj *obj)
 {
 	t_sphere	*sphere;
 	t_sphere	*next_sphere;
@@ -65,4 +66,11 @@ void	free_lst_sphere(t_obj *obj)
 		sphere = next_sphere;
 	}
 	obj->lst_sphere = NULL;
+}
+
+t_vector    sphere_albedo(t_sphere *lst_sphere, int id_sphere)
+{
+	while (id_sphere-- > 0)
+		lst_sphere = lst_sphere->next;
+	return (color_to_vector(lst_sphere->color));
 }

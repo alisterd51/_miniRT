@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2020/12/08 16:39:08 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/09 11:28:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,15 @@ int			vector_to_ints(t_vector vec)
 	ret = (int)max(0.0, min(255.0, vec.x))
 		+ (int)max(0.0, min(255.0, vec.y)) * 256
 		+ (int)max(0.0, min(255.0, vec.z)) * 256 * 256;
+	return (ret);
+}
+
+t_vector	color_to_vector(t_color color)
+{
+	t_vector	ret;
+
+	ret.x = (double)((unsigned char)color.r);
+	ret.y = (double)((unsigned char)color.g);
+	ret.z = (double)((unsigned char)color.b);
 	return (ret);
 }

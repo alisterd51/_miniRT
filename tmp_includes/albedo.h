@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extremum.h                                         :+:      :+:    :+:   */
+/*   albedo.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/09 19:23:54 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/09 21:02:39 by anclarma         ###   ########.fr       */
+/*   Created: 2020/07/10 10:52:04 by anclarma          #+#    #+#             */
+/*   Updated: 2021/01/09 10:51:57 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTREMUM_H
-# define EXTREMUM_H
+#ifndef ALBEDO_H
+# define ALBEDO_H
 
-double	max(double a, double b);
-double	min(double a, double b);
+# include "struct.h"
+
+/*
+** albedo.c
+*/
+t_vector	obj_albedo(t_check *check);
 
 #endif
