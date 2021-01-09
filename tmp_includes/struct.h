@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 14:28:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 17:25:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,22 @@ struct			s_calc
 	double		delta;
 	double		t1;
 	double		t2;
+};
+typedef struct s_calc_t		t_calc_t;//patch temporaire en att de mieux
+struct			s_calc_t
+{
+	t_vector	vertex0;
+	t_vector	vertex1;
+	t_vector	vertex2;
+	t_vector	edge1;
+	t_vector	edge2;
+	t_vector	h;
+	t_vector	s;
+	t_vector	q;
+	double		a;
+	double		f;
+	double		u;
+	double		v;
 };
 
 #endif
