@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 09:57:05 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/16 12:34:41 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 11:37:39 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "albedo.h"
 #include "intersect.h"
 #include <math.h>
-
+#include <stdio.h>
 t_vector	getcolor(const t_ray *r, const t_obj *s, int nbrebonds)
 {
 	if (nbrebonds == 0)
@@ -40,7 +40,6 @@ t_vector	getcolor(const t_ray *r, const t_obj *s, int nbrebonds)
 	//
 	(void)t;
 	//
-
 	int			has_inter = rt_inter_scene(&check);
 	//
 	p = check.p;

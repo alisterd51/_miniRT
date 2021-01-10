@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:36:50 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/27 16:06:25 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 09:56:14 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "intersect.h"
 #include "vector.h"
 #include <math.h>
+
+#include <stdio.h>
 
 int	rt_inter_sphere(const t_ray ray, const t_sphere s, t_vector *p,
 		t_vector *n, double *t)
@@ -29,6 +31,7 @@ int	rt_inter_sphere(const t_ray ray, const t_sphere s, t_vector *p,
 	b = 2 * dot(ray.d, sub_vector(ray.o, s.c));
 	c = norm2(sub_vector(ray.o, s.c)) - s.radius * s.radius;
 	delta = b * b - 4.0 * a * c;
+//	printf("a = %f, b = %f, c = %f, delta = %f\nray.o = %f, %f, %f\n", a, b, c, delta, ray.o.x, ray.o.y, ray.o.z);
 	if (delta < 0)
 		return (0);
 	t1 = ((-b - sqrt(delta)) / (2 * a));

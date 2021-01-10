@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/09 20:31:27 by antoine          ###   ########.fr        #
+#    Updated: 2021/01/10 13:12:43 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
+	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
 
 sub-make:
 	@make -C libft all
@@ -88,6 +88,6 @@ fclean:
 re:			fclean all
 
 debug:		sub-make
-	clang -Wall -Wextra -Werror -lm  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX) -o test_parseur.out
+	clang -Wall -Wextra -Werror -lm  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_MAC) -o test_parseur.out
 
-.PHONY:	all	$(NAME) clean fclean re install
+.PHONY:	all	$(NAME) clean fclean re install debug

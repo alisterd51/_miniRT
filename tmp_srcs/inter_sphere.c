@@ -6,15 +6,14 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 13:35:10 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 21:31:05 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/10 15:02:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "struct.h"
 #include "vector.h"
-
-#include <stdio.h>
+#include "check.h"
 
 static int	inter_sphere(t_check *local, t_sphere *sphere)
 {
@@ -26,10 +25,8 @@ static int	inter_sphere(t_check *local, t_sphere *sphere)
 	calc.c = norm2(sub_vector(local->ray.coord, sphere->coord))
 		- sphere->radius2;
 	calc.delta = calc.b * calc.b - 4.0 * calc.a * calc.c;
-	printf("%f, ", calc.delta);
 	if (calc.delta < 0)
 		return (0);
-	printf("B");
 	calc.t1 = ((-(calc.b) - sqrt(calc.delta)) / (2 * calc.a));
 	calc.t2 = ((-(calc.b) + sqrt(calc.delta)) / (2 * calc.a));
 	if (calc.t2 < 0.0)
@@ -44,8 +41,6 @@ static int	inter_sphere(t_check *local, t_sphere *sphere)
 	return (1);
 }
 
-#include <stdio.h>
-
 int			check_inter_sphere(t_check *check)
 {
 	int			has_inter;
@@ -56,11 +51,11 @@ int			check_inter_sphere(t_check *check)
 	lst_sphere = check->obj->lst_sphere;
 	id_sphere = 0;
 	has_inter = 0;
+	local = init_check(&check->ray, check->obj);
 	while (lst_sphere)
 	{
 		if (inter_sphere(&local, lst_sphere) && local.t < check->min_t)
 		{
-			printf("B");
 			has_inter = 1;
 			check->min_t = local.t;
 			check->t = local.t;

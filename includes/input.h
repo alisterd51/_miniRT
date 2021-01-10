@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 20:27:14 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/10 08:56:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 ** MACINTOSH_INPUT
 */
-/*
+
 # include "struct.h"
 # define UP_KEY		126
 # define DOWN_KEY	125
@@ -28,11 +28,11 @@
 # define Q_KEY		12
 # define D_KEY		2
 # define ESC_KEY	53
-*/
+
 /*
 ** LINUX_WSL_INPUT
 */
-
+/*
 # define UP_KEY		65362
 # define DOWN_KEY	65364
 # define LEFT_KEY	65361
@@ -43,7 +43,7 @@
 # define Q_KEY		113
 # define D_KEY		100
 # define ESC_KEY	65307
-
+*/
 int	deal_mouse(int button, int x, int y, t_mlx *mlx);
 int	deal_key(int key, t_mlx *mlx);
 int	ft_keypress(int key, t_mlx *mlx);

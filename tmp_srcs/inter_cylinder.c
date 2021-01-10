@@ -6,11 +6,12 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 16:40:07 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 15:00:50 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
+#include "check.h"
 
 static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 {
@@ -30,6 +31,7 @@ int			check_inter_cylinder(t_check *check)
 	lst_cylinder = check->obj->lst_cylinder;
 	id_cylinder = 0;
 	has_inter = 0;
+	local = init_check(&check->ray, check->obj);
 	while (lst_cylinder)
 	{
 		if (inter_cylinder(&local, lst_cylinder) && local.t < check->min_t)

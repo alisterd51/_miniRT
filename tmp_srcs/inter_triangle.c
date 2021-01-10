@@ -6,12 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:40:32 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 17:33:37 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 14:59:50 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "vector.h"
+#include "check.h"
 
 static int	inter_triangle(t_check *local, t_triangle *triangle)
 {
@@ -56,6 +57,7 @@ int			check_inter_triangle(t_check *check)
 	lst_triangle = check->obj->lst_triangle;
 	id_triangle = 0;
 	has_inter = 0;
+	local = init_check(&check->ray, check->obj);
 	while (lst_triangle)
 	{
 		if (inter_triangle(&local, lst_triangle) && local.t < check->min_t)

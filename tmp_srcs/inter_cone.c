@@ -6,11 +6,12 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:35:10 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 17:37:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 15:02:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
+#include "check.h"
 
 static int	inter_cone(t_check *local, t_cone *cone)
 {
@@ -30,6 +31,7 @@ int			check_inter_cone(t_check *check)
 	lst_cone = check->obj->lst_cone;
 	id_cone = 0;
 	has_inter = 0;
+	local = init_check(&check->ray, check->obj);
 	while (lst_cone)
 	{
 		if (inter_cone(&local, lst_cone) && local.t < check->min_t)

@@ -6,12 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 14:46:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 15:02:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 14:56:53 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "vector.h"
+#include "check.h"
 
 static int	inter_plane(t_check *local, t_plane *plane)
 {
@@ -37,6 +38,7 @@ int			check_inter_plane(t_check *check)
 	lst_plane = check->obj->lst_plane;
 	id_plane = 0;
 	has_inter = 0;
+	local = init_check(&check->ray, check->obj);
 	while (lst_plane)
 	{
 		if (inter_plane(&local, lst_plane) && local.t < check->min_t)

@@ -6,12 +6,14 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 13:18:49 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 13:25:51 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 13:12:15 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "intersect.h"
+
+#include <stdio.h>
 
 int	rt_inter_scene(t_check *check)
 {

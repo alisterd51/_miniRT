@@ -6,13 +6,14 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 15:18:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 15:44:55 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/10 15:00:20 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "struct.h"
 #include "vector.h"
+#include "check.h"
 
 static int	inter_square(t_check *local, t_square *square)
 {
@@ -49,6 +50,7 @@ int			check_inter_square(t_check *check)
 	lst_square = check->obj->lst_square;
 	id_square = 0;
 	has_inter = 0;
+	local = init_check(&check->ray, check->obj);
 	while (lst_square)
 	{
 		if (inter_square(&local, lst_square) && local.t < check->min_t)
