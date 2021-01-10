@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 09:06:10 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 20:58:01 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static t_mlx	*init_mlx(t_obj *obj)
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->x_size, mlx->y_size);
 	mlx->image = (int *)mlx_get_data_addr(mlx->img_ptr,
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->x_size,
+			mlx->y_size, "Test");
 	mlx->aa = 8;
 	mlx->iaa = 16;
 	mlx->nb_thread = 8;
@@ -63,9 +65,9 @@ int				main(int ac, char **av)
 		return (1);
 	}
 	parsing(av[1], obj);
-	print_obj(obj);
+//	print_obj(obj);
 	mlx = init_mlx(obj);
-	mlx_hook(mlx->win_ptr, 2, (1L << 0), ft_keypress, (void *)&mlx);
+	mlx_hook(mlx->win_ptr, 2, (1L << 0), ft_keypress, (void *)mlx);
 	mlx_hook(mlx->win_ptr, 17, (1L << 17), exit_hook, (void *)0);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
