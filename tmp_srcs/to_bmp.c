@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tobmp.c                                         :+:      :+:    :+:   */
+/*   to_bmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 22:20:42 by anclarma          #+#    #+#             */
-/*   Updated: 2020/11/22 22:57:58 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/11 10:54:39 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ int     ft_tobmp(t_mlx *mlx, const char *name)
 	char	*bitmap_file;
 
 	fd = open(name, O_CREAT | O_WRONLY);
-	size = 14 + 40 + mlx->height * mlx->width * 4;
+	size = 14 + 40 + mlx->y_size * mlx->x_size * 4;
 	mod = 8 - (size % 8);
 	if (!(bitmap_file = (char *)malloc(sizeof(char) * (size + mod))))
 		return (-1);
 	bitmap_file_header(bitmap_file, size + mod);
-	dib_header(bitmap_file + 14, mlx->width, -(mlx->height));
+	dib_header(bitmap_file + 14, mlx->x_size, -(mlx->y_size));
 	write(fd, bitmap_file, 54);
-	write(fd, mlx->image, mlx->height * mlx->width * 4);
+	write(fd, mlx->image, mlx->y_size * mlx->x_size * 4);
 	free(bitmap_file);
 	close(fd);
 	return (0);
