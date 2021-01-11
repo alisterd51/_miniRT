@@ -14,10 +14,12 @@
 #include "struct.h"
 #include "to_bmp.h"
 #include "render.h"
+#include "input.h"
 
 void	ft_screenshot(t_mlx *mlx)
 {
 	oversampling(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	ft_tobmp(mlx, "test.bmp");
+	exit_hook(mlx);
 }

@@ -59,7 +59,7 @@ TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
+	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
 
 sub-make:
 	@make -C libft all
@@ -88,6 +88,6 @@ fclean:
 re:			fclean all
 
 debug:		sub-make
-	clang -Wall -Wextra -Werror -lm -O3  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_MAC) -o test_parseur.out
+	clang -Wall -Wextra -Werror -lm -O3  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX) -o test_parseur.out
 
 .PHONY:	all	$(NAME) clean fclean re install debug
