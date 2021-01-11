@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 11:28:58 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/11 09:03:19 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int			vector_to_int(t_vector vec)
 {
 	int	ret;
 
-	ret = (int)max(0.0, min(255.0, pow(vec.x, 1 / 2.2)))
+	ret = (int)max(0.0, min(255.0, pow(vec.z, 1 / 2.2)))
 		+ (int)max(0.0, min(255.0, pow(vec.y, 1 / 2.2))) * 256
-		+ (int)max(0.0, min(255.0, pow(vec.z, 1 / 2.2))) * 256 * 256;
+		+ (int)max(0.0, min(255.0, pow(vec.x, 1 / 2.2))) * 256 * 256;
 	return (ret);
 }
 

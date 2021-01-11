@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 10:50:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/11 10:04:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,17 @@
 #include "parsing.h"
 #include "exit_err.h"
 #include "input.h"
+#include "libft.h"
+#include "screenshot.h"
 
 #include "tmp_lst_obj.h"
+
+static int		ft_save(char *param)
+{
+	if (!ft_strcmp(param, "--save"))
+		return (1);
+	return (0);
+}
 
 static t_mlx	*init_mlx(t_obj *obj)
 {
@@ -41,7 +50,7 @@ static t_mlx	*init_mlx(t_obj *obj)
 			mlx->y_size, "Test");
 	mlx->aa = 8;
 	mlx->iaa = 16;
-	mlx->nb_thread = 1;
+	mlx->nb_thread = 8;
 	obj->intensite_lumiere = 2000000;
 	mlx->pixel = (int **)malloc(sizeof(int *) * mlx->y_size);
 	i = -1;
@@ -55,11 +64,15 @@ int				main(int ac, char **av)
 {
 	t_obj	*obj;
 	t_mlx	*mlx;
+	int		save;
 
 	obj = init_obj();
 	if (!obj)
 		exit_errcode(MALLOC_ERROR);
-	if (ac != 2)
+	save = 0;
+	if (ac == 3 && ft_save(av[2]))
+		save = 1;
+	if (ac != 2 && !save)
 	{
 		exit_errcode(ARGC_ERROR);
 		return (1);
@@ -67,6 +80,8 @@ int				main(int ac, char **av)
 	parsing(av[1], obj);
 //	print_obj(obj);
 	mlx = init_mlx(obj);
+	if (save)
+		ft_screenshot(mlx);
 	mlx_hook(mlx->win_ptr, 2, (1L << 0), ft_keypress, (void *)mlx);
 	mlx_hook(mlx->win_ptr, 17, (1L << 17), exit_hook, (void *)0);
 	mlx_loop(mlx->mlx_ptr);
