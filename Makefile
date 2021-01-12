@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/12 08:52:23 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/12 17:33:14 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SRCS		= $(addprefix srcs/,$(C_FILES)) \
 			  ./libft/libft.a
 OBJS		= $(SRCS:.c=.o)
 
-TMP_C		= main.c lst_obj.c parsing.c res.c exit_err.c to_char.c read_line.c check_file.c amb_light.c lst_cam.c lst_light.c lst_sphere.c lst_plane.c lst_square.c lst_cylinder.c lst_triangle.c lst_cone.c rot_vector.c lst_cube.c vector1.c vector2.c vector3.c extremum.c lst_pyramid.c input.c render.c scenescan.c getcolor.c check.c this_obj_is.c albedo.c intersect.c inter_sphere.c inter_plane.c inter_square.c inter_cylinder.c inter_triangle.c inter_cone.c screenshot.c to_bmp.c tmp_lst_obj.c
+TMP_C		= main.c lst_obj.c parsing.c res.c exit_err.c to_char.c read_line.c check_file.c amb_light.c lst_cam.c lst_light.c lst_sphere.c lst_plane.c lst_square.c lst_cylinder.c lst_triangle.c lst_cone.c rot_vector.c lst_cube.c vector1.c vector2.c vector3.c extremum.c lst_pyramid.c input.c render.c scenescan.c getcolor.c check.c this_obj_is.c albedo.c intersect.c inter_sphere.c inter_plane.c inter_square.c inter_cylinder.c inter_triangle.c inter_cone.c screenshot.c to_bmp.c add_amb_light.c tmp_lst_obj.c
 TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
 			  ./libft/libft.a
 

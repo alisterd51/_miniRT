@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 11:36:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/12 16:27:40 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "extremum.h"
 #include "intersect.h"
 #include "albedo.h"
+#include "add_amb_light.h"
 
 static t_vector	ft_mirror(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 {
@@ -70,7 +71,7 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	has_inter_light = rt_inter_scene(&check_light);
 	d_light2 = norm2(sub_vector(obj->lst_light->coord, check->p));
 	if (has_inter_light && check_light.t * check_light.t < d_light2)
-		return (init_vector(0.0, 0.0, 0.0));
+		return (add_amb_light(check, obj));
 	else
 		return (div_vector(mult_vector(obj->intensite_lumiere
 			* max(0.0, dot(normalize(sub_vector(obj->lst_light->coord, check->p)),
