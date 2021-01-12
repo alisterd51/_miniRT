@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 10:49:49 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/12 09:05:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "getcolor.h"
 #include <pthread.h>
 #include <math.h>
-#define NB_THREAD	1
+#define NB_THREAD	8
 
 void	*fonction(void *arg)
 {

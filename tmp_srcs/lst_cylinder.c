@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:33:20 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 13:05:32 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/12 12:27:04 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ void	init_lst_cylinder(char *line, t_obj *obj)
 		return (exit_errcode(MALLOC_ERROR));
 	cylinder->coord = read_line_to_vector(&line);
 	cylinder->normal = read_line_to_vector(&line);
-	cylinder->color = read_line_to_color(&line);
 	cylinder->diameter = read_line_to_double(&line);
+	cylinder->radius2 = cylinder->diameter * cylinder->diameter / 4.0;
 	cylinder->height = read_line_to_double(&line);
+	cylinder->color = read_line_to_color(&line);
 	cylinder->next = NULL;
 	if (*line || cylinder->color.depth)
 		return (exit_errcode(CYLINDER_ERROR_LINE));

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 08:57:00 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/12 08:52:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 
 # include "struct.h"
-/*
+
 # define UP_KEY		126
 # define DOWN_KEY	125
 # define LEFT_KEY	123
@@ -29,10 +29,11 @@
 # define Q_KEY		12
 # define D_KEY		2
 # define ESC_KEY	53
-*/
+
 /*
 ** LINUX_WSL_INPUT
 */
+/*
 # define UP_KEY		65362
 # define DOWN_KEY	65364
 # define LEFT_KEY	65361
@@ -43,6 +44,7 @@
 # define Q_KEY		113
 # define D_KEY		100
 # define ESC_KEY	65307
+*/
 /*
 ** input.c
 */

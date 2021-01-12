@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 15:18:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 15:00:20 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/12 10:38:49 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static int	inter_square(t_check *local, t_square *square)
 		|| (calc.a > 0.0 && calc.b > 0.0))
 		return (0);
 	calc.t1 = -(calc.a) / calc.b;
-	d = sub_vector(add_vector(mult_vector(calc.t1, local->ray.coord),
-		local->ray.normal), square->coord);
+	d = sub_vector(add_vector(mult_vector(calc.t1, local->ray.normal),
+		local->ray.coord), square->coord);
 	calc.t2 = square->side / 2.0;
 	if (fabs(d.x) > calc.t2 || fabs(d.y) > calc.t2 || fabs(d.z) > calc.t2)
 		return (0);

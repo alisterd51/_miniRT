@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/11 09:41:04 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/12 12:25:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ struct			s_cylinder
 	t_vector	normal;
 	t_color		color;
 	double		diameter;
+	double		radius2;
 	double		height;
 	t_cylinder	*next;
 };
