@@ -6,13 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 09:57:53 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 10:08:16 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:15:03 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 
-t_check	init_check(t_ray *ray, t_obj *obj)
+t_check	init_check(t_ray *ray, t_obj *obj, t_light *light)
 {
 	t_check	ret;
 
@@ -22,5 +22,6 @@ t_check	init_check(t_ray *ray, t_obj *obj)
 	ret.t = 1e99;
 	ret.ray = *ray;
 	ret.obj = obj;
+	ret.light = light;
 	return (ret);
 }

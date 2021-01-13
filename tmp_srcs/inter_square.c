@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 15:18:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/12 10:38:49 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:26:34 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			check_inter_square(t_check *check)
 	lst_square = check->obj->lst_square;
 	id_square = 0;
 	has_inter = 0;
-	local = init_check(&check->ray, check->obj);
+	local = init_check(&check->ray, check->obj, check->light);
 	while (lst_square)
 	{
 		if (inter_square(&local, lst_square) && local.t < check->min_t)

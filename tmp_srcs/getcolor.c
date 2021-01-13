@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/12 16:27:40 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:24:14 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_vector	ft_mirror(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 	ray_mirror.coord = sub_vector(ray->normal,
 		mult_vector(2.0 * dot(check->n, ray->normal), check->n));
 	ray_mirror.normal = add_vector(check->p, mult_vector(0.001, check->n));
-	return (getcolor(&ray_mirror, obj, nbrebonds));
+	return (getcolor(&ray_mirror, obj, check->light, nbrebonds));
 }
 
 static t_vector	ft_transp(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
@@ -55,7 +55,7 @@ static t_vector	ft_transp(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 		sub_vector(ray->normal, mult_vector(dot(ray->normal, n_transp),
 		n_transp))), mult_vector(sqrt(radical), n_transp));
 	ray_refract.normal = sub_vector(check->p, mult_vector(0.001, n_transp));
-	return (getcolor(&ray_refract, obj, nbrebonds));
+	return (getcolor(&ray_refract, obj, check->light, nbrebonds));
 }
 
 static t_vector	ft_direct(t_check *check, t_obj *obj)
@@ -66,19 +66,19 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	double		d_light2;
 
 	ray_light.coord = add_vector(check->p, mult_vector(0.001, check->n));
-	ray_light.normal = normalize(sub_vector(obj->lst_light->coord, check->p));
-	check_light = init_check(&ray_light, obj);
+	ray_light.normal = normalize(sub_vector(check->light->coord, check->p));
+	check_light = init_check(&ray_light, obj, check->light);
 	has_inter_light = rt_inter_scene(&check_light);
-	d_light2 = norm2(sub_vector(obj->lst_light->coord, check->p));
+	d_light2 = norm2(sub_vector(check->light->coord, check->p));
 	if (has_inter_light && check_light.t * check_light.t < d_light2)
-		return (add_amb_light(check, obj));
+		return (init_vector(0.0, 0.0, 0.0));
 	else
-		return (div_vector(mult_vector(obj->intensite_lumiere
-			* max(0.0, dot(normalize(sub_vector(obj->lst_light->coord, check->p)),
+		return (div_vector(mult_vector(check->light->ratio * obj->intensite_lumiere
+			* max(0.0, dot(normalize(sub_vector(check->light->coord, check->p)),
 			check->n)), div_vector(obj_albedo(check), M_PI)) , d_light2));
 }
 
-t_vector		getcolor(t_ray *ray, t_obj *obj, int nbrebonds)
+t_vector		getcolor(t_ray *ray, t_obj *obj, t_light *light, int nbrebonds)
 {
 	t_vector	color;
 	t_check		check;
@@ -87,7 +87,7 @@ t_vector		getcolor(t_ray *ray, t_obj *obj, int nbrebonds)
 	color = init_vector(0.0, 0.0, 0.0);
 	if (nbrebonds == 0)
 		return (color);
-	check = init_check(ray, obj);
+	check = init_check(ray, obj, light);
 	has_inter = rt_inter_scene(&check);
 	if (has_inter)
 	{
@@ -98,5 +98,5 @@ t_vector		getcolor(t_ray *ray, t_obj *obj, int nbrebonds)
 		else
 			color = ft_direct(&check, obj);
 	}
-	return (color);
+	return (add_vector(color, add_amb_light(&check, obj)));
 }

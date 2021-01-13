@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 10:19:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:20:48 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,24 @@
 #include "struct.h"
 #include "vector.h"
 #include "getcolor.h"
+
+static int	average_light(t_ray *ray, t_mlx *mlx)
+{
+	t_light		*light;
+	t_vector	ret;
+	double		denum;
+
+	ret = init_vector(0.0, 0.0, 0.0);
+	denum = 0.0;
+	light = mlx->obj->lst_light;
+	while (light)
+	{
+		ret = add_vector(ret, getcolor(ray, mlx->obj, light, 20));
+		denum += 1.0;
+		light = light->next;
+	}
+	return (vector_to_int(div_vector(ret, denum)));
+}
 
 static void	*fonction(void *arg)
 {
@@ -39,7 +57,9 @@ static void	*fonction(void *arg)
 				mlx->obj->lst_cam->normal);
 			ray.normal = normalize(ray.normal);
 			mlx->image[(mlx->y_size - x - 1) * mlx->x_size + y] =
-				vector_to_int(getcolor(&ray, mlx->obj, 20));
+				average_light(&ray, mlx);
+//			mlx->image[(mlx->y_size - x - 1) * mlx->x_size + y] =
+//				vector_to_int(getcolor(&ray, mlx->obj, 20));
 		}
 	}
 	return (NULL);

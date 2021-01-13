@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/12 15:02:47 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:25:52 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			check_inter_cylinder(t_check *check)
 	lst_cylinder = check->obj->lst_cylinder;
 	id_cylinder = 0;
 	has_inter = 0;
-	local = init_check(&check->ray, check->obj);
+	local = init_check(&check->ray, check->obj, check->light);
 	while (lst_cylinder)
 	{
 		if (inter_cylinder(&local, lst_cylinder) && local.t < check->min_t)

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/12 12:25:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 14:13:12 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ struct			s_obj
 	t_cylinder	*lst_cylinder;//4
 	t_triangle	*lst_triangle;//5
 	t_cone		*lst_cone;//6
-	int			intensite_lumiere;//variable temporaire en att de mieux
+	double		intensite_lumiere;//variable temporaire en att de mieux
 };
 typedef struct s_mlx		t_mlx;
 struct			s_mlx
@@ -173,6 +173,7 @@ struct			s_check
 	t_vector	p;
 	t_vector	n;
 	t_obj		*obj;
+	t_light		*light;
 };
 typedef struct s_calc		t_calc;//patch temporaire en att de mieux
 struct			s_calc

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/12 11:40:15 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/13 10:05:43 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static t_mlx	*init_mlx(t_obj *obj)
 	mlx->aa = 8;
 	mlx->iaa = 16;
 	mlx->nb_thread = 16;
-	obj->intensite_lumiere = 2000000;
+	obj->intensite_lumiere = 200000000.0 ;
 	mlx->pixel = (int **)malloc(sizeof(int *) * mlx->y_size);
 	i = -1;
 	while (++i < mlx->y_size)
