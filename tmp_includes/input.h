@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/12 08:52:54 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/14 15:04:52 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define Q_KEY		12
 # define D_KEY		2
 # define ESC_KEY	53
+# define PAGE_UP	116
+# define PAGE_DOWN	121
 
 /*
 ** LINUX_WSL_INPUT

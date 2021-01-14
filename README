@@ -16,3 +16,4 @@ nota:
 	mirroir et transp non fonctionnel
 	cylindre non fonctionnel
 	multi cam con fonctionnel
+	dans input.c il faut changer de cam avec page_up, page_down, (modif struct?)
