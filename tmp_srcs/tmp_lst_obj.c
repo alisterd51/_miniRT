@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:55:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/12/08 16:52:35 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/15 11:19:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	print_lst_cam(t_cam *cam)
 		printf(", normal = %.1f,%.1f,%.1f", cam->normal.x, cam->normal.y, cam->normal.z);
 		printf(", fov = %d", cam->fov);
 		printf(", parameter = %s", cam->parameter);
+		printf(", id = %d", cam->id);
 		printf(", next = %p\n", cam->next);
 		cam = cam->next;
 	}

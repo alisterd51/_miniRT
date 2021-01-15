@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/12 17:33:14 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/15 11:16:49 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,6 @@ fclean:
 re:			fclean all
 
 debug:		sub-make
-	clang -Wall -Wextra -Werror -lm -O3  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_MAC) -o test_parseur.out
+	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_MAC) -o test_parseur.out
 
 .PHONY:	all	$(NAME) clean fclean re install debug

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:13:12 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/15 11:10:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ struct			s_cam
 	int			fov;
 	double		fov_rad;
 	char		*parameter;
+	int			id;
 	t_cam		*next;
 };
 typedef struct s_light		t_light;
@@ -126,6 +127,7 @@ struct			s_obj
 {
 	t_res		*res;
 	t_amb_light	*amb_light;
+	t_cam		*current_cam;
 	t_cam		*lst_cam;
 	t_light		*lst_light;
 	t_sphere	*lst_sphere;//1

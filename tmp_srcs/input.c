@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/14 15:03:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/15 11:49:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,54 @@ static int	prerender_key(int key, t_mlx *mlx)
 ** DESCRIPTION
 */
 
+static int	next_cam(t_mlx *mlx)
+{
+	t_cam	*ptr_cam;
+
+	ptr_cam = mlx->obj->lst_cam;
+	while (ptr_cam->id < mlx->obj->current_cam->id)
+		ptr_cam = ptr_cam->next;
+	if (!ptr_cam->next)
+		mlx->obj->current_cam = mlx->obj->lst_cam;
+	else
+		mlx->obj->current_cam = ptr_cam->next;
+	prerender(mlx);
+	return (1);
+}
+
+/*
+** DESCRIPTION
+*/
+
+static int	prev_cam(t_mlx *mlx)
+{
+	t_cam	*ptr_cam;
+
+	ptr_cam = mlx->obj->lst_cam;
+	if (!mlx->obj->current_cam->id)
+		while (ptr_cam->next)
+			ptr_cam = ptr_cam->next;
+	else
+		while (ptr_cam->id < mlx->obj->current_cam->id - 1)
+			ptr_cam = ptr_cam->next;
+	mlx->obj->current_cam = ptr_cam;
+	return (1);
+}
+
+/*
+** DESCRIPTION
+*/
+
 int			ft_keypress(int key, t_mlx *mlx)
 {
 	if (key == R_KEY)
 		render(mlx);
 	else if (key == ESC_KEY)
 		exit_hook(mlx);
+	else if (key == PAGE_UP)
+		next_cam(mlx);
+	else if (key == PAGE_DOWN)
+		prev_cam(mlx);	
 	else if (prerender_key(key, mlx))
 		prerender(mlx);
 	else

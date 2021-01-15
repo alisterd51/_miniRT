@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/06 14:29:43 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/15 11:12:21 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ void	add_end_lst_cam(t_cam *new_cam, t_obj *obj)
 	else
 	{
 		tmp_cam = obj->lst_cam;
+		new_cam->id++;
 		while (tmp_cam->next)
+		{
 			tmp_cam = tmp_cam->next;
+			new_cam->id++;
+		}
 		tmp_cam->next = new_cam;
 	}
 }
@@ -62,6 +66,7 @@ void	init_lst_cam(char *line, t_obj *obj)
 	cam->parameter = read_line_to_string(&line);
 	if (!cam->parameter)
 		return (exit_errcode(MALLOC_ERROR));
+	cam->id = 0;
 	cam->next = NULL;
 	add_end_lst_cam(cam, obj);
 }
