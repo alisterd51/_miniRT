@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/15 11:49:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:27:05 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,23 @@ int			exit_hook(t_mlx *mlx)
 static int	prerender_key(int key, t_mlx *mlx)
 {
 	if (key == UP_KEY)
-		mlx->obj->lst_cam->coord.z -= 1;
+		mlx->obj->current_cam->coord.z -= 1;
 	else if (key == DOWN_KEY)
-		mlx->obj->lst_cam->coord.z += 1;
+		mlx->obj->current_cam->coord.z += 1;
 	else if (key == S_KEY)
-		mlx->obj->lst_cam->coord.y -= 1;
+		mlx->obj->current_cam->coord.y -= 1;
 	else if (key == Z_KEY)
-		mlx->obj->lst_cam->coord.y += 1;
+		mlx->obj->current_cam->coord.y += 1;
 	else if (key == LEFT_KEY)
-		mlx->obj->lst_cam->coord.x -= 1;
+		mlx->obj->current_cam->coord.x -= 1;
 	else if (key == RIGHT_KEY)
-		mlx->obj->lst_cam->coord.x += 1;
+		mlx->obj->current_cam->coord.x += 1;
 	else if (key == Q_KEY)
-		mlx->obj->lst_cam->normal =
-			rot_z_vector(M_PI / 9, mlx->obj->lst_cam->normal);
+		mlx->obj->current_cam->normal =
+			rot_z_vector(M_PI / 9, mlx->obj->current_cam->normal);
 	else if (key == D_KEY)
-		mlx->obj->lst_cam->normal =
-			rot_z_vector(M_PI / -9, mlx->obj->lst_cam->normal);
+		mlx->obj->current_cam->normal =
+			rot_z_vector(M_PI / -9, mlx->obj->current_cam->normal);
 	else
 		return (0);
 	return (1);
@@ -102,6 +102,7 @@ static int	prev_cam(t_mlx *mlx)
 		while (ptr_cam->id < mlx->obj->current_cam->id - 1)
 			ptr_cam = ptr_cam->next;
 	mlx->obj->current_cam = ptr_cam;
+	prerender(mlx);
 	return (1);
 }
 

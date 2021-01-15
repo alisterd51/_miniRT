@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:20:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:16:06 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ static void	*fonction(void *arg)
 		y = a->y_min - 1;
 		while (++y < a->y_max)
 		{
-			ray.coord = mlx->obj->lst_cam->coord;
+			ray.coord = mlx->obj->current_cam->coord;
 			ray.normal = add_vector(init_vector(y - mlx->x_size / 2, x -
 				mlx->y_size / 2, -(mlx->x_size) / (2 *
-				tanf(mlx->obj->lst_cam->fov_rad / 2))),
-				mlx->obj->lst_cam->normal);
+				tanf(mlx->obj->current_cam->fov_rad / 2))),
+				mlx->obj->current_cam->normal);
 			ray.normal = normalize(ray.normal);
 			mlx->image[(mlx->y_size - x - 1) * mlx->x_size + y] =
 				average_light(&ray, mlx);
