@@ -25,9 +25,9 @@ static t_vector	ft_mirror(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 {
 	t_ray	ray_mirror;
 
-	ray_mirror.coord = sub_vector(ray->normal,
+	ray_mirror.normal = sub_vector(ray->normal,
 		mult_vector(2.0 * dot(check->n, ray->normal), check->n));
-	ray_mirror.normal = add_vector(check->p, mult_vector(0.001, check->n));
+	ray_mirror.coord = add_vector(check->p, mult_vector(0.001, check->n));
 	return (getcolor(&ray_mirror, obj, check->light, nbrebonds));
 }
 
@@ -51,10 +51,10 @@ static t_vector	ft_transp(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 	radical = 1.0 - sqrt(n1 / n2) * (1.0 - sqrt(dot(n_transp, ray->normal)));
 	if (radical <= 0.0)
 		return (init_vector(0.0, 0.0, 0.0));
-	ray_refract.coord = sub_vector(mult_vector((n1 / n2),
+	ray_refract.normal = sub_vector(mult_vector((n1 / n2),
 		sub_vector(ray->normal, mult_vector(dot(ray->normal, n_transp),
 		n_transp))), mult_vector(sqrt(radical), n_transp));
-	ray_refract.normal = sub_vector(check->p, mult_vector(0.001, n_transp));
+	ray_refract.coord = sub_vector(check->p, mult_vector(0.001, n_transp));
 	return (getcolor(&ray_refract, obj, check->light, nbrebonds));
 }
 

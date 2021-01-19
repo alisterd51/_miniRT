@@ -59,7 +59,7 @@ TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
-	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_MAC) -o $(NAME)
+	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
 
 sub-make:
 	@make -C libft all
