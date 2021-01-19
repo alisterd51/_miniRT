@@ -1,17 +1,25 @@
-Pour tester le parseur:
--compiler avec:
-	make miniRT && make debug
--tester avec (ou n'importe quelle .rt):
-	./test_parseur.out scenes/legend.rt
-
 Pour tester le rendeur 3d:
 -compiler avec:
-	make miniRT
+	make debug
 -tester avec:
-	./miniRT scenes/test.rt
+	./test_parseur.out scenes/test.rt
 -tester la sauvegarde avec:
-	./miniRT scenes/test.rt --save
+	./test_parseur.out scenes/test.rt --save
 
 nota:
-	transp non fonctionnel
+	transp non fonctionnel (bonus)
 	cylindre non fonctionnel
+	partie ombre des objets plats non gere
+	lumiere colore non fonctionnel
+	taille auto non gere
+	test taille image
+	test declaration unique maj
+	scene a faire pur chaque cas
+	initialisation angle camera non teste
+	cube (bonus)
+	pyramide (bonus)
+	cone (bonus)
+	filtre couleur (bonus)
+	stereoscopie (bonus)
+	interaction clavier objet (bonus)
+	rotation cam souris (bonus)
