@@ -88,6 +88,6 @@ fclean:
 re:			fclean all
 
 debug:		sub-make
-	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_MAC) -o test_parseur.out
+	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX) -o test_parseur.out
 
 .PHONY:	all	$(NAME) clean fclean re install debug

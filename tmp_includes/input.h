@@ -18,7 +18,7 @@
 */
 
 # include "struct.h"
-
+/*
 # define UP_KEY		126
 # define DOWN_KEY	125
 # define LEFT_KEY	123
@@ -31,11 +31,11 @@
 # define ESC_KEY	53
 # define PAGE_UP	116
 # define PAGE_DOWN	121
-
+*/
 /*
 ** LINUX_WSL_INPUT
 */
-/*
+
 # define UP_KEY		65362
 # define DOWN_KEY	65364
 # define LEFT_KEY	65361
@@ -46,7 +46,9 @@
 # define Q_KEY		113
 # define D_KEY		100
 # define ESC_KEY	65307
-*/
+# define PAGE_UP	116
+# define PAGE_DOWN	121
+
 /*
 ** input.c
 */
