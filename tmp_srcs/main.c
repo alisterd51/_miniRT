@@ -48,7 +48,7 @@ static t_mlx	*init_mlx(t_obj *obj)
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->x_size,
 			mlx->y_size, "Test");
-	mlx->aa = 8;
+	mlx->aa = 4;
 	mlx->iaa = 16;
 	mlx->nb_thread = 16;
 	obj->intensite_lumiere = 200000000.0;

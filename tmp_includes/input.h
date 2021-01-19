@@ -46,8 +46,8 @@
 # define Q_KEY		113
 # define D_KEY		100
 # define ESC_KEY	65307
-# define PAGE_UP	116
-# define PAGE_DOWN	121
+# define PAGE_UP	65365
+# define PAGE_DOWN	65366
 
 /*
 ** input.c
