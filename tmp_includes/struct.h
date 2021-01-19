@@ -54,6 +54,7 @@ struct			s_cam
 	int			fov;
 	double		fov_rad;
 	char		*parameter;
+	double		alpha;
 	int			id;
 	t_cam		*next;
 };

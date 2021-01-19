@@ -13,6 +13,5 @@ Pour tester le rendeur 3d:
 	./miniRT scenes/test.rt --save
 
 nota:
-	mirroir et transp non fonctionnel
+	transp non fonctionnel
 	cylindre non fonctionnel
-	rotation cam non fonctionnel

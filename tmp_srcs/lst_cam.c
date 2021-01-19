@@ -66,6 +66,7 @@ void	init_lst_cam(char *line, t_obj *obj)
 	cam->parameter = read_line_to_string(&line);
 	if (!cam->parameter)
 		return (exit_errcode(MALLOC_ERROR));
+	cam->alpha = 0.0;
 	cam->id = 0;
 	cam->next = NULL;
 	add_end_lst_cam(cam, obj);

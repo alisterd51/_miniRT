@@ -15,6 +15,7 @@
 #include "struct.h"
 #include "vector.h"
 #include "getcolor.h"
+#include "rot_vector.h"
 
 static int	average_light(t_ray *ray, t_mlx *mlx)
 {
@@ -51,15 +52,13 @@ static void	*fonction(void *arg)
 		while (++y < a->y_max)
 		{
 			ray.coord = mlx->obj->current_cam->coord;
-			ray.normal = add_vector(init_vector(y - mlx->x_size / 2, x -
-				mlx->y_size / 2, -(mlx->x_size) / (2 *
-				tanf(mlx->obj->current_cam->fov_rad / 2))),
-				mlx->obj->current_cam->normal);
+			ray.normal = rot_z_vector(mlx->obj->current_cam->alpha,
+				init_vector(y - mlx->x_size / 2, x - mlx->y_size / 2,
+				-(mlx->x_size)
+				/ (2 * tanf(mlx->obj->current_cam->fov_rad / 2))));
 			ray.normal = normalize(ray.normal);
 			mlx->image[(mlx->y_size - x - 1) * mlx->x_size + y] =
 				average_light(&ray, mlx);
-//			mlx->image[(mlx->y_size - x - 1) * mlx->x_size + y] =
-//				vector_to_int(getcolor(&ray, mlx->obj, 20));
 		}
 	}
 	return (NULL);
