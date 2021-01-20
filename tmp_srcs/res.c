@@ -32,6 +32,8 @@ void	init_res(char *line, t_obj *obj)
 	obj->res->y_size = read_line_to_int(&line);
 	if (*line)
 		return (exit_errcode(RES_ERROR_LINE));
+	if (obj->res->x_size <= 0 || obj->res->y_size <= 0)
+		return (exit_errcode(RES_TO_SMALL));
 }
 
 void	free_res(t_obj *obj)

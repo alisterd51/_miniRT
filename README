@@ -11,10 +11,10 @@ nota:
 	cylindre non fonctionnel
 	partie ombre des objets plats non gere
 	lumiere colore non fonctionnel
-	taille auto non gere
+	fov >= 180 bug
+	si taille trop grande: bug
 	test taille image
-	test declaration unique maj
-	scene a faire pur chaque cas
+	scene a faire pour chaque cas
 	initialisation angle camera non teste
 	cube (bonus)
 	pyramide (bonus)

@@ -56,9 +56,9 @@ static int	prerender_key(int key, t_mlx *mlx)
 	else if (key == RIGHT_KEY)
 		mlx->obj->current_cam->coord.x += 1;
 	else if (key == Q_KEY)
-		mlx->obj->current_cam->alpha -= M_PI / 9;
+		mlx->obj->current_cam->alpha -= M_PI / 100.0;
 	else if (key == D_KEY)
-		mlx->obj->current_cam->alpha += M_PI / 9;
+		mlx->obj->current_cam->alpha += M_PI / 100.0;
 	else
 		return (0);
 	return (1);

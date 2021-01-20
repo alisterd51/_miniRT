@@ -74,6 +74,16 @@ static void	parse_line(char *line, t_obj *obj)
 		return (exit_errcode(UNRECOGNIZED_LINE));
 }
 
+static void	check_error_scene(t_obj *obj)
+{
+	if (!obj->res)
+		return (exit_errcode(TO_MANY_RES_DECLARATION));
+	if (!obj->amb_light)
+		return (exit_errcode(TO_MANY_AMB_LIGHT_DECLARATION));
+	if (!obj->lst_cam)
+		return (exit_errcode(NOT_CAM_IN_RT_FILE));
+}
+
 void		parsing(char *param, t_obj *obj)
 {
 	int		fd;
@@ -98,4 +108,5 @@ void		parsing(char *param, t_obj *obj)
 	free(line);
 	if (close(fd))
 		return (exit_errcode(CLOSE_ERROR));
+	check_error_scene(obj);
 }
