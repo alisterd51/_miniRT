@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:24:14 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:51:37 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ t_vector		getcolor(t_ray *ray, t_obj *obj, t_light *light, int nbrebonds)
 	if (has_inter)
 	{
 		if (this_obj_is_mirror(&check))
-			color = ft_mirror(&check, ray, obj, nbrebonds - 1);
+			color = add_vector(mult_vector(0.02, ft_direct(&check, obj)),
+				mult_vector(0.98, ft_mirror(&check, ray, obj, nbrebonds - 1)));
 		else if (this_obj_is_transp(&check))
 			color = ft_transp(&check, ray, obj, nbrebonds - 1);
 		else
