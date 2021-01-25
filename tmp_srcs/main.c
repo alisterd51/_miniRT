@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/21 13:36:32 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/25 10:24:22 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static t_mlx	*init_mlx(t_obj *obj)
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->x_size,
 			mlx->y_size, "Test");
-	mlx->aa = 4;
+	mlx->aa = 10;
 	mlx->iaa = 16;
 	mlx->nb_thread = 16;
 	obj->intensite_lumiere = 200000000.0;
