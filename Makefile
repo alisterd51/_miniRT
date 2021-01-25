@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/15 11:16:49 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/25 19:37:50 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,11 @@ TMP_C		= main.c lst_obj.c parsing.c res.c exit_err.c to_char.c read_line.c check
 TMP_SRCS	= $(addprefix tmp_srcs/,$(TMP_C)) \
 			  ./libft/libft.a
 
+YELLOW=$(tput setaf 3)
+
 .c.o:
 	@clang $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
+	@printf "\033[32;1mcompil minirt: %20.20s\033[0m\r" $<
 
 all:		$(NAME)
 

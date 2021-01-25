@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 23:29:46 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/09 12:48:45 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/25 19:38:09 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ OBJS		= ${SRCS:.c=.o}
 
 .c.o:
 	@(clang ${FLAGS} -c $< -o ${<:.c=.o})
+	@printf "\033[32;1mcompil libft: %20.20s\033[0m\r" $<
 
 all:		$(NAME)
 
