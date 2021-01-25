@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/25 19:37:50 by antoine          ###   ########.fr        #
+#    Updated: 2021/01/25 19:43:44 by antoine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,12 @@ $(NAME):	sub-make $(OBJS)
 sub-make:
 	@make -C libft all
 
+sub-make-mac:
+	@make -C minilibx_mms_20200219 all
+	@cp minilibx_mms_20200219/libmlx.dylib .
+sub-make-mac2:
+	@make -C minilibx_opengl_20191021 all
+
 install:
 	git clone https://github.com/42Paris/minilibx-linux.git
 	cd minilibx-linux
@@ -93,4 +99,8 @@ re:			fclean all
 debug:		sub-make
 	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX_LINUX) -o test_parseur.out
 
+mac:		sub-make sub-make-mac
+	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./minilibx_mms_20200219 -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib -L ./minilibx_mms_20200219 $(MLX_MAC) -o test_parseur.out
+mac2:		sub-make sub-make-mac2
+	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./minilibx_opengl_20191021 -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib -L ./minilibx_opengl_20191021 $(MLX_MAC) -o test_parseur.out
 .PHONY:	all	$(NAME) clean fclean re install debug

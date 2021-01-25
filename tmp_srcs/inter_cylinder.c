@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:25:52 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/25 14:01:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 		local->t = calc.t2;
 	local->p = add_vector(local->ray.coord,
         mult_vector(local->t, local->ray.normal));
-	local->n = init_vector(0.0, 0.5, 0.5);//faux
+	normalize(sub_vector(sub_vector(mult_vector(local->t, local->ray->normal), mult_vector(dot(lst->fig.cy.nv, vsubstract(scal_x_vec(x2[1], d), vsubstract(lst->fig.cy.c, o))), lst->fig.cy.nv)), sub_vector(lst->fig.cy.c, o)));
 	return (1);
 	//a faire
 	(void)local;
