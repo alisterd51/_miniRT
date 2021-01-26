@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/26 12:31:28 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/26 12:53:53 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ sub-make:
 sub-make-mac:
 	@make -C minilibx_mms_20200219 all
 	@cp minilibx_mms_20200219/libmlx.dylib .
+
 sub-make-mac2:
 	@make -C minilibx_opengl_20191021 all
 

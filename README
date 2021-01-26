@@ -16,6 +16,7 @@ nota:
 	test taille image
 	scene a faire pour chaque cas
 	initialisation angle camera non teste
+	prise en compte normal cam
 	cube (bonus)
 	pyramide (bonus)
 	cone (bonus)
@@ -23,3 +24,4 @@ nota:
 	stereoscopie (bonus)
 	interaction clavier objet (bonus)
 	rotation cam souris (bonus)
+	https://github.com/martingarcialopez/miniRT.git
