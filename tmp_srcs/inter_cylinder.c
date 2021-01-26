@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/25 14:01:54 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/26 12:05:05 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,16 @@
 static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 {
 	t_calc	calc;
+	double	dist;
 
-	calc.a = local->ray.normal.y * local->ray.normal.y + local->ray.normal.z * local->ray.normal.z;
-	calc.b = 2 * (local->ray.normal.y * local->ray.coord.y + local->ray.normal.z * local->ray.coord.z);
-	calc.c = local->ray.coord.y * local->ray.coord.y + local->ray.coord.z * local->ray.coord.z - cylinder->radius2;
+	calc.v = sub_vector(local->ray.normal, mult_vector(dot(local->ray.normal,
+		cylinder->normal), cylinder->normal));
+	calc.u = sub_vector(sub_vector(local->ray.coord, cylinder->coord),
+		mult_vector(dot(sub_vector(local->ray.coord, cylinder->coord),
+		cylinder->normal), cylinder->normal));
+	calc.a = dot(calc.v, calc.v);
+	calc.b = 2 * dot(calc.v, calc.u);
+	calc.c = dot(calc.u, calc.u) - cylinder->radius2;
 	calc.delta = calc.b * calc.b - 4.0 * calc.a * calc.c;
 	if (calc.delta < 0)
 		return (0);
@@ -35,14 +41,17 @@ static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 		local->t = calc.t1;
 	else
 		local->t = calc.t2;
+	return (1);
+	dist = dot(cylinder->normal, sub_vector(mult_vector(local->t,
+		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
+	if (dist < 0 || dist > cylinder->height)
+		return (0);
+	local->n = normalize(sub_vector(sub_vector(mult_vector(local->t,
+		local->ray.normal), mult_vector(dist, cylinder->normal)),
+		sub_vector(cylinder->coord, local->ray.coord)));
 	local->p = add_vector(local->ray.coord,
         mult_vector(local->t, local->ray.normal));
-	normalize(sub_vector(sub_vector(mult_vector(local->t, local->ray->normal), mult_vector(dot(lst->fig.cy.nv, vsubstract(scal_x_vec(x2[1], d), vsubstract(lst->fig.cy.c, o))), lst->fig.cy.nv)), sub_vector(lst->fig.cy.c, o)));
 	return (1);
-	//a faire
-	(void)local;
-	(void)cylinder;
-	return (0);
 }
 
 int			check_inter_cylinder(t_check *check)

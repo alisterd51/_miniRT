@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/25 19:43:44 by antoine          ###   ########.fr        #
+#    Updated: 2021/01/26 12:31:28 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,12 +57,13 @@ YELLOW=$(tput setaf 3)
 
 .c.o:
 	@clang $(FLAGS) $(INCLUDES) -c $< -o $(<:.c=.o)
-	@printf "\033[32;1mcompil minirt: %20.20s\033[0m\r" $<
+	@printf "\033[32;1mcompil %s: %20.20s\033[0m\r" $(NAME) $<
 
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
 	@clang $(FLAGS) $(INCLUDES) $(OBJS) $(LIBS) $(MLX_LINUX) -o $(NAME)
+	@printf "\033[32;1m%s OK%30.30s\n\033[0m\r" $(NAME) ""
 
 sub-make:
 	@make -C libft all
@@ -102,5 +103,6 @@ debug:		sub-make
 mac:		sub-make sub-make-mac
 	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./minilibx_mms_20200219 -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib -L ./minilibx_mms_20200219 $(MLX_MAC) -o test_parseur.out
 mac2:		sub-make sub-make-mac2
-	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./minilibx_opengl_20191021 -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib -L ./minilibx_opengl_20191021 $(MLX_MAC) -o test_parseur.out
+	@clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./minilibx_opengl_20191021 -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib -L ./minilibx_opengl_20191021 $(MLX_MAC) -o test_parseur.out
+	@printf "\033[32;1m%s en mode test pour mac OK%30.30s\n\033[0m\r" $(NAME) ""
 .PHONY:	all	$(NAME) clean fclean re install debug
