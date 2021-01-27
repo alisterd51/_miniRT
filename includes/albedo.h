@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 10:52:04 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/31 15:53:45 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/09 10:51:57 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "struct.h"
 
-t_vector	obj_albedo(t_obj s, int obj_id[2]);
+/*
+** albedo.c
+*/
+t_vector	obj_albedo(t_check *check);
 
 #endif

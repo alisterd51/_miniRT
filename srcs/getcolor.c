@@ -5,132 +5,99 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/10 09:57:05 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/10 11:37:39 by anclarma         ###   ########.fr       */
+/*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
+/*   Updated: 2021/01/22 15:44:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "struct.h"
 #include "vector.h"
-#include "extremum.h"
+#include "getcolor.h"
 #include "this_obj_is.h"
-#include "albedo.h"
+#include "check.h"
+#include "extremum.h"
 #include "intersect.h"
-#include <math.h>
-#include <stdio.h>
-t_vector	getcolor(const t_ray *r, const t_obj *s, int nbrebonds)
+#include "albedo.h"
+#include "add_amb_light.h"
+
+static t_vector	ft_mirror(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 {
-	if (nbrebonds == 0)
+	t_ray	ray_mirror;
+
+	ray_mirror.normal = sub_vector(ray->normal,
+		mult_vector(2.0 * dot(check->n, ray->normal), check->n));
+	ray_mirror.coord = add_vector(check->p, mult_vector(0.001, check->n));
+	return (getcolor(&ray_mirror, obj, check->light, nbrebonds));
+}
+
+static t_vector	ft_transp(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
+{
+	t_ray		ray_refract;
+	t_vector	n_transp;
+	double		n1;
+	double		n2;
+	double		radical;
+
+	n1 = 1.0;
+	n2 = 1.3;
+	n_transp = check->n;
+	if (dot(ray->normal, check->n) > 0.0)
+	{
+		n1 = 1.3;
+		n2 = 1.0;
+		n_transp = mult_vector(-1.0, check->n);
+	}
+	radical = 1.0 - sqrt(n1 / n2) * (1.0 - sqrt(dot(n_transp, ray->normal)));
+	if (radical <= 0.0)
 		return (init_vector(0.0, 0.0, 0.0));
+	ray_refract.normal = sub_vector(mult_vector((n1 / n2),
+		sub_vector(ray->normal, mult_vector(dot(ray->normal, n_transp),
+		n_transp))), mult_vector(sqrt(radical), n_transp));
+	ray_refract.coord = sub_vector(check->p, mult_vector(0.001, n_transp));
+	return (getcolor(&ray_refract, obj, check->light, nbrebonds));
+}
 
-	t_vector	p, n;
-	//	int			sphere_id = 0;
-	int			obj_id[2] = {0, 0};
-	//	int			type_obj = 0;
-	//	int			obj_id = 0;
-	double		t;
+static t_vector	ft_direct(t_check *check, t_obj *obj)
+{
+	t_check		check_light;
+	t_ray		ray_light;
+	int			has_inter_light;
+	double		d_light2;
 
-	//
-	t_check_scene	check;
+	ray_light.coord = add_vector(check->p, mult_vector(0.001, check->n));
+	ray_light.normal = normalize(sub_vector(check->light->coord, check->p));
+	check_light = init_check(&ray_light, obj, check->light);
+	has_inter_light = rt_inter_scene(&check_light);
+	d_light2 = norm2(sub_vector(check->light->coord, check->p));
+	if (has_inter_light && check_light.t * check_light.t < d_light2)
+		return (init_vector(0.0, 0.0, 0.0));
+	else
+		return (div_vector(mult_vector(check->light->ratio * obj->intensite_lumiere
+			* max(0.0, dot(normalize(sub_vector(check->light->coord, check->p)),
+			check->n)), div_vector(obj_albedo(check), M_PI)) , d_light2));
+}
 
-	check.scene = *s;
-	check.ray = *r;
-	(check.obj_id)[0] = 0;
-	(check.obj_id)[1] = 0;
-	//
-	(void)t;
-	//
-	int			has_inter = rt_inter_scene(&check);
-	//
-	p = check.p;
-	n = check.n;
-	obj_id[0] = (check.obj_id)[0];
-	obj_id[1] = (check.obj_id)[1];
-	t = check.t;
-	//
-	t_vector	intensite_pixel = init_vector(0.0, 0.0, 0.0);
+t_vector		getcolor(t_ray *ray, t_obj *obj, t_light *light, int nbrebonds)
+{
+	t_vector	color;
+	t_check		check;
+	int			has_inter;
 
+	color = init_vector(0.0, 0.0, 0.0);
+	if (nbrebonds == 0)
+		return (color);
+	check = init_check(ray, obj, light);
+	has_inter = rt_inter_scene(&check);
 	if (has_inter)
 	{
-		if (this_obj_is_mirror(*s, obj_id))
-		{
-			t_ray	ray_mirror;
-
-			ray_mirror.d = sub_vector(r->d, mult_vector(2.0 * dot(n, r->d), n));
-			ray_mirror.o = add_vector(p, mult_vector(0.001, n));
-			intensite_pixel = getcolor(&ray_mirror, s, nbrebonds - 1);
-		}
-		else if (this_obj_is_transp(*s, obj_id))
-		{
-			t_ray   ray_refract;
-			t_vector	N_transp = n;
-			double	n1 = 1.0;
-			double	n2 = 1.3;
-
-			if (dot(r->d, n) > 0.0)
-			{
-				n1 = 1.3;
-				n2 = 1.0;
-				N_transp = mult_vector(-1.0, n);
-			}
-
-			double	radical = 1.0 - sqrt(n1/n2) * (1 - sqrt(dot(N_transp, r->d)));
-			if (radical > 0.0)
-			{
-				ray_refract.d = sub_vector(mult_vector((n1 / n2), sub_vector(r->d, mult_vector(dot(r->d, N_transp), N_transp))), mult_vector(sqrt(radical), N_transp));
-				ray_refract.o = sub_vector(p, mult_vector(0.001, N_transp));
-				intensite_pixel = getcolor(&ray_refract, s, nbrebonds - 1);
-			}
-		}
+		if (this_obj_is_mirror(&check))
+			color = add_vector(mult_vector(0.02, ft_direct(&check, obj)),
+				mult_vector(0.98, ft_mirror(&check, ray, obj, nbrebonds - 1)));
+		else if (this_obj_is_transp(&check))
+			color = ft_transp(&check, ray, obj, nbrebonds - 1);
 		else
-		{
-			t_ray		ray_light;
-			ray_light.d = normalize(sub_vector(s->lst_light->c, p));
-			ray_light.o = add_vector(p, mult_vector(0.001, n));
-			t_vector	P_light, N_light;
-			int			obj_id_light[2] = {0, 0};
-			double		t_light;
-			//
-			t_check_scene   check_light;
-
-			check_light.scene = *s;
-			check_light.ray = ray_light;
-			(check_light.obj_id)[0] = 0;
-			(check_light.obj_id)[1] = 0;
-			//
-			int			has_inter_light = rt_inter_scene(&check_light);
-			//
-			P_light = check.p;
-			N_light = check.n;
-			obj_id_light[0] = (check_light.obj_id)[0];
-			obj_id_light[1] = (check_light.obj_id)[1];
-			t_light = check_light.t;
-			//
-			(void)obj_id_light;
-			(void)P_light;
-			(void)N_light;
-			//
-			double		d_light2 = norm2(sub_vector(s->lst_light->c, p));
-
-			if (has_inter_light && t_light * t_light < d_light2)
-			{
-				intensite_pixel = init_vector(0.0, 0.0, 0.0);
-				//a placer dans une fonction d'éclairage ambiant
-				//intensite_pixel = mult_vector(s->amblight->ratio * 20, div_vector(obj_albedo(*s, obj_id), M_PI));
-			}
-			else
-			{
-				intensite_pixel = div_vector(mult_vector(s->intensite_lumiere * max(0.0, dot(normalize(sub_vector(s->lst_light->c, p)) , n)), div_vector(obj_albedo(*s, obj_id), M_PI)) , d_light2);
-			}
-			/*en attente générateur nb aléatoire.
-			  t_ray   ray_alea;
-			  double		r1 = ;//nb entre 0 et 1, distribution normal aléatoire.
-			  t_vector	dir_alea_repere_local = ;
-
-			  ray_alea.d = ;
-			  ray_alea.o = add_vector(P, mult_vector(0.001, N));
-			  intensite_pixel = add_vector(intensite_pixel, getcolor(&ray_alea, s, nbrebonds - 1));*/
-		}
+			color = ft_direct(&check, obj);
 	}
-	return (intensite_pixel);
+	return (add_vector(color, add_amb_light(&check, obj)));
 }

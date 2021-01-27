@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/24 14:47:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/11 09:03:19 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,49 +29,30 @@ t_vector	int_to_vector(int color)
 
 int			vector_to_int(t_vector vec)
 {
-	int			ret;
+	int	ret;
 
-	ret = (int)max(0.0, min(255.0, pow(vec.x, 1 / 2.2))) +
-		(int)max(0.0, min(255.0, pow(vec.y, 1 / 2.2))) * 256 +
-		(int)max(0.0, min(255.0, pow(vec.z, 1 / 2.2))) * 256 * 256;
+	ret = (int)max(0.0, min(255.0, pow(vec.z, 1 / 2.2)))
+		+ (int)max(0.0, min(255.0, pow(vec.y, 1 / 2.2))) * 256
+		+ (int)max(0.0, min(255.0, pow(vec.x, 1 / 2.2))) * 256 * 256;
 	return (ret);
 }
 
 int			vector_to_ints(t_vector vec)
 {
-	int			ret;
+	int	ret;
 
-	ret = (int)max(0.0, min(255.0, vec.x)) +
-		(int)max(0.0, min(255.0, vec.y)) * 256 +
-		(int)max(0.0, min(255.0, vec.z)) * 256 * 256;
+	ret = (int)max(0.0, min(255.0, vec.x))
+		+ (int)max(0.0, min(255.0, vec.y)) * 256
+		+ (int)max(0.0, min(255.0, vec.z)) * 256 * 256;
 	return (ret);
 }
 
-//modifie un veteur d'oriantation
-// 1	0	0	devant 
-// 0	x	x	droite ou gauche (ou haut ou bas)
-// -1	0	0	derriere
-// 0	x	x	droite ou gauche (ou haut ou bas)
-// angle en rad: 0ª = 0, 90ª = ¶/2
-// x * cos(-angle) - y * sin(-angle)
-// x * sin(-angle) + y * cos(-angle)
-
-t_vector	rot_right(t_vector o, double angle)
+t_vector	color_to_vector(t_color color)
 {
-	t_vector	new_o;
+	t_vector	ret;
 
-	new_o.x = o.x * cos(angle) - o.y * sin(angle);
-	new_o.y = o.x * sin(angle) + o.y * cos(angle);
-	new_o.z = o.z;
-	return (normalize(new_o));
-}
-
-t_vector	rot_left(t_vector o, double angle)
-{
-	t_vector    new_o;
-
-    new_o.x = o.z * cos(angle) + o.x * sin(angle);
-    new_o.y = o.y;
-    new_o.z = o.z * sin(angle) - o.x * cos(angle);
-    return (normalize(new_o));
+	ret.x = (double)((unsigned char)color.r);
+	ret.y = (double)((unsigned char)color.g);
+	ret.z = (double)((unsigned char)color.b);
+	return (ret);
 }

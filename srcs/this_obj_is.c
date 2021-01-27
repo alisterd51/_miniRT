@@ -5,51 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/10 10:32:07 by anclarma          #+#    #+#             */
-/*   Updated: 2020/07/16 12:19:45 by anclarma         ###   ########.fr       */
+/*   Created: 2021/01/09 10:25:43 by anclarma          #+#    #+#             */
+/*   Updated: 2021/01/09 10:50:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
+#include "libft.h"
 
-int			this_sp_is_mirror(t_obj s, int sphere_id)
+static int	this_sphere_is_mirror(t_sphere *lst_sphere, int id_sphere)
 {
-	t_sphere	*s_ptr;
-
-	s_ptr = s.lst_sphere;
-	while (s_ptr)
-	{
-		if (s_ptr->id == sphere_id)
-			return (s_ptr->mirror);
-		s_ptr = s_ptr->next;
-	}
+	while (id_sphere-- > 0)
+		lst_sphere = lst_sphere->next;
+	if (!ft_strcmp(lst_sphere->parameter, "m"))
+		return (1);
 	return (0);
 }
 
-int			this_obj_is_mirror(t_obj s, int obj_id[2])
+int			this_obj_is_mirror(t_check *check)
 {
-	if (obj_id[0] == 1)
-		return (this_sp_is_mirror(s, obj_id[1]));
+	if (check->id_cat == 1)
+		return (this_sphere_is_mirror(check->obj->lst_sphere, check->id_obj));
 	return (0);
 }
 
-int			this_sp_is_transp(t_obj s, int sphere_id)
+static int	this_sphere_is_transp(t_sphere *lst_sphere, int id_sphere)
 {
-	t_sphere	*s_ptr;
-
-	s_ptr = s.lst_sphere;
-	while (s_ptr)
-	{
-		if (s_ptr->id == sphere_id)
-			return (s_ptr->transp);
-		s_ptr = s_ptr->next;
-	}
+	while (id_sphere-- > 0)
+		lst_sphere = lst_sphere->next;
+	if (!ft_strcmp(lst_sphere->parameter, "t"))
+		return (1);
 	return (0);
 }
 
-int			this_obj_is_transp(t_obj s, int obj_id[2])
+int			this_obj_is_transp(t_check *check)
 {
-	if (obj_id[0] == 1)
-		return (this_sp_is_transp(s, obj_id[1]));
+	if (check->id_cat == 1)
+		return (this_sphere_is_transp(check->obj->lst_sphere, check->id_obj));
 	return (0);
 }

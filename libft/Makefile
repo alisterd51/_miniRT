@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 23:29:46 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/26 12:28:59 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/27 14:55:14 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,6 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 	@ar rc $(NAME) $(OBJS)
-	@printf "\033[32;1m%s OK%30.30s\n\033[0m\r" $(NAME) ""
 
 clean:
 	@rm -f $(OBJS)
