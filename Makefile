@@ -108,10 +108,4 @@ fclean: clean
 
 re:			fclean all
 
-debug:		sub-make
-	clang -Wall -Wextra -Werror -lm -Ofast  -I /usr/local/include -I ./libft -I ./tmp_includes $(TMP_SRCS) -L /usr/local/lib $(MLX) -o test_parseur.out
-
-mac:		sub-make
-	@clang $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) -o test_parseur.out
-	@printf "\033[32;1m%s en mode test pour mac OK%30.30s\n\033[0m\r" $(NAME) ""
-.PHONY:	all	$(NAME) clean fclean re install debug
+.PHONY:	all	$(NAME) clean fclean re
