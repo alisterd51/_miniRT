@@ -6,13 +6,13 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/25 10:24:22 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/28 09:08:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <mlx.h>
+#include "mlx.h"
 #include "lst_obj.h"
 #include "parsing.h"
 #include "exit_err.h"

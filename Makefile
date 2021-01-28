@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/27 15:25:37 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/28 14:32:14 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ ifeq ($(UNAME),Linux)
     MACRO = -D LINUX
     PATH_MLX = minilibx-linux
 endif
+
+INCLUDES += -I ./$(PATH_MLX)
 
 .c.o:
 	@clang $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
