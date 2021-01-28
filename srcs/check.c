@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "struct.h"
+#include "vector.h"
 
 t_check	init_check(t_ray *ray, t_obj *obj, t_light *light)
 {
@@ -21,6 +22,8 @@ t_check	init_check(t_ray *ray, t_obj *obj, t_light *light)
 	ret.min_t = 1e99;
 	ret.t = 1e99;
 	ret.ray = *ray;
+	ret.p = init_vector(0.0, 0.0, 0.0);
+	ret.n = init_vector(0.0, 0.0, 0.0);
 	ret.obj = obj;
 	ret.light = light;
 	return (ret);

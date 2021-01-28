@@ -86,6 +86,10 @@ INCLUDES += -I ./$(PATH_MLX)
 	@clang $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
 	@printf "\033[32;1mcompil %s: %20.20s\033[0m\r" $(NAME) $<
 
+debug:	sub-make $(OBJS)
+	@clang -g $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
+	@printf "\033[32;1m%s OK%30.30s\n\033[0m" $(NAME) ""
+
 all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)

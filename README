@@ -25,3 +25,4 @@ nota:
 	interaction clavier objet (bonus)
 	rotation cam souris (bonus)
 	https://github.com/martingarcialopez/miniRT.git
+	il semble qu'il y ai un souci entre le parseur et le tarceur pour le cylindre
