@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/29 09:41:36 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/29 17:01:34 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,11 +86,11 @@ INCLUDES += -I ./$(PATH_MLX)
 	@clang $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
 	@printf "\033[32;1mcompil %s: %25.25s\033[0m\r" $(NAME) $<
 
+all:		$(NAME)
+
 debug:	sub-make $(OBJS)
 	@clang -g $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%35.35s\n\033[0m" $(NAME) ""
-
-all:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
 	@clang $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
@@ -106,6 +106,7 @@ clean:
 	@make -C libft clean
 	@make -C $(PATH_MLX) clean
 	@rm -f $(OBJS)
+	@rm -rf $(NAME).dSYM
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "clean" ""
 
 fclean: clean
