@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/28 14:32:14 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/29 09:41:36 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,11 +84,11 @@ INCLUDES += -I ./$(PATH_MLX)
 
 .c.o:
 	@clang $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
-	@printf "\033[32;1mcompil %s: %20.20s\033[0m\r" $(NAME) $<
+	@printf "\033[32;1mcompil %s: %25.25s\033[0m\r" $(NAME) $<
 
 debug:	sub-make $(OBJS)
 	@clang -g $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
-	@printf "\033[32;1m%s OK%30.30s\n\033[0m" $(NAME) ""
+	@printf "\033[32;1m%s OK%35.35s\n\033[0m" $(NAME) ""
 
 all:		$(NAME)
 
@@ -106,7 +106,7 @@ clean:
 	@make -C libft clean
 	@make -C $(PATH_MLX) clean
 	@rm -f $(OBJS)
-	@printf "\033[32;1m%s OK%30.30s\n\033[0m" "clean" ""
+	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "clean" ""
 
 fclean: clean
 	@make -C libft fclean

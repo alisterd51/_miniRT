@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/12/11 19:03:57 by antoine          ###   ########.fr       */
+/*   Updated: 2021/01/29 09:36:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 ** tmp_lst_obj.c
 */
 void	print_obj(t_obj *obj);
+void    print_lst_cylinder(t_cylinder *cylinder);
 
 #endif

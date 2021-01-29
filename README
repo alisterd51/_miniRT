@@ -8,7 +8,7 @@ Pour tester le rendeur 3d:
 
 nota:
 	transp non fonctionnel (bonus)
-	cylindre non fonctionnel
+	cylindre en partie fonctionnel
 	partie ombre des objets plats non gere
 	lumiere colore non fonctionnel
 	fov >= 180 bug
@@ -25,4 +25,3 @@ nota:
 	interaction clavier objet (bonus)
 	rotation cam souris (bonus)
 	https://github.com/martingarcialopez/miniRT.git
-	il semble qu'il y ai un souci entre le parseur et le tarceur pour le cylindre
