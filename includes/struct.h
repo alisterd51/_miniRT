@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/26 11:23:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 13:53:12 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,13 +131,13 @@ struct			s_obj
 	t_cam		*current_cam;
 	t_cam		*lst_cam;
 	t_light		*lst_light;
-	t_sphere	*lst_sphere;//1
-	t_plane		*lst_plane;//2
-	t_square	*lst_square;//3
-	t_cylinder	*lst_cylinder;//4
-	t_triangle	*lst_triangle;//5
-	t_cone		*lst_cone;//6
-	double		intensite_lumiere;//variable temporaire en att de mieux
+	t_sphere	*lst_sphere;
+	t_plane		*lst_plane;
+	t_square	*lst_square;
+	t_cylinder	*lst_cylinder;
+	t_triangle	*lst_triangle;
+	t_cone		*lst_cone;
+	double		intensite_lumiere;
 };
 typedef struct s_mlx		t_mlx;
 struct			s_mlx
@@ -158,14 +158,14 @@ struct			s_mlx
 	t_obj		*obj;
 };
 
-typedef struct s_arg		t_arg;//patch temporaire en att de mieux
+typedef struct s_arg		t_arg;
 struct			s_arg
 {
 	t_mlx		*mlx;
 	int			y_min;
 	int			y_max;
 };
-typedef struct s_check		t_check;//patch temporaire en att de mieux
+typedef struct s_check		t_check;
 struct			s_check
 {
 	int			id_cat;
@@ -178,7 +178,7 @@ struct			s_check
 	t_obj		*obj;
 	t_light		*light;
 };
-typedef struct s_calc		t_calc;//patch temporaire en att de mieux
+typedef struct s_calc		t_calc;
 struct			s_calc
 {
 	double		a;
@@ -190,7 +190,7 @@ struct			s_calc
 	t_vector	u;
 	t_vector	v;
 };
-typedef struct s_calc_t		t_calc_t;//patch temporaire en att de mieux
+typedef struct s_calc_t		t_calc_t;
 struct			s_calc_t
 {
 	t_vector	vertex0;

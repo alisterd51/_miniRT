@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/15 13:27:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:12:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int			ft_keypress(int key, t_mlx *mlx)
 	else if (key == PAGE_UP)
 		next_cam(mlx);
 	else if (key == PAGE_DOWN)
-		prev_cam(mlx);	
+		prev_cam(mlx);
 	else if (prerender_key(key, mlx))
 		prerender(mlx);
 	else

@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:49:29 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 14:28:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:13:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void		free_lst_sphere(t_obj *obj)
 	obj->lst_sphere = NULL;
 }
 
-t_vector    sphere_albedo(t_sphere *lst_sphere, int id_sphere)
+t_vector	sphere_albedo(t_sphere *lst_sphere, int id_sphere)
 {
 	while (id_sphere-- > 0)
 		lst_sphere = lst_sphere->next;

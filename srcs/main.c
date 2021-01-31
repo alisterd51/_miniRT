@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/29 10:32:30 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:04:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 #include "libft.h"
 #include "screenshot.h"
 
-#include "tmp_lst_obj.h"
-
 static int		ft_save(char *param)
 {
 	if (!ft_strcmp(param, "--save"))
@@ -33,23 +31,23 @@ static t_mlx	*init_mlx(t_obj *obj)
 {
 	t_mlx	*mlx;
 	int		i;
-/*	int		x;
+	int		x;
 	int		y;
-*/
+
 	mlx = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!mlx)
 		exit_errcode(MALLOC_ERROR);
-	mlx->x_size = obj->res->x_size;//si x_size > x_size_max alors x_size = x_size_max
-	mlx->y_size = obj->res->y_size;//si y_size > y_size_max alors y_size = y_size_max
+	mlx->x_size = obj->res->x_size;
+	mlx->y_size = obj->res->y_size;
 	mlx->mlx_ptr = mlx_init();
 	mlx->size_line = obj->res->x_size * 4;
 	mlx->bpp = 32;
 	mlx->endian = 1;
-/*	mlx_get_screen_size(mlx->mlx_ptr, &x, &y);
+	mlx_get_screen_size(mlx->mlx_ptr, &x, &y);
 	if (x < mlx->x_size)
 		mlx->x_size = x;
 	if (y - 50 < mlx->y_size)
-		mlx->y_size = y - 50;*/
+		mlx->y_size = y - 50;
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->x_size, mlx->y_size);
 	mlx->image = (int *)mlx_get_data_addr(mlx->img_ptr,
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
@@ -86,7 +84,6 @@ int				main(int ac, char **av)
 		return (1);
 	}
 	parsing(av[1], obj);
-//	print_obj(obj);
 	mlx = init_mlx(obj);
 	if (save)
 		ft_screenshot(mlx);

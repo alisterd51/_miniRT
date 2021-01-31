@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 13:05:24 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 13:50:50 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "vector.h"
 
-void	add_end_lst_cone(t_cone *new_cone, t_obj *obj)
+void		add_end_lst_cone(t_cone *new_cone, t_obj *obj)
 {
 	t_cone	*tmp_cone;
 
@@ -32,7 +32,7 @@ void	add_end_lst_cone(t_cone *new_cone, t_obj *obj)
 	}
 }
 
-void	init_lst_cone(char *line, t_obj *obj)
+void		init_lst_cone(char *line, t_obj *obj)
 {
 	t_cone	*cone;
 
@@ -50,7 +50,7 @@ void	init_lst_cone(char *line, t_obj *obj)
 	add_end_lst_cone(cone, obj);
 }
 
-void	free_lst_cone(t_obj *obj)
+void		free_lst_cone(t_obj *obj)
 {
 	t_cone	*cone;
 	t_cone	*next_cone;

@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:32:16 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 13:05:45 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 13:49:57 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "vector.h"
 
-void	add_end_lst_square(t_square *new_square, t_obj *obj)
+void		add_end_lst_square(t_square *new_square, t_obj *obj)
 {
 	t_square	*tmp_square;
 
@@ -32,7 +32,7 @@ void	add_end_lst_square(t_square *new_square, t_obj *obj)
 	}
 }
 
-void	init_lst_square(char *line, t_obj *obj)
+void		init_lst_square(char *line, t_obj *obj)
 {
 	t_square	*square;
 
@@ -49,7 +49,7 @@ void	init_lst_square(char *line, t_obj *obj)
 	add_end_lst_square(square, obj);
 }
 
-void	free_lst_square(t_obj *obj)
+void		free_lst_square(t_obj *obj)
 {
 	t_square	*square;
 	t_square	*next_square;

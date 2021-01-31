@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/01/29 17:01:34 by anclarma         ###   ########.fr        #
+#    Updated: 2021/01/31 13:45:19 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,7 @@ C_FILES		= main.c \
 			  inter_cone.c \
 			  screenshot.c \
 			  to_bmp.c \
-			  add_amb_light.c \
-			  tmp_lst_obj.c
+			  add_amb_light.c
 SRCS		= $(addprefix srcs/,$(C_FILES))
 OBJS		= $(SRCS:.c=.o)
 UNAME := $(shell uname)

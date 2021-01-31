@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:33:20 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/12 12:27:04 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:10:35 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "vector.h"
 
-void	add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj)
+void		add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj)
 {
 	t_cylinder	*tmp_cylinder;
 
@@ -32,7 +32,7 @@ void	add_end_lst_cylinder(t_cylinder *new_cylinder, t_obj *obj)
 	}
 }
 
-void	init_lst_cylinder(char *line, t_obj *obj)
+void		init_lst_cylinder(char *line, t_obj *obj)
 {
 	t_cylinder	*cylinder;
 
@@ -51,7 +51,7 @@ void	init_lst_cylinder(char *line, t_obj *obj)
 	add_end_lst_cylinder(cylinder, obj);
 }
 
-void	free_lst_cylinder(t_obj *obj)
+void		free_lst_cylinder(t_obj *obj)
 {
 	t_cylinder	*cylinder;
 	t_cylinder	*next_cylinder;
@@ -66,7 +66,7 @@ void	free_lst_cylinder(t_obj *obj)
 	obj->lst_cylinder = NULL;
 }
 
-t_vector    cylinder_albedo(t_cylinder *lst_cylinder, int id_cylinder)
+t_vector	cylinder_albedo(t_cylinder *lst_cylinder, int id_cylinder)
 {
 	while (id_cylinder-- > 0)
 		lst_cylinder = lst_cylinder->next;

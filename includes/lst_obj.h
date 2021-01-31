@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:21:46 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 11:41:37 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:15:39 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 /*
 ** lst_obj.c
 */
-t_obj	*init_obj(void);
-void	print_obj(t_obj *obj);
-void	free_obj(t_obj **obj);
+t_obj		*init_obj(void);
+void		print_obj(t_obj *obj);
+void		free_obj(t_obj **obj);
 
 /*
 ** res.c
 */
-void	init_res(char *line, t_obj *obj);
-void	free_res(t_obj *obj);
+void		init_res(char *line, t_obj *obj);
+void		free_res(t_obj *obj);
 
 /*
 ** amb_light.c
 */
-void	init_amb_light(char *line, t_obj *obj);
-void	free_amb_light(t_obj *obj);
+void		init_amb_light(char *line, t_obj *obj);
+void		free_amb_light(t_obj *obj);
 
 /*
 ** lst_cam.c

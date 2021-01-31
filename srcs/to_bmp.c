@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 22:20:42 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/11 10:54:39 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 13:39:15 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	dib_header(char *bitmap_file, int width, int height)
 	fill_oct(bitmap_file + 20, width * height * 4);
 }
 
-int     ft_tobmp(t_mlx *mlx, const char *name)
+int		ft_tobmp(t_mlx *mlx, const char *name)
 {
 	int		fd;
 	int		mod;

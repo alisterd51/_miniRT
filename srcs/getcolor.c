@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/22 15:44:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:17:56 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	else
 		return (div_vector(mult_vector(check->light->ratio * obj->intensite_lumiere
 			* max(0.0, dot(normalize(sub_vector(check->light->coord, check->p)),
-			check->n)), div_vector(obj_albedo(check), M_PI)) , d_light2));
+			check->n)), div_vector(obj_albedo(check), M_PI)), d_light2));
 }
 
 t_vector		getcolor(t_ray *ray, t_obj *obj, t_light *light, int nbrebonds)

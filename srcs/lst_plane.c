@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:25:07 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 11:48:03 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:19:16 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "vector.h"
 
-void	add_end_lst_plane(t_plane *new_plane, t_obj *obj)
+void		add_end_lst_plane(t_plane *new_plane, t_obj *obj)
 {
 	t_plane	*tmp_plane;
 
@@ -32,7 +32,7 @@ void	add_end_lst_plane(t_plane *new_plane, t_obj *obj)
 	}
 }
 
-void	init_lst_plane(char *line, t_obj *obj)
+void		init_lst_plane(char *line, t_obj *obj)
 {
 	t_plane	*plane;
 
@@ -48,7 +48,7 @@ void	init_lst_plane(char *line, t_obj *obj)
 	add_end_lst_plane(plane, obj);
 }
 
-void	free_lst_plane(t_obj *obj)
+void		free_lst_plane(t_obj *obj)
 {
 	t_plane	*plane;
 	t_plane	*next_plane;
@@ -67,5 +67,5 @@ t_vector	plane_albedo(t_plane *lst_plane, int id_plane)
 {
 	while (id_plane-- > 0)
 		lst_plane = lst_plane->next;
-	 return (color_to_vector(lst_plane->color));
+	return (color_to_vector(lst_plane->color));
 }

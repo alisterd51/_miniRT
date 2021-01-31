@@ -6,12 +6,12 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 09:18:13 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:14:01 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:03:42 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef CHECK_H
+# define CHECK_H
 
 # include "struct.h"
 
