@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/31 14:20:00 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:52:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include "struct.h"
 #include "check.h"
 #include "vector.h"
-
-#include <stdio.h>
+#include "intersect.h"
 
 static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 {
@@ -43,9 +42,8 @@ static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
 	dist2 = dot(cylinder->normal, sub_vector(mult_vector(calc.t2,
 		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
-	if ((dist1 >= 0 && dist1 <= cylinder->height
-			&& calc.t1 > 0.001) && (dist2 >= 0
-			&& dist2 <= cylinder->height && calc.t2 > 0.001))
+	if ((dist1 >= 0 && dist1 <= cylinder->height && calc.t1 > 0.001)
+			&& (dist2 >= 0 && dist2 <= cylinder->height && calc.t2 > 0.001))
 	{
 		local->t = calc.t1 < calc.t2 ? calc.t1 : calc.t2;
 		dist = calc.t1 < calc.t2 ? dist1 : dist2;
@@ -70,6 +68,66 @@ static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
 	return (1);
 }
 
+double      distance(t_vector p1, t_vector p2)
+{
+    double d;
+
+    d = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2));
+    return (d);
+}
+
+static int	inter_cap(t_check *local_caps, t_cylinder *cylinder)
+{
+	t_plane		plane1;
+	t_plane		plane2;
+	t_check		local1;
+	t_check		local2;
+	t_check     *local_min;
+
+	plane1.normal = cylinder->normal;
+	plane1.coord = cylinder->coord;
+	plane2.normal = cylinder->normal;
+	plane2.coord = add_vector(cylinder->coord,
+		mult_vector(cylinder->height, cylinder->normal));
+	local1 = init_check(&local_caps->ray, local_caps->obj, local_caps->light);
+	local2 = init_check(&local_caps->ray, local_caps->obj, local_caps->light);
+	if (inter_plane(&local1, &plane1) || inter_plane(&local2, &plane2))
+	{
+		if (local1.t > 0 && (local1.t < local2.t || local2.t < 0)
+				&& distance(local1.p, plane1.coord) <= cylinder->diameter / 2)
+			local_min = &local1;
+		else if (local2.t > 0 && (local2.t < local1.t || local1.t < 0)
+				&& distance(local2.p, plane2.coord) <= cylinder->diameter / 2)
+			local_min = &local2;
+		else
+			return (0);
+		res_check(local_caps, local_min);
+		return (1);
+	}
+	return (0);
+}
+
+static int	inter_cy_and_caps(t_check *local, t_cylinder *cylinder)
+{
+	t_check		local_cy;
+	t_check		local_caps;
+	t_check		*local_min;
+
+	local_cy = init_check(&local->ray, local->obj, local->light);
+	local_caps = init_check(&local->ray, local->obj, local->light);
+	if (inter_cylinder(&local_cy, cylinder)
+		|| inter_cap(&local_caps, cylinder))
+	{
+		if (local_cy.t < local_caps.t)
+			local_min = &local_cy;
+		else
+			local_min = &local_caps;
+		res_check(local, local_min);
+		return (1);
+	}
+	return (0);
+}
+
 int			check_inter_cylinder(t_check *check)
 {
 	int			has_inter;
@@ -83,7 +141,7 @@ int			check_inter_cylinder(t_check *check)
 	local = init_check(&check->ray, check->obj, check->light);
 	while (lst_cylinder)
 	{
-		if (inter_cylinder(&local, lst_cylinder) && local.t < check->min_t)
+		if (inter_cy_and_caps(&local, lst_cylinder) && local.t < check->min_t)
 		{
 			has_inter = 1;
 			check->min_t = local.t;

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 12:07:58 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 13:28:11 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:53:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int		rt_inter_scene(t_check *check);
 int		check_inter_sphere(t_check *check);
+int  inter_plane(t_check *local, t_plane *plane);
 int		check_inter_plane(t_check *check);
 int		check_inter_triangle(t_check *check);
 int		check_inter_square(t_check *check);
