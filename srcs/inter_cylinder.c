@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/02 09:17:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/02 11:10:20 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ static int	inter_cap(t_check *local_caps, t_cylinder *cylinder)
 	t_check		local1;
 	t_check		local2;
 	t_check     *local_min;
+	int			inter1 = 0;
+	int			inter2 = 0;
 
 	plane1.normal = cylinder->normal;
 	plane1.coord = cylinder->coord;
@@ -91,19 +93,17 @@ static int	inter_cap(t_check *local_caps, t_cylinder *cylinder)
 		mult_vector(cylinder->height, cylinder->normal));
 	local1 = init_check(&local_caps->ray, local_caps->obj, local_caps->light);
 	local2 = init_check(&local_caps->ray, local_caps->obj, local_caps->light);
-	if (inter_plane(&local1, &plane1) || inter_plane(&local2, &plane2))
+	inter1 = inter_plane(&local1, &plane1);
+	inter2 = inter_plane(&local2, &plane2);
+	if (inter1 || inter2)
 	{
-		if (local1.t > 0 && (local1.t < local2.t || local2.t < 0)
-				&& distance(local1.p, plane1.coord) <= cylinder->diameter / 2)
-		{		
-			local_min = &local1;
-		}
-		else if (local2.t > 0 && (local2.t < local1.t || local1.t < 0)
-				&& distance(local2.p, plane2.coord) <= cylinder->diameter / 2)
-		{		
-			return (0);
-			local_min = &local2;
-		}
+		if ((inter1 && distance(local1.p, plane1.coord) <= cylinder->diameter / 2)
+                && (inter2 && distance(local2.p, plane2.coord) <= cylinder->diameter / 2))
+            local_min = (local1.t < local2.t ? &local1 : &local2);
+        else if (inter1 && distance(local1.p, plane1.coord) <= cylinder->diameter / 2)
+            local_min = &local1;
+        else if (inter2 && distance(local2.p, plane2.coord) <= cylinder->diameter / 2)
+            local_min = &local2;
 		else
 			return (0);
 		res_check(local_caps, local_min);

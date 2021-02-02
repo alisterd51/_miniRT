@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/22 13:09:25 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:46:22 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	init_lst_cam(char *line, t_obj *obj)
 	cam->coord = read_line_to_vector(&line);
 	cam->normal = read_line_to_vector(&line);
 	cam->fov = read_line_to_int(&line);
+	if (cam->fov <= 0 ||cam->fov >= 180)
+		return (exit_errcode(FOV_OUTSIDE_RANGE));
 	cam->fov_rad = cam->fov * M_PI / 180.0;
 	if (*line && !ft_isspace(*line))
 		return (exit_errcode(CAM_ERROR_LINE));

@@ -11,7 +11,6 @@ nota:
 	cylindre en partie fonctionnel
 	partie ombre des objets plats non gere
 	lumiere colore non fonctionnel
-	fov >= 180 bug
 	si taille trop grande: bug
 	test taille image
 	scene a faire pour chaque cas

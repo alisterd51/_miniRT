@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/05 09:48:11 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:48:02 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define AMB_LIGHT_ERROR_LINE			"ligne A incorrect\n"
 # define NOT_CAM_IN_RT_FILE				"pas de camera declare dans le .rt\n"
 # define CAM_ERROR_LINE					"ligne c incorrect\n"
+# define FOV_OUTSIDE_RANGE				"fov en dehors du range ]0; 180[\n"
 # define LIGHT_ERROR_LINE				"ligne l incorrect\n"
 # define PLANE_ERROR_LINE				"ligne pl incorrect\n"
 # define SPHERE_ERROR_LINE				"ligne sp incorrect\n"
