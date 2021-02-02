@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/01 15:52:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/02 09:17:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ double      distance(t_vector p1, t_vector p2)
     d = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2) + pow(p2.z - p1.z, 2));
     return (d);
 }
-
+#include <unistd.h>
 static int	inter_cap(t_check *local_caps, t_cylinder *cylinder)
 {
 	t_plane		plane1;
@@ -95,10 +95,15 @@ static int	inter_cap(t_check *local_caps, t_cylinder *cylinder)
 	{
 		if (local1.t > 0 && (local1.t < local2.t || local2.t < 0)
 				&& distance(local1.p, plane1.coord) <= cylinder->diameter / 2)
+		{		
 			local_min = &local1;
+		}
 		else if (local2.t > 0 && (local2.t < local1.t || local1.t < 0)
 				&& distance(local2.p, plane2.coord) <= cylinder->diameter / 2)
+		{		
+			return (0);
 			local_min = &local2;
+		}
 		else
 			return (0);
 		res_check(local_caps, local_min);
