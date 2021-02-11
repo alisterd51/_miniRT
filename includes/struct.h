@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/31 13:53:12 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:51:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ struct			s_cam
 {
 	t_vector	coord;
 	t_vector	normal;
+	t_vector	rot;
 	int			fov;
 	double		fov_rad;
 	char		*parameter;

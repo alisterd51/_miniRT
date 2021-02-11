@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/02 16:46:22 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:54:55 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "exit_err.h"
 #include "read_line.h"
 #include "libft.h"
+#include "rot_vector.h"
 
 /*
 ** DESCRIPTION
@@ -59,6 +60,7 @@ void	init_lst_cam(char *line, t_obj *obj)
 		return (exit_errcode(MALLOC_ERROR));
 	cam->coord = read_line_to_vector(&line);
 	cam->normal = read_line_to_vector(&line);
+	cam->rot = init_rot(cam->normal);
 	cam->fov = read_line_to_int(&line);
 	if (cam->fov <= 0 ||cam->fov >= 180)
 		return (exit_errcode(FOV_OUTSIDE_RANGE));

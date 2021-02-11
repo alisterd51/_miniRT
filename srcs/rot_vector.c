@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:53:21 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/26 23:23:46 by antoine          ###   ########.fr       */
+/*   Updated: 2021/02/11 14:49:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,15 @@ t_vector	rot_vector(t_vector rot, t_vector vector)
 	ret = rot_x_vector(rot.x, vector);
 	ret = rot_y_vector(rot.y, ret);
 	ret = rot_z_vector(rot.z, ret);
+	return (ret);
+}
+
+t_vector	init_rot(t_vector rot)
+{
+	t_vector	ret;
+
+	ret.x = rot.x * M_PI / 2.0;
+	ret.y = rot.y * M_PI / 2.0;
+	ret.z = rot.z * M_PI - M_PI;
 	return (ret);
 }
