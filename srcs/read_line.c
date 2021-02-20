@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:08:14 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 15:35:32 by antoine          ###   ########.fr       */
+/*   Updated: 2021/02/20 15:18:44 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "exit_err.h"
 #include "to_char.h"
+#include "secure_atoi.h"
 
 /*
 ** DESCRIPTION
@@ -25,6 +26,8 @@ int			read_line_to_int(char **line)
 
 	while (ft_isspace(**line))
 		(*line)++;
+	if (!secure_atoi(*line))
+		exit_errcode(ATOI_OVERFLOW);
 	ret = ft_atoi(*line);
 	if (**line == '+' || **line == '-')
 		(*line)++;

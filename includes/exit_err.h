@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/04 09:11:29 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/20 15:20:03 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define CONE_ERROR_LINE				"ligne co incorrect\n"
 # define CUBE_ERROR_LINE				"ligne cu incorrect\n"
 # define PYRAMID_ERROR_LINE				"ligne py incorrect\n"
+# define ATOI_OVERFLOW					"nombre inf a INT_MIN ou sup a INT_MAX\n"
 
 /*
 ** exit_err.c

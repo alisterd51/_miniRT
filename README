@@ -8,10 +8,8 @@ Pour tester le rendeur 3d:
 
 nota:
 	transp non fonctionnel (bonus)
-	cylindre en partie fonctionnel
 	partie ombre des objets plats non gere
 	lumiere colore non fonctionnel
-	si taille trop grande: bug
 	test taille image
 	scene a faire pour chaque cas
 	initialisation angle camera en cours
