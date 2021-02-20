@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/02/20 15:13:49 by anclarma         ###   ########.fr        #
+#    Updated: 2021/02/20 17:17:47 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ INCLUDES += -I ./$(PATH_MLX)
 
 .c.o:
 	@clang $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
-	@printf "\033[32;1mcompil %s: %25.25s\033[0m\r" $(NAME) $<
+	@printf "\033[32;1mcompil %s: %25.25s\r\033[0m" $(NAME) $<
 
 all:		$(NAME)
 
@@ -94,13 +94,13 @@ debug:	sub-make $(OBJS)
 
 $(NAME):	sub-make $(OBJS)
 	@clang $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
-	@printf "\033[32;1m%s OK%30.30s\n\033[0m" $(NAME) ""
+	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
 
 sub-make:
 	@make -C libft all
-	@printf "\033[32;1m%s OK%30.30s\n\033[0m" "libft" ""
+	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "libft" ""
 	@make -C $(PATH_MLX) all
-	@printf "\033[32;1m%s OK%30.30s\n\033[0m" $(PATH_MLX) ""
+	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(PATH_MLX) ""
 
 clean:
 	@make -C libft clean

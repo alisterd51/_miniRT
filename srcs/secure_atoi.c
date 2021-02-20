@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 14:32:33 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/20 15:17:27 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/20 17:30:50 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int			secure_atoi(const char *str)
 		size++;
 	if (size > 10)
 		return (0);
-	else if (sign == 1 && check_max(str))
+	else if (size == 10 && sign == 1 && check_max(str))
 		return (0);
-	else if (sign == -1 && check_min(str))
+	else if (size == 10 && sign == -1 && check_min(str))
 		return (0);
 	return (1);
 }
