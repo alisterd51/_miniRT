@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/02/20 17:17:47 by anclarma         ###   ########.fr        #
+#    Updated: 2021/02/21 11:40:15 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,22 +97,23 @@ $(NAME):	sub-make $(OBJS)
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
 
 sub-make:
-	@make -C libft all
+	@make -C libft all --quiet
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "libft" ""
-	@make -C $(PATH_MLX) all
+	@make -C $(PATH_MLX) all --quiet
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(PATH_MLX) ""
 
 clean:
-	@make -C libft clean
-	@make -C $(PATH_MLX) clean
+	@make -C libft clean --quiet
+	@make -C $(PATH_MLX) clean --quiet
 	@rm -f $(OBJS)
 	@rm -rf $(NAME).dSYM
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "clean" ""
 
 fclean: clean
-	@make -C libft fclean
+	@make -C libft fclean --quiet
 	@rm -f $(NAME)
 
 re:			fclean all
 
 .PHONY:	all	$(NAME) clean fclean re
+.SILENT:
