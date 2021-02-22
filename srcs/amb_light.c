@@ -6,10 +6,11 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:36:55 by antoine           #+#    #+#             */
-/*   Updated: 2020/11/29 23:31:11 by antoine          ###   ########.fr       */
+/*   Updated: 2021/02/22 09:30:37 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <float.h>
 #include "struct.h"
 #include "libft.h"
 #include "exit_err.h"
@@ -34,7 +35,7 @@ void	init_amb_light(char *line, t_obj *obj)
 	while (ft_isspace(*line))
 		line++;
 	obj->amb_light->ratio = read_line_to_double(&line);
-	if (!ft_isspace(*line))
+	if (obj->amb_light->ratio == DBL_MIN || !ft_isspace(*line))
 		return (exit_errcode(AMB_LIGHT_ERROR_LINE));
 	while (ft_isspace(*line))
 		line++;

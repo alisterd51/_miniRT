@@ -6,10 +6,11 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:08:14 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/20 15:18:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/22 09:04:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <float.h>
 #include "struct.h"
 #include "libft.h"
 #include "exit_err.h"
@@ -27,10 +28,12 @@ int			read_line_to_int(char **line)
 	while (ft_isspace(**line))
 		(*line)++;
 	if (!secure_atoi(*line))
-		exit_errcode(ATOI_OVERFLOW);
+		return (-1);
 	ret = ft_atoi(*line);
 	if (**line == '+' || **line == '-')
 		(*line)++;
+	if (!ft_isdigit(**line))
+		return (-1);
 	while (ft_isdigit(**line))
 		(*line)++;
 	return (ret);
@@ -45,6 +48,8 @@ double		read_line_to_double(char **line)
 	ret = ft_atof(*line);
 	if (**line == '+' || **line == '-')
 		(*line)++;
+	if (!ft_isdigit(**line))
+		return (DBL_MIN);
 	while (ft_isdigit(**line))
 		(*line)++;
 	if (**line != '.')
@@ -91,7 +96,7 @@ t_vector	read_line_to_vector(char **line)
 	if (**line == ',')
 		(*line)++;
 	ret.z = read_line_to_double(line);
-	return (ret);
+	return (ret);//il faud verifier que les DBL_MIN renvoi une erreur
 }
 
 char		*read_line_to_string(char **line)

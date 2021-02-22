@@ -6,11 +6,12 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:41:33 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:11:05 by antoine          ###   ########.fr       */
+/*   Updated: 2021/02/22 14:15:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <float.h>
 #include "struct.h"
 #include "exit_err.h"
 #include "read_line.h"
@@ -25,7 +26,11 @@ void	init_lst_light(char *line, t_obj *obj)
 	if (!light)
 		return (exit_errcode(MALLOC_ERROR));
 	light->coord = read_line_to_vector(&line);
+	if (light->coord.x == DBL_MIN || light->coord.y == DBL_MIN || light->coord.z == DBL_MIN)
+		return (exit_errcode(LIGHT_ERROR_LINE));
 	light->ratio = read_line_to_double(&line);
+	if (light->ratio == DBL_MIN)
+		return (exit_errcode(LIGHT_ERROR_LINE));
 	light->color = read_line_to_color(&line);
 	light->next = NULL;
 	if (*line || light->color.depth)

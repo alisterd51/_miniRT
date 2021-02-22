@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/20 15:20:03 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/22 08:49:24 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define CUBE_ERROR_LINE				"ligne cu incorrect\n"
 # define PYRAMID_ERROR_LINE				"ligne py incorrect\n"
 # define ATOI_OVERFLOW					"nombre inf a INT_MIN ou sup a INT_MAX\n"
+# define NOT_DIGIT						"manque un nombre\n"
 
 /*
 ** exit_err.c

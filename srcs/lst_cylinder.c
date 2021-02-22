@@ -6,11 +6,12 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:33:20 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/31 14:10:35 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/22 10:42:48 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <float.h>
 #include "struct.h"
 #include "exit_err.h"
 #include "read_line.h"
@@ -40,10 +41,18 @@ void		init_lst_cylinder(char *line, t_obj *obj)
 	if (!cylinder)
 		return (exit_errcode(MALLOC_ERROR));
 	cylinder->coord = read_line_to_vector(&line);
+	if (cylinder->coord.x == DBL_MIN || cylinder->coord.y == DBL_MIN || cylinder->coord.z == DBL_MIN)
+		return (exit_errcode(CYLINDER_ERROR_LINE));
 	cylinder->normal = read_line_to_vector(&line);
+	if (cylinder->normal.x == DBL_MIN || cylinder->normal.y == DBL_MIN || cylinder->normal.z == DBL_MIN)
+		return (exit_errcode(CYLINDER_ERROR_LINE));
 	cylinder->diameter = read_line_to_double(&line);
+	if (cylinder->diameter == DBL_MIN)
+		return (exit_errcode(CYLINDER_ERROR_LINE));
 	cylinder->radius2 = cylinder->diameter * cylinder->diameter / 4.0;
 	cylinder->height = read_line_to_double(&line);
+	if (cylinder->height == DBL_MIN)
+		return (exit_errcode(CYLINDER_ERROR_LINE));
 	cylinder->color = read_line_to_color(&line);
 	cylinder->next = NULL;
 	if (*line || cylinder->color.depth)

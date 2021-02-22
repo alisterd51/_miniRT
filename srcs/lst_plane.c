@@ -6,11 +6,12 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:25:07 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/31 14:19:16 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/22 14:37:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <float.h>
 #include "struct.h"
 #include "exit_err.h"
 #include "read_line.h"
@@ -40,7 +41,11 @@ void		init_lst_plane(char *line, t_obj *obj)
 	if (!plane)
 		return (exit_errcode(MALLOC_ERROR));
 	plane->coord = read_line_to_vector(&line);
+	if (plane->coord.x == DBL_MIN || plane->coord.y == DBL_MIN || plane->coord.z == DBL_MIN)
+        return (exit_errcode(PLANE_ERROR_LINE));
 	plane->normal = read_line_to_vector(&line);
+	if (plane->normal.x == DBL_MIN || plane->normal.y == DBL_MIN || plane->normal.z == DBL_MIN)
+        return (exit_errcode(PLANE_ERROR_LINE));
 	plane->color = read_line_to_color(&line);
 	plane->next = NULL;
 	if (*line || plane->color.depth)

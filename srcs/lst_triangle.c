@@ -6,11 +6,12 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/09 12:56:03 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:17:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <float.h>
 #include "struct.h"
 #include "exit_err.h"
 #include "read_line.h"
@@ -40,8 +41,14 @@ void	init_lst_triangle(char *line, t_obj *obj)
 	if (!triangle)
 		return (exit_errcode(MALLOC_ERROR));
 	triangle->coord1 = read_line_to_vector(&line);
+	if (triangle->coord1.x == DBL_MIN || triangle->coord1.y == DBL_MIN || triangle->coord1.z == DBL_MIN)
+        return (exit_errcode(TRIANGLE_ERROR_LINE));
 	triangle->coord2 = read_line_to_vector(&line);
+	if (triangle->coord2.x == DBL_MIN || triangle->coord2.y == DBL_MIN || triangle->coord2.z == DBL_MIN)
+        return (exit_errcode(TRIANGLE_ERROR_LINE));
 	triangle->coord3 = read_line_to_vector(&line);
+	if (triangle->coord3.x == DBL_MIN || triangle->coord3.y == DBL_MIN || triangle->coord3.z == DBL_MIN)
+        return (exit_errcode(TRIANGLE_ERROR_LINE));
 	triangle->color = read_line_to_color(&line);
 	triangle->next = NULL;
 	if (*line || triangle->color.depth)
