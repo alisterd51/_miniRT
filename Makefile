@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME		= miniRT
-CC		= clang-9
+CC		= cc
 FLAGS		= -Wall -Wextra -Werror \
 			  -O3
 MLX_LINUX	= -L ./minilibx-linux \

@@ -50,16 +50,18 @@ int		ft_tobmp(t_mlx *mlx, const char *name)
 	int		mod;
 	int		size;
 	char	*bitmap_file;
+	ssize_t	ret;
 
-	fd = open(name, O_CREAT | O_WRONLY);
+	fd = open(name, O_CREAT | O_WRONLY, O_TRUNC);
 	size = 14 + 40 + mlx->y_size * mlx->x_size * 4;
 	mod = 8 - (size % 8);
 	if (!(bitmap_file = (char *)malloc(sizeof(char) * (size + mod))))
 		return (-1);
 	bitmap_file_header(bitmap_file, size + mod);
 	dib_header(bitmap_file + 14, mlx->x_size, -(mlx->y_size));
-	write(fd, bitmap_file, 54);
-	write(fd, mlx->image, mlx->y_size * mlx->x_size * 4);
+	ret = write(fd, bitmap_file, 54);
+	ret = write(fd, mlx->image, mlx->y_size * mlx->x_size * 4);
+	(void)ret;
 	free(bitmap_file);
 	close(fd);
 	return (0);
