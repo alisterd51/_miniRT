@@ -52,7 +52,7 @@ int		ft_tobmp(t_mlx *mlx, const char *name)
 	char	*bitmap_file;
 	ssize_t	ret;
 
-	fd = open(name, O_CREAT | O_WRONLY, O_TRUNC);
+	fd = open(name, O_CREAT | O_WRONLY, S_IRWXU);
 	size = 14 + 40 + mlx->y_size * mlx->x_size * 4;
 	mod = 8 - (size % 8);
 	if (!(bitmap_file = (char *)malloc(sizeof(char) * (size + mod))))

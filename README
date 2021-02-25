@@ -24,4 +24,3 @@ nota:
 	https://github.com/martingarcialopez/miniRT.git
 	faire une version "normal" et une "bonus"
 	si A > max int bug
-	si R trop grand segfault

@@ -31,8 +31,8 @@ static t_mlx	*init_mlx(t_obj *obj)
 {
 	t_mlx	*mlx;
 	int		i;
-/*	int		x;
-	int		y;*/
+	int		x;
+	int		y;
 
 	mlx = (t_mlx *)malloc(sizeof(t_mlx));
 	if (!mlx)
@@ -43,11 +43,11 @@ static t_mlx	*init_mlx(t_obj *obj)
 	mlx->size_line = obj->res->x_size * 4;
 	mlx->bpp = 32;
 	mlx->endian = 1;
-/*	mlx_get_screen_size(mlx->mlx_ptr, &x, &y);
+	mlx_get_screen_size(mlx->mlx_ptr, &x, &y);
 	if (x < mlx->x_size)
 		mlx->x_size = x;
 	if (y - 50 < mlx->y_size)
-		mlx->y_size = y - 50;*/
+		mlx->y_size = y - 50;
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->x_size, mlx->y_size);
 	mlx->image = (int *)mlx_get_data_addr(mlx->img_ptr,
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
