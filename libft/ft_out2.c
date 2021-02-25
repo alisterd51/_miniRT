@@ -43,11 +43,13 @@ void	ft_outputnumber(t_all *all, char *nbr)
 int		ft_checkbufferprintf(t_out *out)
 {
 	int	diff;
+	ssize_t	ret;
 
 	diff = PRINTF_BUFFER - out->current_size;
 	if (diff == 0)
 	{
-		write(1, out->str, PRINTF_BUFFER);
+		ret = write(1, out->str, PRINTF_BUFFER);
+		(void)ret;
 		out->final_size += PRINTF_BUFFER;
 		out->current_size = 0;
 		return (PRINTF_BUFFER);
@@ -57,8 +59,11 @@ int		ft_checkbufferprintf(t_out *out)
 
 int		ft_cleanbufferprintf(t_out *out)
 {
+	ssize_t	ret;
+
 	out->final_size += out->current_size;
-	write(1, out->str, out->current_size);
+	ret = write(1, out->str, out->current_size);
 	out->current_size = 0;
+	(void)ret;
 	return (out->final_size);
 }

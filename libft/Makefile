@@ -73,7 +73,7 @@ SRCS		= ft_printf.c \
 OBJS		= ${SRCS:.c=.o}
 
 .c.o:
-	@(clang ${FLAGS} -c $< -o ${<:.c=.o})
+	@(cc ${FLAGS} -c $< -o ${<:.c=.o})
 	@printf "\033[32;1mcompil %s: %20.20s\033[0m\r" $(NAME) $<
 
 all:		$(NAME)

@@ -22,7 +22,9 @@
 
 void	exit_errcode(char *errcode)
 {
-	write(2, "Erreur: ", 9);
-	write(2, errcode, ft_strlen(errcode));
+	ssize_t	ret;
+	ret = write(2, "Erreur: ", 9);
+	ret = write(2, errcode, ft_strlen(errcode));
+	(void)ret;
 	exit(0);
 }

@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME		= miniRT
+CC		= clang-9
 FLAGS		= -Wall -Wextra -Werror \
 			  -O3
 MLX_LINUX	= -L ./minilibx-linux \
@@ -83,17 +84,17 @@ endif
 INCLUDES += -I ./$(PATH_MLX)
 
 .c.o:
-	@clang $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
+	@$(CC) $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
 	@printf "\033[32;1mcompil %s: %25.25s\r\033[0m" $(NAME) $<
 
 all:		$(NAME)
 
 debug:	sub-make $(OBJS)
-	@clang -g $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
+	@$(CC) -g $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%35.35s\n\033[0m" $(NAME) ""
 
 $(NAME):	sub-make $(OBJS)
-	@clang $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
+	@$(CC) $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
 
 sub-make:
