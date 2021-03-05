@@ -6,6 +6,17 @@ Pour tester le rendeur 3d:
 -tester la sauvegarde avec:
 	./miniRT scenes/test.rt --save
 
+key mapping:
+	translation x: LEFT_KEY, RIGHT_KEY
+	translation y: S_KEY, Z_KEY
+	translation z: UP_KEY, DOWN_KEY
+	rotation x: K_KEY, L_KEY
+	rotation y: H_KEY, J_KEY
+	rotation z: Q_KEY, D_KEY
+	changement cam: PAGE_UP, PAGE_DOWN
+	rendu: R_KEY
+	exit: ESC_KEY
+
 nota:
 	transp non fonctionnel (bonus)
 	partie ombre des objets plats non gere
@@ -23,4 +34,3 @@ nota:
 	rotation cam souris (bonus)
 	https://github.com/martingarcialopez/miniRT.git
 	faire une version "normal" et une "bonus"
-	si A > max int bug

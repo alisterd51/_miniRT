@@ -37,6 +37,8 @@ void	init_amb_light(char *line, t_obj *obj)
 	obj->amb_light->ratio = read_line_to_double(&line);
 	if (obj->amb_light->ratio == DBL_MIN || !ft_isspace(*line))
 		return (exit_errcode(AMB_LIGHT_ERROR_LINE));
+	if (obj->amb_light->ratio < 0.0 || 1.0 < obj->amb_light->ratio)
+		return (exit_errcode(AMB_LIGHT_RANGE_ERROR));
 	while (ft_isspace(*line))
 		line++;
 	obj->amb_light->color = read_line_to_color(&line);

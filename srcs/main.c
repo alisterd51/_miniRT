@@ -54,8 +54,8 @@ static t_mlx	*init_mlx(t_obj *obj)
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->x_size,
 			mlx->y_size, "Test");
 	mlx->aa = 10;
-	mlx->iaa = 16;
-	mlx->nb_thread = 16;
+	mlx->iaa = 11;
+	mlx->nb_thread = 8;
 	obj->intensite_lumiere = 200000000.0;
 	obj->current_cam = obj->lst_cam;
 	mlx->pixel = (int **)malloc(sizeof(int *) * mlx->y_size);

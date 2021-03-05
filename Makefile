@@ -11,12 +11,13 @@
 # **************************************************************************** #
 
 NAME		= miniRT
-CC		= cc
+CC		= clang-9
 FLAGS		= -Wall -Wextra -Werror \
-			  -O3
+			-fsanitize=address  -g3\
+
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
-			  -lm -lmlx -lXext -lX11 -lpthread
+			  -lm -lmlx -lXext -lX11 -lpthread -fsanitize=address
 MLX_MAC		= -L ./minilibx-mac \
 			  -I ./minilibx-mac \
 			  -lmlx -framework OpenGL -framework AppKit

@@ -40,6 +40,7 @@
 # define PYRAMID_ERROR_LINE				"ligne py incorrect\n"
 # define ATOI_OVERFLOW					"nombre inf a INT_MIN ou sup a INT_MAX\n"
 # define NOT_DIGIT						"manque un nombre\n"
+# define AMB_LIGHT_RANGE_ERROR			"amb_light en dehors du range ]0; 1[\n"
 
 /*
 ** exit_err.c

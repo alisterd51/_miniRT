@@ -12,9 +12,11 @@
 
 #include <stdlib.h>
 #include <mlx.h>
+#include "libft.h"
 #include "struct.h"
 #include "vector.h"
 #include "scenescan.h"
+#include "exit_err.h"
 
 static int	moyenne(t_mlx *mlx, int x, int y)
 {
@@ -25,17 +27,13 @@ static int	moyenne(t_mlx *mlx, int x, int y)
 	somme = init_vector(0.0, 0.0, 0.0);
 	x *= mlx->aa;
 	y *= mlx->aa;
-	i = 0;
-	while (i < mlx->aa)
+	j = -1;
+	while (++j < mlx->aa)
 	{
-		j = 0;
-		while (j < mlx->aa)
-		{
+		i = -1;
+		while (++i < mlx->aa)
 			somme = add_vector(somme, int_to_vector(mlx->image[(mlx->y_size
-							- x - i - 1) * mlx->x_size + y + j]));
-			j++;
-		}
-		i++;
+							- y - j - 1) * mlx->x_size + x + i]));
 	}
 	return (vector_to_ints(div_vector(somme, (mlx->aa * mlx->aa))));
 }
@@ -51,14 +49,16 @@ void		oversampling(t_mlx *mlx)
 	image_final = mlx->image;
 	mlx->y_size *= mlx->aa;
 	mlx->x_size *= mlx->aa;
-	mlx->image = malloc(mlx->y_size * mlx->x_size * sizeof(int));
+	mlx->image = (int *)ft_calloc(mlx->y_size * mlx->x_size, sizeof(int));
+	if (mlx->image == NULL)
+		return (exit_errcode(MALLOC_ERROR));
 	scenescan(mlx);
-	x = -1;
-	while (++x < y_native)
+	y = -1;
+	while (++y < y_native)
 	{
-		y = -1;
-		while (++y < x_native)
-			image_final[(y_native - x - 1) * x_native + y] = moyenne(mlx, x, y);
+		x = -1;
+		while (++x < x_native)
+			image_final[(y_native - y - 1) * x_native + x] = moyenne(mlx, x, y);
 	}
 	free(mlx->image);
 	mlx->image = image_final;
@@ -77,16 +77,22 @@ void		prerendered(t_mlx *mlx)
 	image_final = mlx->image;
 	mlx->y_size /= mlx->iaa;
 	mlx->x_size /= mlx->iaa;
-	mlx->image = malloc(mlx->y_size * mlx->x_size * sizeof(int));
+	mlx->image = (int *)ft_calloc((mlx->y_size + 1) * (mlx->x_size + 1), sizeof(int));
+	if (mlx->image == NULL)
+		return (exit_errcode(MALLOC_ERROR));
 	scenescan(mlx);
-	x = -1;
-	while (++x < y_native)
+	y = -1;
+	while (++y < y_native)
 	{
-		y = -1;
-		while (++y < x_native)
-			image_final[(y_native - x - 1) * x_native + y] =
-				mlx->image[(mlx->y_size - x / mlx->iaa - 1) *
-				mlx->x_size + y / mlx->iaa];
+		x = -1;
+		while (++x < x_native)
+		{
+			if (x / mlx->iaa >= mlx->x_size)
+				image_final[y * x_native + x] = 0;
+			else
+				image_final[y * x_native + x] =
+					mlx->image[(y / mlx->iaa) * mlx->x_size + (x / mlx->iaa)];
+		}
 	}
 	free(mlx->image);
 	mlx->image = image_final;

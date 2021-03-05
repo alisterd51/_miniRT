@@ -55,10 +55,18 @@ static int	prerender_key(int key, t_mlx *mlx)
 		mlx->obj->current_cam->coord.x -= 1;
 	else if (key == RIGHT_KEY)
 		mlx->obj->current_cam->coord.x += 1;
+	else if (key == K_KEY)
+		mlx->obj->current_cam->rot.x -= M_PI / 100.0;
+	else if (key == L_KEY)
+		mlx->obj->current_cam->rot.x += M_PI / 100.0;
+	else if (key == H_KEY)
+		mlx->obj->current_cam->rot.y -= M_PI / 100.0;
+	else if (key == J_KEY)
+		mlx->obj->current_cam->rot.y += M_PI / 100.0;
 	else if (key == Q_KEY)
-		mlx->obj->current_cam->alpha -= M_PI / 100.0;
+		mlx->obj->current_cam->rot.z -= M_PI / 100.0;
 	else if (key == D_KEY)
-		mlx->obj->current_cam->alpha += M_PI / 100.0;
+		mlx->obj->current_cam->rot.z += M_PI / 100.0;
 	else
 		return (0);
 	return (1);
