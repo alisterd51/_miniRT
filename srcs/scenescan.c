@@ -34,7 +34,7 @@ static int	average_light(t_ray *ray, t_mlx *mlx)
 	}
 	return (vector_to_int(div_vector(ret, denum)));
 }
-#include <stdio.h>
+
 static void	*fonction(void *arg)
 {
 	t_arg	*a;
@@ -52,11 +52,10 @@ static void	*fonction(void *arg)
 		while (++y < a->y_max)
 		{
 			ray.coord = mlx->obj->current_cam->coord;
-			ray.normal = rot_z_vector(mlx->obj->current_cam->alpha,
-				init_vector(y - mlx->x_size / 2, x - mlx->y_size / 2,
-				-(mlx->x_size)
+			ray.normal = rot_vector(mlx->obj->current_cam->rot,
+				init_vector(y - mlx->x_size / 2, x - mlx->y_size
+				/ 2, -(mlx->x_size)
 				/ (2 * tanf(mlx->obj->current_cam->fov_rad / 2))));
-			ray.normal = rot_vector(mlx->obj->current_cam->rot, ray.normal);
 			ray.normal = normalize(ray.normal);
 			mlx->image[(mlx->y_size - x - 1) * mlx->x_size + y] =
 				average_light(&ray, mlx);
