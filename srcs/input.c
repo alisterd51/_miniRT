@@ -24,13 +24,9 @@
 
 int			exit_hook(t_mlx *mlx)
 {
-	int	i;
-
 	(void)mlx;
-	i = -1;
-	while (++i < mlx->y_size)
-		free(mlx->pixel[i]);
-	free(mlx->pixel);
+	free(mlx->aa_image);
+	free(mlx->iaa_image);
 	free_obj(&(mlx->obj));
 	mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
 	exit(0);

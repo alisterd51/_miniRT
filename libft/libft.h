@@ -89,6 +89,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 int					ft_atoi(const char *str);
 double				ft_atof(const char *str);
 void				*ft_calloc(size_t count, size_t size);
+void				ft_free(void *ptr);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);

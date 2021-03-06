@@ -152,7 +152,8 @@ struct			s_mlx
 	int			size_line;
 	int			bpp;
 	int			endian;
-	int			**pixel;
+	int			*aa_image;
+	int			*iaa_image;
 	int			aa;
 	int			iaa;
 	int			nb_thread;

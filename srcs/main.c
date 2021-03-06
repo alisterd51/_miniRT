@@ -30,7 +30,6 @@ static int		ft_save(char *param)
 static t_mlx	*init_mlx(t_obj *obj)
 {
 	t_mlx	*mlx;
-	int		i;
 	int		x;
 	int		y;
 
@@ -58,10 +57,8 @@ static t_mlx	*init_mlx(t_obj *obj)
 	mlx->nb_thread = 8;
 	obj->intensite_lumiere = 200000000.0;
 	obj->current_cam = obj->lst_cam;
-	mlx->pixel = (int **)malloc(sizeof(int *) * mlx->y_size);
-	i = -1;
-	while (++i < mlx->y_size)
-		mlx->pixel[i] = (int *)malloc(sizeof(int) * mlx->x_size);
+	mlx->aa_image = (int *)calloc(mlx->y_size * mlx->x_size * mlx->aa * mlx->aa, sizeof(int));
+	mlx->iaa_image = (int *)calloc((mlx->y_size / mlx->iaa + 1) * (mlx->x_size / mlx->iaa + 1), sizeof(int));
 	mlx->obj = obj;
 	return (mlx);
 }

@@ -13,11 +13,10 @@
 NAME		= miniRT
 CC		= clang-9
 FLAGS		= -Wall -Wextra -Werror \
-			-fsanitize=address  -g3\
-
+			  -g3
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
-			  -lm -lmlx -lXext -lX11 -lpthread -fsanitize=address
+			  -lm -lmlx -lXext -lX11 -lpthread -g3
 MLX_MAC		= -L ./minilibx-mac \
 			  -I ./minilibx-mac \
 			  -lmlx -framework OpenGL -framework AppKit
@@ -85,8 +84,8 @@ endif
 INCLUDES += -I ./$(PATH_MLX)
 
 .c.o:
-	@$(CC) $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
 	@printf "\033[32;1mcompil %s: %25.25s\r\033[0m" $(NAME) $<
+	@$(CC) $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
@@ -95,6 +94,7 @@ debug:	sub-make $(OBJS)
 	@printf "\033[32;1m%s OK%35.35s\n\033[0m" $(NAME) ""
 
 $(NAME):	sub-make $(OBJS)
+	@printf "\033[32;1mcompil %s...%40.40s\r\033[0m" $(NAME) ""
 	@$(CC) $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
 

@@ -49,7 +49,7 @@ void		oversampling(t_mlx *mlx)
 	image_final = mlx->image;
 	mlx->y_size *= mlx->aa;
 	mlx->x_size *= mlx->aa;
-	mlx->image = (int *)ft_calloc(mlx->y_size * mlx->x_size, sizeof(int));
+	mlx->image = mlx->aa_image;
 	if (mlx->image == NULL)
 		return (exit_errcode(MALLOC_ERROR));
 	scenescan(mlx);
@@ -60,7 +60,6 @@ void		oversampling(t_mlx *mlx)
 		while (++x < x_native)
 			image_final[(y_native - y - 1) * x_native + x] = moyenne(mlx, x, y);
 	}
-	free(mlx->image);
 	mlx->image = image_final;
 	mlx->y_size = y_native;
 	mlx->x_size = x_native;
@@ -77,7 +76,7 @@ void		prerendered(t_mlx *mlx)
 	image_final = mlx->image;
 	mlx->y_size /= mlx->iaa;
 	mlx->x_size /= mlx->iaa;
-	mlx->image = (int *)ft_calloc((mlx->y_size + 1) * (mlx->x_size + 1), sizeof(int));
+	mlx->image = mlx->iaa_image;
 	if (mlx->image == NULL)
 		return (exit_errcode(MALLOC_ERROR));
 	scenescan(mlx);
@@ -94,7 +93,6 @@ void		prerendered(t_mlx *mlx)
 					mlx->image[(y / mlx->iaa) * mlx->x_size + (x / mlx->iaa)];
 		}
 	}
-	free(mlx->image);
 	mlx->image = image_final;
 	mlx->y_size = y_native;
 	mlx->x_size = x_native;
