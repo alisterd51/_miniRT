@@ -41,6 +41,7 @@
 # define ATOI_OVERFLOW					"nombre inf a INT_MIN ou sup a INT_MAX\n"
 # define NOT_DIGIT						"manque un nombre\n"
 # define AMB_LIGHT_RANGE_ERROR			"amb_light en dehors du range ]0; 1[\n"
+# define TO_BMP_ERROR						"erreurs lors de l'ecriture du .bmp\n"
 
 /*
 ** exit_err.c

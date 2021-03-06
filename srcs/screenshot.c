@@ -15,11 +15,13 @@
 #include "to_bmp.h"
 #include "render.h"
 #include "input.h"
+#include "exit_err.h"
 
 void	ft_screenshot(t_mlx *mlx)
 {
 	oversampling(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
-	ft_tobmp(mlx, "test.bmp");
+	if (ft_tobmp(mlx, "test.bmp") == -1)
+		exit_errcode(TO_BMP_ERROR);
 	exit_hook(mlx);
 }
