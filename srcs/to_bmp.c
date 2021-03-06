@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include "struct.h"
 #include "libft.h"
+#include "exit_err.h"
 
 void	fill_oct(char *str, int data)
 {
@@ -44,25 +45,26 @@ void	dib_header(char *bitmap_file, int width, int height)
 	fill_oct(bitmap_file + 20, width * height * 4);
 }
 
-int		ft_tobmp(t_mlx *mlx, const char *name)
+void	ft_tobmp(t_mlx *mlx, const char *name)
 {
 	int		fd;
 	int		mod;
 	int		size;
 	char	*bitmap_file;
-	ssize_t	ret;
 
 	fd = open(name, O_CREAT | O_WRONLY, S_IRWXU);
+	if (fd == -1)
+		return (exit_errcode(OPEN_BMP_ERROR));
 	size = 14 + 40 + mlx->y_size * mlx->x_size * 4;
 	mod = 8 - (size % 8);
 	if (!(bitmap_file = (char *)malloc(sizeof(char) * (size + mod))))
-		return (-1);
+		return (exit_errcode(MALLOC_ERROR));
 	bitmap_file_header(bitmap_file, size + mod);
 	dib_header(bitmap_file + 14, mlx->x_size, -(mlx->y_size));
-	ret = write(fd, bitmap_file, 54);
-	ret = write(fd, mlx->image, mlx->y_size * mlx->x_size * 4);
-	(void)ret;
+	if (write(fd, bitmap_file, 54) == -1
+			|| write(fd, mlx->image, mlx->y_size * mlx->x_size * 4) == -1)
+		return (exit_errcode(WRITE_TO_BMP_ERROR));
 	free(bitmap_file);
-	close(fd);
-	return (0);
+	if (close(fd) == -1)
+		return (exit_errcode(CLOSE_BMP_ERROR));
 }

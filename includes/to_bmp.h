@@ -13,6 +13,9 @@
 #ifndef TO_BMP_H
 # define TO_BMP_H
 
-int	ft_tobmp(t_mlx *mlx, const char *name);
+/*
+** to_bmp.c
+*/
+void	ft_tobmp(t_mlx *mlx, const char *name);
 
 #endif
