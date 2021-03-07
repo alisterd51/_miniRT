@@ -6,13 +6,21 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:40:32 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:26:13 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:30:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "vector.h"
 #include "check.h"
+
+static int	set_p_n(t_check *local, t_calc_t calc)
+{
+	local->p = add_vector(local->ray.coord,
+		mult_vector(local->t, local->ray.normal));
+	local->n = normalize(prod_vector(calc.edge1, calc.edge2));
+	return (1);
+}
 
 static int	inter_triangle(t_check *local, t_triangle *triangle)
 {
@@ -38,12 +46,7 @@ static int	inter_triangle(t_check *local, t_triangle *triangle)
 		return (0);
 	local->t = calc.f * dot(calc.edge2, calc.q);
 	if (local->t > 0.000001)
-	{
-		local->p = add_vector(local->ray.coord,
-			mult_vector(local->t, local->ray.normal));
-		local->n = normalize(prod_vector(calc.edge1, calc.edge2));
-		return (1);
-	}
+		return (set_p_n(local, calc));
 	return (0);
 }
 

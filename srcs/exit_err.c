@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 00:40:10 by antoine           #+#    #+#             */
-/*   Updated: 2021/01/05 09:50:22 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:22:11 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 void	exit_errcode(char *errcode)
 {
 	ssize_t	ret;
+
 	ret = write(2, "Erreur: ", 9);
 	ret = write(2, errcode, ft_strlen(errcode));
 	(void)ret;
-	exit(0);
+	exit(1);
 }

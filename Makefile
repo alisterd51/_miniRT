@@ -6,17 +6,16 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/02/21 11:40:15 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/07 14:40:48 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
-CC		= clang-9
-FLAGS		= -Wall -Wextra -Werror \
-			  -g3
+CC			= clang
+FLAGS		= -Wall -Wextra -Werror -O2
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
-			  -lm -lmlx -lXext -lX11 -lpthread -g3
+			  -lm -lmlx -lXext -lX11 -lpthread
 MLX_MAC		= -L ./minilibx-mac \
 			  -I ./minilibx-mac \
 			  -lmlx -framework OpenGL -framework AppKit
@@ -68,7 +67,7 @@ C_FILES		= main.c \
 			  secure_atoi.c
 SRCS		= $(addprefix srcs/,$(C_FILES))
 OBJS		= $(SRCS:.c=.o)
-UNAME := $(shell uname)
+UNAME		:= $(shell uname)
 
 ifeq ($(UNAME),Darwin)
     MLX = $(MLX_MAC)
@@ -90,7 +89,7 @@ INCLUDES += -I ./$(PATH_MLX)
 all:		$(NAME)
 
 debug:	sub-make $(OBJS)
-	@$(CC) -g $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
+	@$(CC) -fsanitize=address -g3 $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%35.35s\n\033[0m" $(NAME) ""
 
 $(NAME):	sub-make $(OBJS)

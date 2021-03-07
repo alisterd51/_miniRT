@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/22 08:49:24 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/07 13:55:15 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@
 # define CONE_ERROR_LINE				"ligne co incorrect\n"
 # define CUBE_ERROR_LINE				"ligne cu incorrect\n"
 # define PYRAMID_ERROR_LINE				"ligne py incorrect\n"
-# define ATOI_OVERFLOW					"nombre inf a INT_MIN ou sup a INT_MAX\n"
+# define ATOI_OVERFLOW					"un nombre n'est pas un INT\n"
 # define NOT_DIGIT						"manque un nombre\n"
 # define AMB_LIGHT_RANGE_ERROR			"amb_light en dehors du range ]0; 1[\n"
-# define OPEN_BMP_ERROR				"echec d'ouverture/creation du .bmp\n"
-# define WRITE_TO_BMP_ERROR			"echec d'ecriture du .bmp\n"
-# define CLOSE_BMP_ERROR			"echec de fermeture du .bmp\n"
+# define OPEN_BMP_ERROR					"echec d'ouverture/creation du .bmp\n"
+# define WRITE_TO_BMP_ERROR				"echec d'ecriture du .bmp\n"
+# define CLOSE_BMP_ERROR				"echec de fermeture du .bmp\n"
 
 /*
 ** exit_err.c
