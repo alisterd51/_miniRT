@@ -128,6 +128,7 @@ int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)
 			*(data+x*opp+opp-dec-1) = col&0xFF;
       	col >>= 8;
     }
+	return (0);
 }
 
 
@@ -301,6 +302,7 @@ int	mlx_int_file_get_rid_comment(char *ptr, int size)
 				com_end = mlx_int_str_str(ptr+com_begin+2,"\n",size-com_begin-2);
 				memset(ptr+com_begin,' ',com_end+3);
 		}
+	return (0);
 }
 
 
@@ -310,6 +312,7 @@ void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)
 		int	size;
 		char	*ptr;
 		t_img	*img;
+	return (0);
 
 		fd = -1;
 		if ((fd = open(file,O_RDONLY))==-1 || (size = lseek(fd,0,SEEK_END))==-1 ||
@@ -321,7 +324,8 @@ void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)
 				return ((void *)0);
 		}
 		mlx_int_file_get_rid_comment(ptr, size);
-		if (img = mlx_int_parse_xpm(xvar,ptr,size,mlx_int_get_line))
+		img = mlx_int_parse_xpm(xvar,ptr,size,mlx_int_get_line);
+		if (img)
 		{
 				*width = img->width;
 				*height = img->height;
@@ -334,8 +338,8 @@ void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)
 void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)
 {
 		t_img	*img;
-
-		if (img = mlx_int_parse_xpm(xvar,xpm_data,0,mlx_int_static_line))
+		img = mlx_int_parse_xpm(xvar,xpm_data,0,mlx_int_static_line);
+		if (img)
 		{
 				*width = img->width;
 				*height = img->height;
