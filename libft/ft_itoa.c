@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 02:27:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/03/28 23:44:34 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:22:50 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_itoa(long long int n)
 {
 	char					*nb;
-	unsigned long long int			nbtmp;
+	unsigned long long int	nbtmp;
 	int						size;
 	char					sign;
 
