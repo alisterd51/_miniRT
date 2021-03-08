@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/25 14:42:38 by anclarma          #+#    #+#             */
-/*   Updated: 2020/03/25 14:42:38 by anclarma         ###   ########.fr       */
+/*   Created: 2021/03/08 13:18:38 by anclarma          #+#    #+#             */
+/*   Updated: 2021/03/08 13:19:01 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-double ft_atof(const char *str)
+double	ft_atof(const char *str)
 {
 	double	nb;
 	double	exp;
