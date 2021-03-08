@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/27 13:58:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/07 13:06:05 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** MACINTOSH_INPUT
 */
 # ifdef MACOS
-#  define UP_KEY		126
+#  define UP_KEY	126
 #  define DOWN_KEY	125
 #  define LEFT_KEY	123
 #  define RIGHT_KEY	124
@@ -28,6 +28,10 @@
 #  define R_KEY		15
 #  define Q_KEY		12
 #  define D_KEY		2
+#  define H_KEY		104
+#  define J_KEY		106
+#  define K_KEY		107
+#  define L_KEY		108
 #  define ESC_KEY	53
 #  define PAGE_UP	116
 #  define PAGE_DOWN	121
