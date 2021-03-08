@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:33:20 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/22 10:42:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:28:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void		init_lst_cylinder(char *line, t_obj *obj)
 	if (!cylinder)
 		return (exit_errcode(MALLOC_ERROR));
 	cylinder->coord = read_line_to_vector(&line);
-	if (cylinder->coord.x == DBL_MIN || cylinder->coord.y == DBL_MIN || cylinder->coord.z == DBL_MIN)
+	if (cylinder->coord.x == DBL_MIN || cylinder->coord.y == DBL_MIN
+			|| cylinder->coord.z == DBL_MIN)
 		return (exit_errcode(CYLINDER_ERROR_LINE));
 	cylinder->normal = read_line_to_vector(&line);
-	if (cylinder->normal.x == DBL_MIN || cylinder->normal.y == DBL_MIN || cylinder->normal.z == DBL_MIN)
+	if (cylinder->normal.x == DBL_MIN || cylinder->normal.y == DBL_MIN
+			|| cylinder->normal.z == DBL_MIN)
 		return (exit_errcode(CYLINDER_ERROR_LINE));
 	cylinder->diameter = read_line_to_double(&line);
 	if (cylinder->diameter == DBL_MIN)

@@ -6,9 +6,11 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 13:18:38 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/08 13:19:01 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:48:34 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 double	ft_atof(const char *str)
 {

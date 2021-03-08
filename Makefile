@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/08 12:14:32 by pompier          ###   ########.fr        #
+#    Updated: 2021/03/08 13:46:19 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ C_FILES		= main.c \
 			  to_bmp.c \
 			  add_amb_light.c \
 			  secure_atoi.c \
-			  init_mlx.c
+			  init_mlx.c \
+			  exit_hook.c
 SRCS		= $(addprefix srcs/,$(C_FILES))
 OBJS		= $(SRCS:.c=.o)
 UNAME		:= $(shell uname)

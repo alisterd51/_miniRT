@@ -6,13 +6,11 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/31 14:12:27 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 14:02:06 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <math.h>
-#include <mlx.h>
 #include "struct.h"
 #include "lst_obj.h"
 #include "input.h"
@@ -22,22 +20,7 @@
 ** DESCRIPTION
 */
 
-int			exit_hook(t_mlx *mlx)
-{
-	(void)mlx;
-	free(mlx->aa_image);
-	free(mlx->iaa_image);
-	free_obj(&(mlx->obj));
-	mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
-	exit(0);
-	return (0);
-}
-
-/*
-** DESCRIPTION
-*/
-
-static int	prerender_key(int key, t_mlx *mlx)
+static int	translation_key(int key, t_mlx *mlx)
 {
 	if (key == UP_KEY)
 		mlx->obj->current_cam->coord.z -= 1;
@@ -51,7 +34,14 @@ static int	prerender_key(int key, t_mlx *mlx)
 		mlx->obj->current_cam->coord.x -= 1;
 	else if (key == RIGHT_KEY)
 		mlx->obj->current_cam->coord.x += 1;
-	else if (key == K_KEY)
+	else
+		return (0);
+	return (1);
+}
+
+static int	rotation_key(int key, t_mlx *mlx)
+{
+	if (key == K_KEY)
 		mlx->obj->current_cam->rot.x -= M_PI / 100.0;
 	else if (key == L_KEY)
 		mlx->obj->current_cam->rot.x += M_PI / 100.0;
@@ -121,7 +111,7 @@ int			ft_keypress(int key, t_mlx *mlx)
 		next_cam(mlx);
 	else if (key == PAGE_DOWN)
 		prev_cam(mlx);
-	else if (prerender_key(key, mlx))
+	else if (translation_key(key, mlx) || rotation_key(key, mlx))
 		prerender(mlx);
 	else
 		return (0);
