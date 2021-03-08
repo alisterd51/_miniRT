@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 22:36:37 by anclarma          #+#    #+#             */
-/*   Updated: 2020/03/29 08:05:55 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:00:52 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_outputnumber(t_all *all, char *nbr)
 
 int		ft_checkbufferprintf(t_out *out)
 {
-	int	diff;
+	int		diff;
 	ssize_t	ret;
 
 	diff = PRINTF_BUFFER - out->current_size;

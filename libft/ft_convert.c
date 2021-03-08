@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 10:19:12 by anclarma          #+#    #+#             */
-/*   Updated: 2020/03/29 00:35:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:02:45 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char	*check_sign(char *nbr, t_all *all)
 {
 	char	*new_nbr;
-	
+
 	if (all->flag->flag & SHOWSIGNFLAG)
 	{
 		new_nbr = ft_strjoin("+", nbr);

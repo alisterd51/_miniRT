@@ -6,7 +6,7 @@
 /*   By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:31:29 by anclarma          #+#    #+#             */
-/*   Updated: 2020/08/15 21:53:15 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 13:00:11 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,5 @@ void				ft_calculation_nb_space1(int *size_nbr, int *nb_space1,
 						t_all *all);
 void				ft_calculation_nb_space2(int *nb_space1, int *nb_space2,
 						t_all *all);
-int				get_next_line(int fd, char **line);
+int					get_next_line(int fd, char **line);
 #endif
