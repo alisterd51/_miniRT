@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 00:15:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/03/07 10:38:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 21:04:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static char	*ft_strdupmod(char const *str, char charset)
 	i = 0;
 	while (!(str[i] == charset) && str[i])
 		i++;
-	if (!(dest = malloc(sizeof(char) * (i + 1))))
+	dest = malloc(sizeof(char) * (i + 1));
+	if (!dest)
 		return (NULL);
 	i = 0;
 	while (!(str[i] == charset) && str[i])
@@ -71,7 +72,8 @@ char		**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nbmot = ft_nbstr(s, c);
-	if (!(dst = malloc(sizeof(char *) * (nbmot + 1))))
+	dst = malloc(sizeof(char *) * (nbmot + 1));
+	if (!dst)
 		return (NULL);
 	i = -1;
 	y = 0;
@@ -79,7 +81,8 @@ char		**ft_split(char const *s, char c)
 	{
 		while (s[y] == c && s[y])
 			y++;
-		if (!(dst[i] = ft_strdupmod(s + y, c)))
+		dst[i] = ft_strdupmod(s + y, c);
+		if (!dst[i])
 			return (ft_freetab(dst, i));
 		while (!(s[y] == c) && s[y])
 			y++;

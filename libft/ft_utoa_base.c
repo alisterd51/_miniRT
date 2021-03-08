@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 11:11:35 by anclarma          #+#    #+#             */
-/*   Updated: 2020/03/07 10:45:06 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/08 21:11:54 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ char	*ft_utoa_base(unsigned long long int nb, char *base)
 		nbtmp /= base_len;
 		dst_len++;
 	}
-	if (!(dst = malloc(sizeof(char) * (dst_len + 1))))
+	dst = (char *)malloc(sizeof(char) * (dst_len + 1));
+	if (!dst)
 		return (NULL);
 	nbtmp = (unsigned long long int)nb;
 	dst[dst_len] = '\0';
