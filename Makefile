@@ -6,14 +6,14 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/02/21 11:40:15 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/08 12:05:12 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
 CC		= clang-9
 FLAGS		= -Wall -Wextra -Werror \
-			  -g3
+			  -g3 -fsanitize=address
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
 			  -lm -lmlx -lXext -lX11 -lpthread -g3
@@ -65,7 +65,8 @@ C_FILES		= main.c \
 			  screenshot.c \
 			  to_bmp.c \
 			  add_amb_light.c \
-			  secure_atoi.c
+			  secure_atoi.c \
+			  init_mlx.c
 SRCS		= $(addprefix srcs/,$(C_FILES))
 OBJS		= $(SRCS:.c=.o)
 UNAME := $(shell uname)
