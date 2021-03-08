@@ -35,3 +35,5 @@ nota:
 	https://github.com/martingarcialopez/miniRT.git
 	faire une version "normal" et une "bonus"
 	test d'opti a faire avec plusieurs compilateur/OS/options
+	cc -O3 (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 est le plus opti sur ubuntu 20.04
+	a tester avec clang-11

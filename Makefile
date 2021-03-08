@@ -6,13 +6,13 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/08 13:46:19 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/08 16:04:47 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
-CC			= clang-9
-FLAGS		= -Wall -Wextra -Werror
+CC			= cc
+FLAGS		= -Wall -Wextra -Werror -O3
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
 			  -lm -lmlx -lXext -lX11 -lpthread
