@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/08 14:02:06 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:39:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static int	rotation_key(int key, t_mlx *mlx)
 		mlx->obj->current_cam->rot.y -= M_PI / 100.0;
 	else if (key == J_KEY)
 		mlx->obj->current_cam->rot.y += M_PI / 100.0;
-	else if (key == Q_KEY)
-		mlx->obj->current_cam->rot.z -= M_PI / 100.0;
 	else if (key == D_KEY)
+		mlx->obj->current_cam->rot.z -= M_PI / 100.0;
+	else if (key == Q_KEY)
 		mlx->obj->current_cam->rot.z += M_PI / 100.0;
 	else
 		return (0);
