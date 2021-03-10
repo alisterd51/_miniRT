@@ -6,12 +6,11 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 09:57:53 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/01 10:46:50 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 11:55:28 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
-#include "vector.h"
 
 t_check	init_check(t_ray *ray, t_obj *obj, t_light *light)
 {
@@ -22,8 +21,8 @@ t_check	init_check(t_ray *ray, t_obj *obj, t_light *light)
 	ret.min_t = 1e99;
 	ret.t = 1e99;
 	ret.ray = *ray;
-	ret.p = init_vector(0.0, 0.0, 0.0);
-	ret.n = init_vector(0.0, 0.0, 0.0);
+	ret.p = (t_vector){0.0, 0.0, 0.0};
+	ret.n = (t_vector){0.0, 0.0, 0.0};
 	ret.obj = obj;
 	ret.light = light;
 	return (ret);

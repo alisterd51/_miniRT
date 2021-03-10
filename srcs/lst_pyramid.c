@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 00:06:15 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:30:46 by antoine          ###   ########.fr       */
+/*   Updated: 2021/03/10 11:54:48 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	init_lst_pyramid(char *line, t_obj *obj)
 	if (!(triangle = (t_triangle *)malloc(sizeof(t_triangle))))
 		return (exit_errcode(MALLOC_ERROR));
 	triangle->coord1 = add_vector(base->coord, mult_vector(height, base->normal));
-	t_vector vec1 = rot_vector(init_vector(M_PI / 2.0, M_PI / 2.0, 0.0), base->normal);
+	t_vector vec1 = rot_vector((t_vector){M_PI / 2.0, M_PI / 2.0, 0.0}, base->normal);
 	t_vector coord1 = add_vector(base->coord, mult_vector(base->side / 2.0, vec1));
-	t_vector vec2 = rot_vector(init_vector(0.0, M_PI / 2.0, 0.0), vec1);
-	t_vector vec3 = rot_vector(init_vector(0.0, M_PI, 0.0), vec2);
+	t_vector vec2 = rot_vector((t_vector){0.0, M_PI / 2.0, 0.0}, vec1);
+	t_vector vec3 = rot_vector((t_vector){0.0, M_PI, 0.0}, vec2);
 	triangle->coord2 = add_vector(coord1, mult_vector(base->side / 2.0, vec2));
 	triangle->coord3 = add_vector(coord1, mult_vector(base->side / 2.0, vec3));
 	triangle->color = base->color;

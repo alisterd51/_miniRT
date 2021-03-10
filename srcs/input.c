@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/09 12:39:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 11:24:02 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "lst_obj.h"
 #include "input.h"
 #include "render.h"
+#include "vector.h"
 
 /*
 ** DESCRIPTION
@@ -22,8 +23,10 @@
 
 static int	translation_key(int key, t_mlx *mlx)
 {
+	
 	if (key == UP_KEY)
 		mlx->obj->current_cam->coord.z -= 1;
+	
 	else if (key == DOWN_KEY)
 		mlx->obj->current_cam->coord.z += 1;
 	else if (key == S_KEY)

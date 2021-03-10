@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 10:52:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 11:32:30 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 11:55:58 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ t_vector	obj_albedo(t_check *check)
 		return (triangle_albedo(check->obj->lst_triangle, check->id_obj));
 	else if (check->id_cat == 6)
 		return (cone_albedo(check->obj->lst_cone, check->id_obj));
-	return (init_vector(0, 0, 0));
+	return ((t_vector){0, 0, 0});
 }

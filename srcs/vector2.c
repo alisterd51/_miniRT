@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:13:46 by anclarma          #+#    #+#             */
-/*   Updated: 2020/12/08 16:34:04 by antoine          ###   ########.fr       */
+/*   Updated: 2021/03/10 11:53:38 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_vector	div_vector(const t_vector a, double b)
 {
-	return (init_vector(a.x / b, a.y / b, a.z / b));
+	return ((t_vector){a.x / b, a.y / b, a.z / b});
 }
 
 double		dot(const t_vector a, const t_vector b)

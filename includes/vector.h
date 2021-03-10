@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:05:27 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/09 11:32:32 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 11:45:36 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 /*
 ** vector1.c
 */
-t_vector	init_vector(double x, double y, double z);
 t_vector	add_vector(const t_vector a, const t_vector b);
 t_vector	sub_vector(const t_vector a, const t_vector b);
 t_vector	mult_vector(double a, const t_vector b);

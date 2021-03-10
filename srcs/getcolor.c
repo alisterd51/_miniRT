@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/31 14:17:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 11:51:09 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static t_vector	ft_transp(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 	}
 	radical = 1.0 - sqrt(n1 / n2) * (1.0 - sqrt(dot(n_transp, ray->normal)));
 	if (radical <= 0.0)
-		return (init_vector(0.0, 0.0, 0.0));
+		return ((t_vector){0.0, 0.0, 0.0});
 	ray_refract.normal = sub_vector(mult_vector((n1 / n2),
 		sub_vector(ray->normal, mult_vector(dot(ray->normal, n_transp),
 		n_transp))), mult_vector(sqrt(radical), n_transp));
@@ -71,7 +71,7 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	has_inter_light = rt_inter_scene(&check_light);
 	d_light2 = norm2(sub_vector(check->light->coord, check->p));
 	if (has_inter_light && check_light.t * check_light.t < d_light2)
-		return (init_vector(0.0, 0.0, 0.0));
+		return ((t_vector){0.0, 0.0, 0.0});
 	else
 		return (div_vector(mult_vector(check->light->ratio * obj->intensite_lumiere
 			* max(0.0, dot(normalize(sub_vector(check->light->coord, check->p)),
@@ -84,7 +84,7 @@ t_vector		getcolor(t_ray *ray, t_obj *obj, t_light *light, int nbrebonds)
 	t_check		check;
 	int			has_inter;
 
-	color = init_vector(0.0, 0.0, 0.0);
+	color = (t_vector){0.0, 0.0, 0.0};
 	if (nbrebonds == 0)
 		return (color);
 	check = init_check(ray, obj, light);
@@ -92,8 +92,8 @@ t_vector		getcolor(t_ray *ray, t_obj *obj, t_light *light, int nbrebonds)
 	if (has_inter)
 	{
 		if (this_obj_is_mirror(&check))
-			color = add_vector(mult_vector(0.02, ft_direct(&check, obj)),
-				mult_vector(0.98, ft_mirror(&check, ray, obj, nbrebonds - 1)));
+			color = add_vector(mult_vector(0.01, ft_direct(&check, obj)),
+				mult_vector(0.99, ft_mirror(&check, ray, obj, nbrebonds - 1)));
 		else if (this_obj_is_transp(&check))
 			color = ft_transp(&check, ray, obj, nbrebonds - 1);
 		else

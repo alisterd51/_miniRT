@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 11:02:21 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 09:38:48 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 11:44:56 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	moyenne(t_mlx *mlx, int x, int y)
 	int			i;
 	int			j;
 
-	somme = init_vector(0.0, 0.0, 0.0);
+	somme = (t_vector){0, 0, 0};
 	x *= mlx->aa;
 	y *= mlx->aa;
 	j = -1;

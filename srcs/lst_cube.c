@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:17:04 by antoine           #+#    #+#             */
-/*   Updated: 2020/12/08 16:17:06 by antoine          ###   ########.fr       */
+/*   Updated: 2021/03/10 11:52:31 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	test(t_square base, t_obj *obj)
 	t_vector	rot[6];
 	int			i;
 
-	rot[0] = init_vector(M_PI / 2.0, 0.0, 0.0);
-	rot[1] = init_vector(M_PI / -2.0, 0.0, 0.0);
-	rot[2] = init_vector(0.0, M_PI / 2.0, 0.0);
-	rot[3] = init_vector(0.0, M_PI / -2.0, 0.0);
-	rot[4] = init_vector(0.0, 0.0, M_PI / 2.0);
-	rot[5] = init_vector(0.0, 0.0, M_PI / -2.0);
+	rot[0] = (t_vector){M_PI / 2.0, 0.0, 0.0};
+	rot[1] = (t_vector){M_PI / -2.0, 0.0, 0.0};
+	rot[2] = (t_vector){0.0, M_PI / 2.0, 0.0};
+	rot[3] = (t_vector){0.0, M_PI / -2.0, 0.0};
+	rot[4] = (t_vector){0.0, 0.0, M_PI / 2.0};
+	rot[5] = (t_vector){0.0, 0.0, M_PI / -2.0};
 	i = -1;
 	while (++i < 6)
 	{
