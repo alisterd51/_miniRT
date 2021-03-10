@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 11:24:02 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 15:26:30 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,39 @@
 ** DESCRIPTION
 */
 
+#include <stdio.h>
+
+static int	num_key(int key, t_mlx *mlx)
+{
+	if (key == ZERO_KEY)
+		mlx->obj->lst_light->coord.x -= 1;
+	else if (key == ONE_KEY)
+		mlx->obj->lst_light->coord.x += 1;
+	else if (key == TWO_KEY)
+		mlx->obj->lst_light->coord.y -= 1;
+	else if (key == THREE_KEY)
+		mlx->obj->lst_light->coord.y += 1;
+	else if (key == FOUR_KEY)
+		mlx->obj->lst_light->coord.z -= 1;
+	else if (key == FIVE_KEY)
+		mlx->obj->lst_light->coord.z += 1;
+	else if (key == SIX_KEY)
+		(void)mlx;
+	else if (key == SEVEN_KEY)
+		(void)mlx;
+	else if (key == EIGHT_KEY)
+		(void)mlx;
+	else if (key == NINE_KEY)
+		(void)mlx;
+	else
+		return (0);
+	return (1);
+}
+
 static int	translation_key(int key, t_mlx *mlx)
 {
-	
 	if (key == UP_KEY)
 		mlx->obj->current_cam->coord.z -= 1;
-	
 	else if (key == DOWN_KEY)
 		mlx->obj->current_cam->coord.z += 1;
 	else if (key == S_KEY)
@@ -114,8 +141,17 @@ int			ft_keypress(int key, t_mlx *mlx)
 		next_cam(mlx);
 	else if (key == PAGE_DOWN)
 		prev_cam(mlx);
-	else if (translation_key(key, mlx) || rotation_key(key, mlx))
+	else if (translation_key(key, mlx) || rotation_key(key, mlx) || num_key(key, mlx))
+	{
+		printf("cam: %f,%f,%f l: %f,%f,%f\n",
+				mlx->obj->current_cam->coord.x,
+				mlx->obj->current_cam->coord.y,
+				mlx->obj->current_cam->coord.z,
+				mlx->obj->lst_light->coord.x,
+				mlx->obj->lst_light->coord.y,
+				mlx->obj->lst_light->coord.z);
 		prerender(mlx);
+	}
 	else
 		return (0);
 	return (1);

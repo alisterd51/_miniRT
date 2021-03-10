@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/07 13:06:05 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/10 14:17:20 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@
 #  define R_KEY		15
 #  define Q_KEY		12
 #  define D_KEY		2
-#  define H_KEY		104
-#  define J_KEY		106
-#  define K_KEY		107
-#  define L_KEY		108
+#  define H_KEY		104 //
+#  define J_KEY		106 //
+#  define K_KEY		107 //
+#  define L_KEY		108 //
 #  define ESC_KEY	53
 #  define PAGE_UP	116
 #  define PAGE_DOWN	121
@@ -41,7 +41,7 @@
 ** LINUX_WSL_INPUT
 */
 # ifdef LINUX
-#  define UP_KEY		65362
+#  define UP_KEY	65362
 #  define DOWN_KEY	65364
 #  define LEFT_KEY	65361
 #  define RIGHT_KEY	65363
@@ -54,6 +54,16 @@
 #  define J_KEY		106
 #  define K_KEY		107
 #  define L_KEY		108
+#  define ZERO_KEY	65438
+#  define ONE_KEY	65436
+#  define TWO_KEY	65433
+#  define THREE_KEY	65435
+#  define FOUR_KEY	65430
+#  define FIVE_KEY	65437
+#  define SIX_KEY	65432
+#  define SEVEN_KEY	65429
+#  define EIGHT_KEY	65431
+#  define NINE_KEY	65434
 #  define ESC_KEY	65307
 #  define PAGE_UP	65365
 #  define PAGE_DOWN	65366
