@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:40:32 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/07 14:30:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 10:35:07 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,14 @@ static int	inter_triangle(t_check *local, t_triangle *triangle)
 {
 	t_calc_t	calc;
 
-	calc.vertex0 = triangle->coord1;
-	calc.vertex1 = triangle->coord2;
-	calc.vertex2 = triangle->coord3;
-	calc.edge1 = sub_vector(calc.vertex1, calc.vertex0);
-	calc.edge2 = sub_vector(calc.vertex2, calc.vertex0);
+	calc.edge1 = triangle->edge1;
+	calc.edge2 = triangle->edge2;
 	calc.h = prod_vector(local->ray.normal, calc.edge2);
 	calc.a = dot(calc.edge1, calc.h);
 	if (calc.a > -0.0000001 && calc.a < 0.0000001)
 		return (0);
 	calc.f = 1.0 / calc.a;
-	calc.s = sub_vector(local->ray.coord, calc.vertex0);
+	calc.s = sub_vector(local->ray.coord, triangle->coord1);
 	calc.u = calc.f * dot(calc.s, calc.h);
 	if (calc.u < 0.0 || calc.u > 1.0)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/11 14:51:28 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 10:29:53 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ struct			s_triangle
 	t_vector	coord1;
 	t_vector	coord2;
 	t_vector	coord3;
+	t_vector	edge1;
+	t_vector	edge2;
 	t_color		color;
 	t_triangle	*next;
 };
@@ -194,9 +196,6 @@ struct			s_calc
 typedef struct s_calc_t		t_calc_t;
 struct			s_calc_t
 {
-	t_vector	vertex0;
-	t_vector	vertex1;
-	t_vector	vertex2;
 	t_vector	edge1;
 	t_vector	edge2;
 	t_vector	h;

@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 15:26:30 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 08:00:26 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ static int	prev_cam(t_mlx *mlx)
 
 int			ft_keypress(int key, t_mlx *mlx)
 {
+	printf("%d\n", key);
 	if (key == R_KEY)
 		render(mlx);
 	else if (key == ESC_KEY)

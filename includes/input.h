@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 14:17:20 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 07:59:08 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 #  define J_KEY		106
 #  define K_KEY		107
 #  define L_KEY		108
+#  define P_KEY
 #  define ZERO_KEY	65438
 #  define ONE_KEY	65436
 #  define TWO_KEY	65433

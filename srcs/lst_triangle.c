@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/22 15:17:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 10:02:51 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,19 @@ void	init_lst_triangle(char *line, t_obj *obj)
 	if (!triangle)
 		return (exit_errcode(MALLOC_ERROR));
 	triangle->coord1 = read_line_to_vector(&line);
-	if (triangle->coord1.x == DBL_MIN || triangle->coord1.y == DBL_MIN || triangle->coord1.z == DBL_MIN)
+	if (triangle->coord1.x == DBL_MIN || triangle->coord1.y == DBL_MIN
+			|| triangle->coord1.z == DBL_MIN)
         return (exit_errcode(TRIANGLE_ERROR_LINE));
 	triangle->coord2 = read_line_to_vector(&line);
-	if (triangle->coord2.x == DBL_MIN || triangle->coord2.y == DBL_MIN || triangle->coord2.z == DBL_MIN)
+	if (triangle->coord2.x == DBL_MIN || triangle->coord2.y == DBL_MIN
+			|| triangle->coord2.z == DBL_MIN)
         return (exit_errcode(TRIANGLE_ERROR_LINE));
 	triangle->coord3 = read_line_to_vector(&line);
-	if (triangle->coord3.x == DBL_MIN || triangle->coord3.y == DBL_MIN || triangle->coord3.z == DBL_MIN)
+	if (triangle->coord3.x == DBL_MIN || triangle->coord3.y == DBL_MIN
+			|| triangle->coord3.z == DBL_MIN)
         return (exit_errcode(TRIANGLE_ERROR_LINE));
+	triangle->edge1 = sub_vector(triangle->coord2, triangle->coord1);
+	triangle->edge2 = sub_vector(triangle->coord3, triangle->coord1);
 	triangle->color = read_line_to_color(&line);
 	triangle->next = NULL;
 	if (*line || triangle->color.depth)

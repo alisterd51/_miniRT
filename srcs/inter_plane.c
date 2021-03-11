@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 14:46:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/01 15:53:40 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 08:36:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "vector.h"
 #include "check.h"
 
-int			inter_plane(t_check *local, t_plane *plane)
+int	inter_plane(t_check *local, t_plane *plane)
 {
 	local->n = plane->normal;
 	if (dot(local->ray.normal, local->n) == 0.0)
@@ -24,11 +24,11 @@ int			inter_plane(t_check *local, t_plane *plane)
 	if (local->t < 0.0)
 		return (0);
 	local->p = add_vector(local->ray.coord,
-		mult_vector(local->t, local->ray.normal));
+			mult_vector(local->t, local->ray.normal));
 	return (1);
 }
 
-int			check_inter_plane(t_check *check)
+int	check_inter_plane(t_check *check)
 {
 	int			has_inter;
 	int			id_plane;
