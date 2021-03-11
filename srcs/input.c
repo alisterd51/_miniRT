@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/11 08:00:26 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 10:48:27 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "input.h"
 #include "render.h"
 #include "vector.h"
+#include "screenshot.h"
 
 /*
 ** DESCRIPTION
@@ -136,6 +137,8 @@ int			ft_keypress(int key, t_mlx *mlx)
 	printf("%d\n", key);
 	if (key == R_KEY)
 		render(mlx);
+	else if (key == P_KEY)
+		ft_screenshot(mlx);
 	else if (key == ESC_KEY)
 		exit_hook(mlx);
 	else if (key == PAGE_UP)

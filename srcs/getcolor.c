@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 11:51:09 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:47:23 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	int			has_inter_light;
 	double		d_light2;
 
+	//idealement il faudrait ici savoir si la face de l'objet est dans l'ombre
 	ray_light.coord = add_vector(check->p, mult_vector(0.001, check->n));
 	ray_light.normal = normalize(sub_vector(check->light->coord, check->p));
 	check_light = init_check(&ray_light, obj, check->light);
