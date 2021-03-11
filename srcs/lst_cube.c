@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 10:17:04 by antoine           #+#    #+#             */
-/*   Updated: 2021/03/10 11:52:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/11 15:23:13 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ void	test(t_square base, t_obj *obj)
 	t_vector	rot[6];
 	int			i;
 
-	rot[0] = (t_vector){M_PI / 2.0, 0.0, 0.0};
-	rot[1] = (t_vector){M_PI / -2.0, 0.0, 0.0};
-	rot[2] = (t_vector){0.0, M_PI / 2.0, 0.0};
-	rot[3] = (t_vector){0.0, M_PI / -2.0, 0.0};
-	rot[4] = (t_vector){0.0, 0.0, M_PI / 2.0};
-	rot[5] = (t_vector){0.0, 0.0, M_PI / -2.0};
+	rot[0] = (t_vector){1.0, 0.0, 0.0};
+	rot[1] = (t_vector){-1.0, 0.0, 0.0};
+	rot[2] = (t_vector){0.0, 1.0, 0.0};
+	rot[3] = (t_vector){0.0, -1.0, 0.0};
+	rot[4] = (t_vector){0.0, 0.0, 1.0};
+	rot[5] = (t_vector){0.0, 0.0, -1.0};
 	i = -1;
 	while (++i < 6)
 	{
 		square = (t_square *)malloc(sizeof(t_square));
 		if (!square)
 			return (exit_errcode(MALLOC_ERROR));
-		square->normal = rot_vector(rot[i], base.normal);
+		square->normal = rot[i];
 		square->coord = add_vector(base.coord,
-				mult_vector(base.side / 2.0, square->normal));
+				mult_vector(base.side / 2.0, rot[i]));
 		square->side = base.side;
 		square->color = base.color;
 		square->next = NULL;
