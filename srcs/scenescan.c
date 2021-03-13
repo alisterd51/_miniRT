@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 21:58:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 11:49:39 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/13 10:53:29 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,25 @@ static void	*fonction(void *arg)
 
 int			scenescan(t_mlx *mlx)
 {
-	pthread_t	thread[mlx->nb_thread];
-	t_arg		arg[mlx->nb_thread];
+	pthread_t	thread[NB_THREADS];
+	t_arg		arg[NB_THREADS];
 	int			num_thread;
 
 	num_thread = -1;
-	while (++num_thread < mlx->nb_thread)
+	while (++num_thread < NB_THREADS)
 	{
 		arg[num_thread].mlx = mlx;
 		if (num_thread == 0)
 			arg[num_thread].y_min = 0;
 		else
 			arg[num_thread].y_min = arg[num_thread - 1].y_max;
-		arg[num_thread].y_max = mlx->x_size * (num_thread + 1) / mlx->nb_thread;
+		arg[num_thread].y_max = mlx->x_size * (num_thread + 1) / NB_THREADS;
 		if (pthread_create(&(thread[num_thread]), NULL, fonction,
 				&(arg[num_thread])))
 			return (1);
 	}
 	num_thread = -1;
-	while (++num_thread < mlx->nb_thread)
+	while (++num_thread < NB_THREADS)
 		if (pthread_join(thread[num_thread], NULL))
 			return (1);
 	return (0);

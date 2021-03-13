@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:56:16 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 10:22:38 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/13 10:53:47 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static void	set_mlx(t_mlx *mlx, t_obj *obj)
 			mlx->y_size, "Test");
 	mlx->aa = 8;
 	mlx->iaa = 16;
-	mlx->nb_thread = 8;
 	obj->intensite_lumiere = 200000000.0;
 	obj->current_cam = obj->lst_cam;
 	mlx->obj = obj;

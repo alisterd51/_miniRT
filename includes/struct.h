@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/11 10:46:59 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/13 10:51:07 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,6 @@ struct			s_mlx
 	int			*iaa_image;
 	int			aa;
 	int			iaa;
-	int			nb_thread;
 	t_obj		*obj;
 };
 

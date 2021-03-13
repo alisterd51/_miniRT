@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/08 20:23:46 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/13 10:46:54 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,12 +73,12 @@ UNAME		:= $(shell uname)
 
 ifeq ($(UNAME),Darwin)
     MLX = $(MLX_MAC)
-    MACRO = -D MACOS
+    MACRO = -D MACOS -D NB_THREADS=$(shell sysctl -n hw.ncpu)
     PATH_MLX = minilibx-mac
 endif
 ifeq ($(UNAME),Linux)
     MLX = $(MLX_LINUX)
-    MACRO = -D LINUX
+    MACRO = -D LINUX -D NB_THREADS=$(shell nproc --all)
     PATH_MLX = minilibx-linux
 endif
 
