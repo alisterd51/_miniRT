@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:56:16 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/14 10:02:44 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:20:33 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <mlx.h>
 #include "struct.h"
 #include "exit_err.h"
+
+#include "libft.h"
 
 static void	set_mlx(t_mlx *mlx, t_obj *obj)
 {
@@ -23,6 +25,7 @@ static void	set_mlx(t_mlx *mlx, t_obj *obj)
 	mlx->mlx_ptr = mlx_init();
 	mlx->x_size = obj->res->x_size;
 	mlx->y_size = obj->res->y_size;
+	ft_printf("%p\n", mlx->mlx_ptr):
 	mlx_get_screen_size(mlx->mlx_ptr, &x, &y);
 	if (x < mlx->x_size)
 		mlx->x_size = x;
