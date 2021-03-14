@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:35 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/07 13:55:15 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:29:28 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EXIT_ERR_H
 
 # define ARGC_ERROR						"nombre d'argument\n"
+# define MLX_ERROR						"initialisation mlx\n"
 # define MALLOC_ERROR					"echec malloc\n"
 # define ERROR_LINE						"mauvais format de ligne\n"
 # define UNRECOGNIZED_LINE				"ligne non reconu\n"

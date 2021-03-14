@@ -6,13 +6,13 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/13 10:46:54 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/14 10:16:53 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= miniRT
 CC			= cc
-FLAGS		= -Wall -Wextra -Werror -O3
+FLAGS		= -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
 			  -lm -lmlx -lXext -lX11 -lpthread
