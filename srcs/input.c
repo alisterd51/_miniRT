@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:29:08 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/11 10:48:27 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:42:41 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 /*
 ** DESCRIPTION
 */
-
-#include <stdio.h>
 
 static int	num_key(int key, t_mlx *mlx)
 {
@@ -134,7 +132,6 @@ static int	prev_cam(t_mlx *mlx)
 
 int			ft_keypress(int key, t_mlx *mlx)
 {
-	printf("%d\n", key);
 	if (key == R_KEY)
 		render(mlx);
 	else if (key == P_KEY)
@@ -145,17 +142,9 @@ int			ft_keypress(int key, t_mlx *mlx)
 		next_cam(mlx);
 	else if (key == PAGE_DOWN)
 		prev_cam(mlx);
-	else if (translation_key(key, mlx) || rotation_key(key, mlx) || num_key(key, mlx))
-	{
-		printf("cam: %f,%f,%f l: %f,%f,%f\n",
-				mlx->obj->current_cam->coord.x,
-				mlx->obj->current_cam->coord.y,
-				mlx->obj->current_cam->coord.z,
-				mlx->obj->lst_light->coord.x,
-				mlx->obj->lst_light->coord.y,
-				mlx->obj->lst_light->coord.z);
+	else if (translation_key(key, mlx) || rotation_key(key, mlx)
+			|| num_key(key, mlx))
 		prerender(mlx);
-	}
 	else
 		return (0);
 	return (1);

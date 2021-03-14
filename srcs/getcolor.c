@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/11 11:47:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:31:18 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,9 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	if (has_inter_light && check_light.t * check_light.t < d_light2)
 		return ((t_vector){0.0, 0.0, 0.0});
 	else
-		return (div_vector(mult_vector(check->light->ratio * obj->intensite_lumiere
-			* max(0.0, dot(normalize(sub_vector(check->light->coord, check->p)),
+		return (div_vector(mult_vector(check->light->ratio
+			* obj->intensite_lumiere * max(0.0,
+			dot(normalize(sub_vector(check->light->coord, check->p)),
 			check->n)), div_vector(obj_albedo(check), M_PI)), d_light2));
 }
 
