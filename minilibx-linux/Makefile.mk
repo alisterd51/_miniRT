@@ -32,7 +32,7 @@ SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \
 	mlx_destroy_display.c
 
 OBJ	=$(SRC:.c=.o)
-CFLAGS	= -O3 -I$(INC)
+CFLAGS	= -fPIE -O3 -I$(INC)
 
 all	: $(NAME) $(DOCP)
 
