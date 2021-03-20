@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/20 14:36:52 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/20 15:26:24 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ $(NAME):	sub-make $(OBJS)
 sub-make:
 	@make -C libft all --quiet --jobs
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "libft" ""
-	@make -C $(PATH_MLX) all --quiet --jobs
+	@make -C $(PATH_MLX) all --quiet
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(PATH_MLX) ""
 
 clean:

@@ -11,6 +11,9 @@ CFLAGS+=-O3 -Wno-everything
 # add to match string put with X11 in size and position
 CFLAGS+= -DSTRINGPUTX11
 
+# add -j
+MAKEFLAGS	:= -j
+
 all: $(NOM)
 
 $(NOM):	$(OBJ)
