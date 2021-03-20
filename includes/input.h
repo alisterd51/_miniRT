@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 09:46:00 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/11 10:41:21 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/20 13:52:00 by anclarma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@
 #  define J_KEY		106 //
 #  define K_KEY		107 //
 #  define L_KEY		108 //
+#  define P_KEY		112
+#  define ZERO_KEY	65438
+#  define ONE_KEY	65436
+#  define TWO_KEY	65433
+#  define THREE_KEY	65435
+#  define FOUR_KEY	65430
+#  define FIVE_KEY	65437
+#  define SIX_KEY	65432
+#  define SEVEN_KEY	65429
+#  define EIGHT_KEY	65431
+#  define NINE_KEY	65434
 #  define ESC_KEY	53
 #  define PAGE_UP	116
 #  define PAGE_DOWN	121
