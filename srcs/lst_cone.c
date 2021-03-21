@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:12:00 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/22 09:52:52 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:07:28 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void		init_lst_cone(char *line, t_obj *obj)
 	if (!cone)
 		return (exit_errcode(MALLOC_ERROR));
 	cone->coord = read_line_to_vector(&line);
-	if (cone->coord.x == DBL_MIN || cone->coord.y == DBL_MIN || cone->coord.z == DBL_MIN)
+	if (cone->coord.x == DBL_MIN || cone->coord.y == DBL_MIN
+			|| cone->coord.z == DBL_MIN)
 		return (exit_errcode(CONE_ERROR_LINE));
 	cone->normal = read_line_to_vector(&line);
-	if (cone->normal.x == DBL_MIN || cone->normal.y == DBL_MIN || cone->normal.z == DBL_MIN)
+	if (cone->normal.x == DBL_MIN || cone->normal.y == DBL_MIN
+			|| cone->normal.z == DBL_MIN)
 		return (exit_errcode(CONE_ERROR_LINE));
 	cone->diameter = read_line_to_double(&line);
 	if (cone->diameter == DBL_MIN)

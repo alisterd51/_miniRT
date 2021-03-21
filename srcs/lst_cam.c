@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:41:39 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/22 09:53:15 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:06:08 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,19 @@ void	init_lst_cam(char *line, t_obj *obj)
 {
 	t_cam	*cam;
 
-	cam = (t_cam *)malloc(sizeof(t_cam));
-	if (!cam)
+	if (!(cam = (t_cam *)malloc(sizeof(t_cam))))
 		return (exit_errcode(MALLOC_ERROR));
 	cam->coord = read_line_to_vector(&line);
-	if (cam->coord.x == DBL_MIN || cam->coord.y == DBL_MIN || cam->coord.z == DBL_MIN)
+	if (cam->coord.x == DBL_MIN || cam->coord.y == DBL_MIN
+			|| cam->coord.z == DBL_MIN)
 		return (exit_errcode(CAM_ERROR_LINE));
 	cam->normal = read_line_to_vector(&line);
-	if (cam->normal.x == DBL_MIN || cam->normal.y == DBL_MIN || cam->normal.z == DBL_MIN)
+	if (cam->normal.x == DBL_MIN || cam->normal.y == DBL_MIN
+			|| cam->normal.z == DBL_MIN)
 		return (exit_errcode(CAM_ERROR_LINE));
 	cam->rot = init_rot(cam->normal);
 	cam->fov = read_line_to_int(&line);
-	if (cam->fov <= 0 ||cam->fov >= 180)
+	if (cam->fov <= 0 || cam->fov >= 180)
 		return (exit_errcode(FOV_OUTSIDE_RANGE));
 	cam->fov_rad = cam->fov * M_PI / 180.0;
 	if (*line && !ft_isspace(*line))

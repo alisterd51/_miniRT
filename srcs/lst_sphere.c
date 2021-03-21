@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:49:29 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/22 15:14:43 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:12:29 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void		init_lst_sphere(char *line, t_obj *obj)
 	if (!sphere)
 		return (exit_errcode(MALLOC_ERROR));
 	sphere->coord = read_line_to_vector(&line);
-	if (sphere->coord.x == DBL_MIN || sphere->coord.y == DBL_MIN || sphere->coord.z == DBL_MIN)
+	if (sphere->coord.x == DBL_MIN || sphere->coord.y == DBL_MIN
+			|| sphere->coord.z == DBL_MIN)
 		return (exit_errcode(SPHERE_ERROR_LINE));
 	sphere->diameter = read_line_to_double(&line);
 	if (sphere->diameter == DBL_MIN)

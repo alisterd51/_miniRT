@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 01:08:14 by antoine           #+#    #+#             */
-/*   Updated: 2021/02/22 09:04:23 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:11:50 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_vector	read_line_to_vector(char **line)
 	if (**line == ',')
 		(*line)++;
 	ret.z = read_line_to_double(line);
-	return (ret);//il faud verifier que les DBL_MIN renvoi une erreur
+	return (ret);
 }
 
 char		*read_line_to_string(char **line)

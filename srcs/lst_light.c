@@ -6,7 +6,7 @@
 /*   By: antoine <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 21:41:33 by antoine           #+#    #+#             */
-/*   Updated: 2021/03/08 13:29:57 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 16:08:24 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	init_lst_light(char *line, t_obj *obj)
 	t_light	*light;
 	t_light	*tmp_light;
 
-	light = (t_light *)malloc(sizeof(t_light));
-	if (!light)
+	if (!(light = (t_light *)malloc(sizeof(t_light))))
 		return (exit_errcode(MALLOC_ERROR));
 	light->coord = read_line_to_vector(&line);
 	if (light->coord.x == DBL_MIN || light->coord.y == DBL_MIN
