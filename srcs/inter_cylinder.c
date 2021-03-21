@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:34:14 by anclarma          #+#    #+#             */
-/*   Updated: 2021/02/02 11:10:20 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 15:01:02 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,59 +16,72 @@
 #include "vector.h"
 #include "intersect.h"
 
-static int	inter_cylinder(t_check *local, t_cylinder *cylinder)
+static void		res_calc(t_check *local, t_cylinder *cylinder, t_calc *calc)
 {
-	t_calc	calc;
+	calc->v = sub_vector(local->ray.normal, mult_vector(dot(local->ray.normal,
+		cylinder->normal), cylinder->normal));
+	calc->u = sub_vector(sub_vector(local->ray.coord, cylinder->coord),
+		mult_vector(dot(sub_vector(local->ray.coord, cylinder->coord),
+		cylinder->normal), cylinder->normal));
+	calc->a = dot(calc->v, calc->v);
+	calc->b = 2 * dot(calc->v, calc->u);
+	calc->c = dot(calc->u, calc->u) - cylinder->radius2;
+	calc->delta = calc->b * calc->b - 4.0 * calc->a * calc->c;
+}
+
+static double	res_dist(t_check *local, t_cylinder *cylinder, t_calc *calc)
+{
 	double	dist;
 	double	dist1;
 	double	dist2;
 
-	calc.v = sub_vector(local->ray.normal, mult_vector(dot(local->ray.normal,
-		cylinder->normal), cylinder->normal));
-	calc.u = sub_vector(sub_vector(local->ray.coord, cylinder->coord),
-		mult_vector(dot(sub_vector(local->ray.coord, cylinder->coord),
-		cylinder->normal), cylinder->normal));
-	calc.a = dot(calc.v, calc.v);
-	calc.b = 2 * dot(calc.v, calc.u);
-	calc.c = dot(calc.u, calc.u) - cylinder->radius2;
-	calc.delta = calc.b * calc.b - 4.0 * calc.a * calc.c;
+	dist1 = dot(cylinder->normal, sub_vector(mult_vector(calc->t1,
+		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
+	dist2 = dot(cylinder->normal, sub_vector(mult_vector(calc->t2,
+		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
+	if ((dist1 >= 0 && dist1 <= cylinder->height && calc->t1 > 0.001)
+			&& (dist2 >= 0 && dist2 <= cylinder->height && calc->t2 > 0.001))
+	{
+		local->t = calc->t1 < calc->t2 ? calc->t1 : calc->t2;
+		dist = calc->t1 < calc->t2 ? dist1 : dist2;
+	}
+	else if (dist1 >= 0 && dist1 <= cylinder->height && calc->t1 > 0.001)
+	{
+		local->t = calc->t1;
+		dist = dist1;
+	}
+	else
+	{
+		local->t = calc->t2;
+		dist = dist2;
+	}
+	return (dist);
+}
+
+static int		inter_cylinder(t_check *local, t_cylinder *cylinder)
+{
+	t_calc	calc;
+	double	dist;
+
+	res_calc(local, cylinder, &calc);
 	if (calc.delta < 0)
 		return (0);
 	calc.t1 = ((-(calc.b) - sqrt(calc.delta)) / (2 * calc.a));
 	calc.t2 = ((-(calc.b) + sqrt(calc.delta)) / (2 * calc.a));
 	if (calc.t1 < 0.001 && calc.t2 < 0.001)
 		return (0);
-	dist1 = dot(cylinder->normal, sub_vector(mult_vector(calc.t1,
-		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
-	dist2 = dot(cylinder->normal, sub_vector(mult_vector(calc.t2,
-		local->ray.normal), sub_vector(cylinder->coord, local->ray.coord)));
-	if ((dist1 >= 0 && dist1 <= cylinder->height && calc.t1 > 0.001)
-			&& (dist2 >= 0 && dist2 <= cylinder->height && calc.t2 > 0.001))
-	{
-		local->t = calc.t1 < calc.t2 ? calc.t1 : calc.t2;
-		dist = calc.t1 < calc.t2 ? dist1 : dist2;
-	}
-	else if (dist1 >= 0 && dist1 <= cylinder->height && calc.t1 > 0.001)
-	{
-		local->t = calc.t1;
-		dist = dist1;
-	}
-	else
-	{
-		local->t = calc.t2;
-		dist = dist2;
-	}
+	dist = res_dist(local, cylinder, &calc);
 	if (dist < 0 || dist > cylinder->height)
 		return (0);
 	local->n = normalize(sub_vector(sub_vector(mult_vector(local->t,
 		local->ray.normal), mult_vector(dist, cylinder->normal)),
 		sub_vector(cylinder->coord, local->ray.coord)));
-	local->p = add_vector(local->ray.coord, 
+	local->p = add_vector(local->ray.coord,
 		mult_vector(local->t, local->ray.normal));
 	return (1);
 }
 
-int			check_inter_cylinder(t_check *check)
+int				check_inter_cylinder(t_check *check)
 {
 	int			has_inter;
 	int			id_cylinder;

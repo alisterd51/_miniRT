@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 17:35:10 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/13 14:26:49 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 13:14:31 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 static int	inter_cone(t_check *local, t_cone *cone)
 {
-	//a faire
 	(void)local;
 	(void)cone;
 	return (0);
@@ -23,9 +22,9 @@ static int	inter_cone(t_check *local, t_cone *cone)
 
 int			check_inter_cone(t_check *check)
 {
-	int			has_inter;
-	int			id_cone;
-	t_check		local;
+	int		has_inter;
+	int		id_cone;
+	t_check	local;
 	t_cone	*lst_cone;
 
 	lst_cone = check->obj->lst_cone;

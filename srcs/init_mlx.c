@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:56:16 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/21 11:04:54 by pompier          ###   ########.fr       */
+/*   Updated: 2021/03/21 13:21:05 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ static void	set_mlx(t_mlx *mlx, t_obj *obj)
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->x_size,
 			mlx->y_size, "Test");
+}
+
+static void	set_mlx2(t_mlx *mlx, t_obj *obj)
+{
 	mlx->x_save = mlx->x_size;
 	mlx->y_save = mlx->y_size;
 	mlx->aa = 4;
@@ -59,6 +63,7 @@ t_mlx		*init_mlx(t_obj *obj)
 	if (!mlx)
 		exit_errcode(MALLOC_ERROR);
 	set_mlx(mlx, obj);
+	set_mlx2(mlx, obj);
 	mlx->aa_image = (int *)malloc(mlx->y_size * mlx->x_size * mlx->aa
 			* mlx->aa * sizeof(int));
 	if (!mlx->aa_image)

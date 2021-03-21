@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/21 11:57:48 by pompier          ###   ########.fr       */
+/*   Updated: 2021/03/21 13:18:01 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int		side_shadow_camera(t_check *check, t_obj *obj)
 	t_ray		ray_light;
 	int			has_inter_light;
 	double		d_light2;
-    t_vector    obj_vers_cam;
+	t_vector	obj_vers_cam;
 
 	obj_vers_cam = normalize(sub_vector(obj->current_cam->coord, check->p));
 	ray_light.coord = add_vector(check->p, mult_vector(0.001, obj_vers_cam));
