@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 11:02:21 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 11:44:56 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:27:17 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,62 +40,55 @@ static int	moyenne(t_mlx *mlx, int x, int y)
 
 void		oversampling(t_mlx *mlx)
 {
-	const int	y_native = mlx->y_size;
-	const int	x_native = mlx->x_size;
 	int			*image_final;
 	int			x;
 	int			y;
 
 	image_final = mlx->image;
-	mlx->y_size *= mlx->aa;
-	mlx->x_size *= mlx->aa;
+	mlx->y_size = mlx->y_size_aa;
+	mlx->x_size = mlx->x_size_aa;
 	mlx->image = mlx->aa_image;
-	if (mlx->image == NULL)
-		return (exit_errcode(MALLOC_ERROR));
 	scenescan(mlx);
 	y = -1;
-	while (++y < y_native)
+	while (++y < mlx->y_save)
 	{
 		x = -1;
-		while (++x < x_native)
-			image_final[(y_native - y - 1) * x_native + x] = moyenne(mlx, x, y);
+		while (++x < mlx->x_save)
+			image_final[(mlx->y_save - y - 1) * mlx->x_save + x] =
+				moyenne(mlx, x, y);
 	}
 	mlx->image = image_final;
-	mlx->y_size = y_native;
-	mlx->x_size = x_native;
+	mlx->y_size = mlx->y_save;
+	mlx->x_size = mlx->x_save;
 }
 
 void		prerendered(t_mlx *mlx)
 {
-	const int	y_native = mlx->y_size;
-	const int	x_native = mlx->x_size;
 	int			*image_final;
 	int			x;
 	int			y;
 
 	image_final = mlx->image;
-	mlx->y_size /= mlx->iaa;
-	mlx->x_size /= mlx->iaa;
+	mlx->y_size = mlx->y_size_iaa;
+	mlx->x_size = mlx->x_size_iaa;
 	mlx->image = mlx->iaa_image;
-	if (mlx->image == NULL)
-		return (exit_errcode(MALLOC_ERROR));
 	scenescan(mlx);
 	y = -1;
-	while (++y < y_native)
+	while (++y < mlx->y_save)
 	{
 		x = -1;
-		while (++x < x_native)
+		while (++x < mlx->x_save)
 		{
 			if (x / mlx->iaa >= mlx->x_size)
-				image_final[y * x_native + x] = 0;
+				image_final[y * mlx->x_save + x] = 0;
 			else
-				image_final[y * x_native + x] =
+				image_final[y * mlx->x_save + x] =
 					mlx->image[(y / mlx->iaa) * mlx->x_size + (x / mlx->iaa)];
 		}
 	}
 	mlx->image = image_final;
-	mlx->y_size = y_native;
-	mlx->x_size = x_native;
+	mlx->y_size = mlx->y_save;
+	mlx->x_size = mlx->x_save;
 }
 
 void		render(t_mlx *mlx)

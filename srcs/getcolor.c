@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 14:50:28 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/18 15:25:09 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:57:48 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,25 @@ static t_vector	ft_transp(t_check *check, t_ray *ray, t_obj *obj, int nbrebonds)
 	return (getcolor(&ray_refract, obj, check->light, nbrebonds));
 }
 
+static int		side_shadow_camera(t_check *check, t_obj *obj)
+{
+	t_check		check_light;
+	t_ray		ray_light;
+	int			has_inter_light;
+	double		d_light2;
+    t_vector    obj_vers_cam;
+
+	obj_vers_cam = normalize(sub_vector(obj->current_cam->coord, check->p));
+	ray_light.coord = add_vector(check->p, mult_vector(0.001, obj_vers_cam));
+	ray_light.normal = normalize(sub_vector(check->light->coord, check->p));
+	check_light = init_check(&ray_light, obj, check->light);
+	has_inter_light = rt_inter_scene(&check_light);
+	d_light2 = norm2(sub_vector(check->light->coord, check->p));
+	if (has_inter_light && check_light.t * check_light.t < d_light2)
+		return (1);
+	return (0);
+}
+
 static t_vector	ft_direct(t_check *check, t_obj *obj)
 {
 	t_check		check_light;
@@ -65,23 +84,8 @@ static t_vector	ft_direct(t_check *check, t_obj *obj)
 	int			has_inter_light;
 	double		d_light2;
 
-	//
-	t_check		check_test;
-	t_ray		test;
-	t_vector	obj_vers_cam;
-	int			has_2;
-	double		d_l2;
-
-	obj_vers_cam = normalize(sub_vector(obj->current_cam->coord, check->p));
-	test.coord = add_vector(check->p, mult_vector(0.001, obj_vers_cam));
-	test.normal = normalize(sub_vector(check->light->coord, check->p));
-	check_test = init_check(&test, obj, check->light);
-	has_2 = rt_inter_scene(&check_test);
-	d_l2 = norm2(sub_vector(check->light->coord, check->p));
-	if (has_2 && check_test.t * check_test.t < d_l2)
+	if (side_shadow_camera(check, obj))
 		return ((t_vector){0.0, 0.0, 0.0});
-
-	//idealement il faudrait ici savoir si la face de l'objet est dans l'ombre
 	ray_light.coord = add_vector(check->p, mult_vector(0.001, check->n));
 	ray_light.normal = normalize(sub_vector(check->light->coord, check->p));
 	check_light = init_check(&ray_light, obj, check->light);

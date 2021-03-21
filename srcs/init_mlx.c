@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 11:56:16 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/20 13:39:35 by pompier          ###   ########.fr       */
+/*   Updated: 2021/03/21 11:04:54 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,14 @@ static void	set_mlx(t_mlx *mlx, t_obj *obj)
 			&(mlx->bpp), &(mlx->size_line), &(mlx->endian));
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->x_size,
 			mlx->y_size, "Test");
+	mlx->x_save = mlx->x_size;
+	mlx->y_save = mlx->y_size;
 	mlx->aa = 4;
 	mlx->iaa = 16;
+	mlx->x_size_aa = mlx->x_size * mlx->aa;
+	mlx->y_size_aa = mlx->y_size * mlx->aa;
+	mlx->x_size_iaa = mlx->x_size / mlx->iaa;
+	mlx->y_size_iaa = mlx->y_size / mlx->iaa;
 	obj->intensite_lumiere = 200000000.0;
 	obj->current_cam = obj->lst_cam;
 	mlx->obj = obj;

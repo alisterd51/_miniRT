@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:50:41 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/13 10:51:07 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/21 11:03:57 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,8 @@ struct			s_mlx
 	int			*image;
 	int			x_size;
 	int			y_size;
+	int			x_save;
+	int			y_save;
 	int			size_line;
 	int			bpp;
 	int			endian;
@@ -157,6 +159,10 @@ struct			s_mlx
 	int			*iaa_image;
 	int			aa;
 	int			iaa;
+	int			x_size_aa;
+	int			y_size_aa;
+	int			x_size_iaa;
+	int			y_size_iaa;
 	t_obj		*obj;
 };
 
