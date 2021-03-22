@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/22 10:12:50 by pompier          ###   ########.fr        #
+#    Updated: 2021/03/22 14:23:45 by anclarma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,9 +90,7 @@ INCLUDES += -I ./$(PATH_MLX)
 
 all:		$(NAME)
 
-debug:	sub-make $(OBJS)
-	@$(CC) -fsanitize=address -g3 $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
-	@printf "\033[32;1m%s OK%35.35s\n\033[0m" $(NAME) ""
+bonus:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
 	@printf "\033[32;1mcompil %s...%40.40s\r\033[0m" $(NAME) ""
