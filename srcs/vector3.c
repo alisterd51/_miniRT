@@ -59,7 +59,7 @@ t_vector	color_to_vector(t_color color)
 
 t_vector	color_lum(t_vector color_obj, t_color light_color)
 {
-    return ((t_vector){color_obj.x * ((unsigned char)(light_color.r) / 255.0),
+	return ((t_vector){color_obj.x * ((unsigned char)(light_color.r) / 255.0),
 		color_obj.y * ((unsigned char)(light_color.g) / 255.0),
 		color_obj.z * ((unsigned char)(light_color.b) / 255.0)});
 }

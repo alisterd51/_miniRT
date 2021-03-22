@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef MOVEMENT_H
-# define MOVEMNT_H
+# define MOVEMENT_H
 
 /*
 ** movement.c
