@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 17:06:45 by anclarma          #+#    #+#             */
-/*   Updated: 2020/12/08 15:33:49 by antoine          ###   ########.fr       */
+/*   Updated: 2021/03/22 10:12:01 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ static int	parse_line2(char *line, t_obj *obj)
 		init_lst_triangle(line + 2, obj);
 	else if (*line == 'c' && *(line + 1) == 'u' && ft_isspace(*(line + 2)))
 		init_lst_cube(line + 2, obj);
-	else if (*line == 'p' && *(line + 1) == 'y' && ft_isspace(*(line + 2)))
-		init_lst_pyramid(line + 2, obj);
 	else if (*line == 'c' && *(line + 1) == 'o' && ft_isspace(*(line + 2)))
 		init_lst_cone(line + 2, obj);
 	else

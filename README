@@ -19,13 +19,7 @@ key mapping:
 
 nota:
 	transp non fonctionnel (bonus)
-	partie ombre des objets plats non gere
 	lumiere colore non fonctionnel
-	test taille image
-	scene a faire pour chaque cas
-	initialisation angle camera en cours
-	prise en compte normal cam
-	cube (bonus) (normal a faire)
 	pyramide (bonus)
 	cone (bonus)
 	filtre couleur (bonus)
@@ -33,6 +27,4 @@ nota:
 	interaction clavier objet (bonus)
 	rotation cam souris (bonus)
 	https://github.com/martingarcialopez/miniRT.git
-	faire une version "normal" et une "bonus"
-	cc -O3 (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0 est le plus opti sur ubuntu 20.04
 	https://www.labri.fr/perso/pbenard/teaching/pghp/slides/LancerRayon.pdf

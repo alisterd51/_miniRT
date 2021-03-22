@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/21 14:23:52 by pompier          ###   ########.fr        #
+#    Updated: 2021/03/22 10:12:50 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,6 @@ C_FILES		= main.c \
 			  vector2.c \
 			  vector3.c \
 			  extremum.c \
-			  lst_pyramid.c \
 			  input.c \
 			  render.c \
 			  scenescan.c \
