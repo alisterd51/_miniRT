@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 19:15:58 by anclarma          #+#    #+#             */
-/*   Updated: 2021/01/11 09:03:19 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:29:26 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,11 @@ t_vector	color_to_vector(t_color color)
 	ret.y = (double)((unsigned char)color.g);
 	ret.z = (double)((unsigned char)color.b);
 	return (ret);
+}
+
+t_vector	color_lum(t_vector color_obj, t_color light_color)
+{
+    return ((t_vector){color_obj.x * ((unsigned char)(light_color.r) / 255.0),
+		color_obj.y * ((unsigned char)(light_color.g) / 255.0),
+		color_obj.z * ((unsigned char)(light_color.b) / 255.0)});
 }

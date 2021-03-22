@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 00:05:27 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/10 11:45:36 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:29:45 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_vector	int_to_vector(int color);
 int			vector_to_int(t_vector vec);
 int			vector_to_ints(t_vector vec);
 t_vector	color_to_vector(t_color color);
+t_vector	color_lum(t_vector color_obj, t_color light_color);
 
 #endif
