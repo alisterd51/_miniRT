@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/11 10:48:31 by anclarma         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:45:21 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			main(int ac, char **av)
 	if (save)
 		ft_screenshot(mlx);
 	mlx_hook(mlx->win_ptr, 2, (1L << 0), ft_keypress, (void *)mlx);
-	mlx_hook(mlx->win_ptr, 17, (1L << 17), exit_hook, (void *)0);
+	mlx_hook(mlx->win_ptr, 33, (1L << 17), exit_hook, (void *)mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }
