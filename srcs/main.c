@@ -6,7 +6,7 @@
 /*   By: anclarma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 15:43:51 by anclarma          #+#    #+#             */
-/*   Updated: 2021/03/23 16:45:21 by pompier          ###   ########.fr       */
+/*   Updated: 2021/03/23 17:34:31 by pompier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "libft.h"
 #include "screenshot.h"
 #include "init_mlx.h"
+#include "definex.h"
 
 static int	ft_save(char *param)
 {
@@ -50,7 +51,7 @@ int			main(int ac, char **av)
 	if (save)
 		ft_screenshot(mlx);
 	mlx_hook(mlx->win_ptr, 2, (1L << 0), ft_keypress, (void *)mlx);
-	mlx_hook(mlx->win_ptr, 33, (1L << 17), exit_hook, (void *)mlx);
+	mlx_hook(mlx->win_ptr, DESTROY_NOTIFY, (1L << 17), exit_hook, (void *)mlx);
 	mlx_loop(mlx->mlx_ptr);
 	return (0);
 }
