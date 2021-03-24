@@ -2,9 +2,9 @@ Pour tester le rendeur 3d:
 -compiler avec:
 	make all
 -tester avec:
-	./miniRT scenes/test.rt
+	./miniRT scenes/all.rt
 -tester la sauvegarde avec:
-	./miniRT scenes/test.rt --save
+	./miniRT scenes/all.rt --save
 
 key mapping:
 	translation x: LEFT_KEY, RIGHT_KEY
@@ -15,15 +15,11 @@ key mapping:
 	rotation z: Q_KEY, D_KEY
 	changement cam: PAGE_UP, PAGE_DOWN
 	rendu: R_KEY
+	save and exit: P_KEY
 	exit: ESC_KEY
 
-nota:
-	transp non fonctionnel (bonus)
-	pyramide (bonus)
-	cone (bonus)
-	filtre couleur (bonus)
-	stereoscopie (bonus)
-	interaction clavier objet (bonus)
-	rotation cam souris (bonus)
-	https://github.com/martingarcialopez/miniRT.git
-	https://www.labri.fr/perso/pbenard/teaching/pghp/slides/LancerRayon.pdf
+bonus:
+	Compound element: Cube
+	Anti-aliasing
+	Multithreaded rendering
+	Keyboard interactivity (translation/rotation) with camera
