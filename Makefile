@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/25 10:32:29 by pompier          ###   ########.fr        #
+#    Updated: 2021/03/25 11:14:42 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,16 +92,18 @@ all:		$(NAME)
 
 bonus:		$(NAME)
 
-$(NAME):	sub-make $(OBJS)
+$(NAME):	$(PATH_MLX)/libmlx.a libft/libft.a $(OBJS)
 	@printf "\033[32;1mcompil %s...%40.40s\r\033[0m" $(NAME) ""
 	@$(CC) $(FLAGS) $(INCLUDES) $(OBJS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
 
-sub-make:
-	@make -C libft all --quiet --jobs
-	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "libft" ""
+$(PATH_MLX)/libmlx.a:
 	@make -C $(PATH_MLX) all --quiet
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(PATH_MLX) ""
+
+libft/libft.a:
+	@make -C libft all --quiet --jobs
+	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "libft" ""
 
 clean:
 	@make -C libft clean --quiet --jobs
@@ -116,5 +118,4 @@ fclean: clean
 
 re:			fclean all
 
-.PHONY:	all	$(NAME) clean fclean re
-.SILENT:
+.PHONY:	all clean fclean re
