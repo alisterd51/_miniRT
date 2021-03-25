@@ -6,7 +6,7 @@
 #    By: anclarma <anclarma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/06 23:29:46 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/08 20:24:02 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/25 10:15:52 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,5 +89,5 @@ clean:
 fclean:		clean
 	@rm -f $(NAME)
 
-re:			fclean clean all
+re:			fclean all
 .SILENT:

@@ -6,7 +6,7 @@
 #    By: anclarma <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/08 23:58:07 by anclarma          #+#    #+#              #
-#    Updated: 2021/03/22 14:23:45 by anclarma         ###   ########.fr        #
+#    Updated: 2021/03/25 10:32:29 by pompier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ bonus:		$(NAME)
 
 $(NAME):	sub-make $(OBJS)
 	@printf "\033[32;1mcompil %s...%40.40s\r\033[0m" $(NAME) ""
-	@$(CC) $(FLAGS) $(INCLUDES) $(SRCS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
+	@$(CC) $(FLAGS) $(INCLUDES) $(OBJS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
 
 sub-make:
