@@ -6,7 +6,7 @@ SRC= mlx_shaders.c mlx_new_window.m mlx_init_loop.m mlx_new_image.m mlx_xpm.c ml
 SRC+= mlx_png.c mlx_mouse.m mlx_screen_size.c
 OBJ1=$(SRC:.c=.o)
 OBJ=$(OBJ1:.m=.o)
-CFLAGS+=-O3 -Wno-everything
+CFLAGS+=-O3 -flto -ffast-math -march=native -pipe -Wno-everything
 
 # add to match string put with X11 in size and position
 CFLAGS+= -DSTRINGPUTX11

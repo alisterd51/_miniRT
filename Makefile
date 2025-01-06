@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 NAME		= miniRT
-CC			= cc
-FLAGS		= -Wall -Wextra -Werror -O3
+CC			= gcc
+FLAGS		= -Wall -Wextra -Werror -O3 -flto -ffast-math -march=native -pipe
 MLX_LINUX	= -L ./minilibx-linux \
 			  -I ./minilibx-linux \
 			  -lm -lmlx -lXext -lX11 -lpthread
@@ -85,36 +85,30 @@ endif
 INCLUDES += -I ./$(PATH_MLX)
 
 .c.o:
-	@printf "\033[32;1mcompil %s: %25.25s\r\033[0m" $(NAME) $<
-	@$(CC) $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
+	$(CC) $(FLAGS) $(INCLUDES) $(MACRO) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
 bonus:		$(NAME)
 
 $(NAME):	$(PATH_MLX)/libmlx.a libft/libft.a $(OBJS)
-	@printf "\033[32;1mcompil %s...%40.40s\r\033[0m" $(NAME) ""
-	@$(CC) $(FLAGS) $(INCLUDES) $(OBJS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
-	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(NAME) ""
+	$(CC) $(FLAGS) $(INCLUDES) $(OBJS) $(LIB_LIBFT) $(MLX) $(MACRO) -o $(NAME)
 
 $(PATH_MLX)/libmlx.a:
-	@make -C $(PATH_MLX) all --quiet
-	@printf "\033[32;1m%s OK%40.40s\n\033[0m" $(PATH_MLX) ""
+	make -C $(PATH_MLX) all
 
 libft/libft.a:
-	@make -C libft all --quiet --jobs
-	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "libft" ""
+	make -C libft all --jobs
 
 clean:
-	@make -C libft clean --quiet --jobs
-	@make -C $(PATH_MLX) clean --quiet --jobs
-	@rm -f $(OBJS)
-	@rm -rf $(NAME).dSYM
-	@printf "\033[32;1m%s OK%40.40s\n\033[0m" "clean" ""
+	make -C libft clean --jobs
+	make -C $(PATH_MLX) clean --jobs
+	rm -f $(OBJS)
+	rm -rf $(NAME).dSYM
 
 fclean: clean
-	@make -C libft fclean --quiet --jobs
-	@rm -f $(NAME)
+	make -C libft fclean --jobs
+	rm -f $(NAME)
 
 re:			fclean all
 

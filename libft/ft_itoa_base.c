@@ -29,7 +29,7 @@ char	*ft_itoa_base(long long int nb, char *base)
 		nbtmp /= base_len;
 		dst_len++;
 	}
-	if (!(dst = calloc(sizeof(char), dst_len + 1)))
+	if (!(dst = calloc(dst_len + 1, sizeof(char))))
 		return (NULL);
 	nbtmp = (unsigned long long int)nb * sign;
 	while (--dst_len >= 0)

@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 NAME		= libft.a
-CC			= cc
-FLAGS		= -Wall -Wextra -Werror -O3
+CC			= gcc
+FLAGS		= -Wall -Wextra -Werror -O3 -flto -ffast-math -march=native -pipe
 SRCS		= ft_printf.c \
 		  ft_ifforest.c \
 		  ft_out1.c \
